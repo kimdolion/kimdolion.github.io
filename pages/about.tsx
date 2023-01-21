@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
 
       <Page title="About Me">
-        
+        I'm awesome!
       </Page>
     </div>
   )
