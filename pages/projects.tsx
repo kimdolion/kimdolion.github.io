@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Kimberly Wilkes' Portfolio</title>
+        <title>Kimberly Wilkes' Experience</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page title="Welcome!">
-        Hello
+      <Page title="Kimberly Wilkes' Projects">
+        ALL THE TECH!
       </Page>
     </div>
   )
