@@ -1,160 +1,30 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Link from 'next/link'
 import { Header } from './Header'
-
+import styles from '../styles/Home.module.css'
 export interface PageProps {
-  user?: {}
-  onLogin: () => void
-  onLogout: () => void
-  onCreateAccount: () => void
+  title: string;
+  children: ReactNode;
 }
 
-export const Page: React.FC<PageProps> = ({
-  user,
-  onLogin,
-  onLogout,
-  onCreateAccount,
-}) => (
+export const Page = ({
+title, children}:PageProps) :JSX.Element => (
   <>
-    <article>
-      <Header
-        user={user}
-        onLogin={onLogin}
-        onLogout={onLogout}
-        onCreateAccount={onCreateAccount}
-      />
-      <section>
-        <h2>Example app with Storybook setup for SCSS in Styled-jsx</h2>
-        <p>
-          This example shows Styled-jsx (with SCSS) working for components
-          rendered both inside and outside of Storybook.
-        </p>
-        <p>This example combines the following other examples:</p>
-        <ul>
-          <li>
-            <Link
-              href="https://github.com/vercel/next.js/tree/canary/examples/with-storybook"
-              legacyBehavior
-            >
-              <a>with-storybook</a>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="https://github.com/next.js/tree/canary/examples/with-styled-jsx-scss"
-              legacyBehavior
-            >
-              <a>with-styled-jsx-scss</a>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="https://github.com/next.js/tree/canary/examples/with-styled-jsx-scss"
-              legacyBehavior
-            >
-              <a>with-typescript</a>
-            </Link>
-          </li>
-        </ul>
-        <p>
-          Additionally, the Storybook demo components are moved into the
-          components directory and their css is refactored into component level
-          Styled JSX + SCSS.
-        </p>
-        <p>
-          Story files live in their own directory and refer to the components
-          within /components.
-        </p>
-        <p>
-          The /styles directory contains styles, both global and for the
-          index.js file.
-        </p>
-        <p>
-          You might also want to check out the{' '}
-          <Link
-            href="https://github.com/vercel/styled-jsx#styles-outside-of-components"
-            legacyBehavior
-          >
-            <a>Styled JSX documentation</a>
-          </Link>
-        </p>
-        <p>
-          <strong>
-            <i>Improvements welcome!</i>
-          </strong>
-        </p>
-      </section>
-      <section>
-        <h2>Pages in Storybook</h2>
-        <p>
-          <i>(From the storybook demo setup)</i>
-        </p>
-        <p>
-          We recommend building UIs with a{' '}
-          <a
-            href="https://componentdriven.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>component-driven</strong>
-          </a>{' '}
-          process starting with atomic components and ending with pages.
-        </p>
-        <p>
-          Render pages with mock data. This makes it easy to build and review
-          page states without needing to navigate to them in your app. Here are
-          some handy patterns for managing page data in Storybook:
-        </p>
-        <ul>
-          <li>
-            Use a higher-level connected component. Storybook helps you compose
-            such data from the "args" of child component stories
-          </li>
-          <li>
-            Assemble data in the page component from your services. You can mock
-            these services out using Storybook.
-          </li>
-        </ul>
-        <p>
-          Get a guided tutorial on component-driven development at{' '}
-          <a
-            href="https://www.learnstorybook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Storybook
-          </a>
-          . Read more in the{' '}
-          <a
-            href="https://storybook.js.org/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            docs
-          </a>
-          .
-        </p>
-        <div className="tip-wrapper">
-          <span className="tip">Tip</span> Adjust the width of the canvas with
-          the{' '}
-          <svg
-            width="10"
-            height="10"
-            viewBox="0 0 12 12"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g fill="none" fillRule="evenodd">
-              <path
-                d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-                id="a"
-                fill="#999"
-              />
-            </g>
-          </svg>
-          Viewports addon in the toolbar (when viewed in Storybook)
-        </div>
-      </section>
-    </article>
+    <Header title={title}
+    />
+    <main>{children}</main>
+    <footer className={styles.footer}>
+      <Link href="https://github.com/kimdolion" target="_blank">Github</Link>
+      <Link href="https://linkedin.com/in/kimberly-wilkes" target="_blank">LinkedIn</Link>
+      <Link
+        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Powered by{' '}
+        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+      </Link>
+      </footer>
     <style jsx>{`
       section {
         font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,

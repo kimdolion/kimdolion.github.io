@@ -1,42 +1,21 @@
-# Example app with Storybook setup for SCSS in Styled-jsx
+# Kimberly Wilkes
 
-This example shows Styled-jsx (with SCSS) working for components written in TypeScript rendered both inside and outside of Storybook.
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-storybook-styled-jsx-scss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-storybook-styled-jsx-scss&project-name=with-storybook-styled-jsx-scss&repository-name=with-storybook-styled-jsx-scss)
+This portfolio was created using NextJS and shows Styled-jsx (with SCSS) working for components written in TypeScript rendered both inside and outside of Storybook.
 
 ## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
 ```bash
-npx create-next-app --example with-storybook-styled-jsx-scss with-storybook-styled-jsx-scss-app
-```
-
-```bash
-yarn create next-app --example with-storybook-styled-jsx-scss with-storybook-styled-jsx-scss-app
-```
-
-```bash
-pnpm create next-app --example with-storybook-styled-jsx-scss with-storybook-styled-jsx-scss-app
+yarn dev
 ```
 
 ### Run Storybook
 
 ```bash
-npm run storybook
-# or
 yarn storybook
 ```
 
 ### Build Static Storybook
 
 ```bash
-npm run build-storybook
-# or
 yarn build-storybook
 ```
 
