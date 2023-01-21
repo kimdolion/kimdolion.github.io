@@ -33,6 +33,7 @@ title, children}:PageProps) :JSX.Element => (
         line-height: 24px;
         padding: 48px 20px;
         margin: 0 auto;
+        max-width: 700px;
         color: #333;
       }
       h2 {
