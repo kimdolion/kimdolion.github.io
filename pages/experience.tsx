@@ -13,7 +13,7 @@ export default function Home() {
 
       <Page title="Kimberly Wilkes' Experience">
         <p>Such experience, much wow.</p>
-        <ExperienceSection />
+        <ExperienceSection extraInfo />
       </Page>
     </div>
   )

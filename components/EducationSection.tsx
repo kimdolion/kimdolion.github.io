@@ -2,33 +2,32 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
 
-import { Button } from './Button'
+import { InlineHeading } from './InlineHeading';
 
 export interface EducationProps {
     extraInfo?: boolean
 }
-
+//  BHCC: style={{color: '#c8102e'}}
+//  UMass Boston: style={{color: '#005A8B'}}
+//  Amherst: style={{color: '#4d1979'}}
 export const EducationSection = ({extraInfo=false}: EducationProps): JSX.Element => (
   <>
     <section>
-        <h2>Education</h2>
+        <Link href="/education"><h2>Education</h2></Link>
         <div>
-        <h3>Bunker Hill Community College</h3>
-        <p>Coursework in Computer Science</p>
-        <span>2019-2021</span>
-        {extraInfo ? <p>extrainfo</p> : null}
+          <InlineHeading mainHeadingText='Bunker Hill Community College' startYear={2019} endYear={2021} />
+          <p>Coursework in Computer Science</p>
+          {extraInfo ? <p>Coursework included Java, C++, SQL, and Data Structures</p> : null}
         </div>
         <div>
-        <h3>University of Massachusetts Boston</h3>
-        <p>M.A. in Elementary Education</p>
-        <span>2013-2014</span>
-        {extraInfo ? <p>extrainfo</p> : null}
+          <InlineHeading mainHeadingText='University of Massachusetts Boston' startYear={2013} endYear={2014} />
+          <p>M.A. in Elementary Education</p>
+          {extraInfo ? <p>Worked in Boston Public Schools as an elementary and middle school teacher for grades 2nd to 7th. Earned certifications in Special Education and English as a Second Language.</p> : null}
         </div>
         <div>
-        <h3>Amherst College</h3>
-        <span>2009-2013</span>
-        <p>B.A. in Black Studies and Psychology</p>
-        {extraInfo ? <p>extrainfo</p> : null}
+          <InlineHeading mainHeadingText='Amherst College' startYear={2009} endYear={2013}/>
+          <p>B.A. in Black Studies and Psychology</p>
+          {extraInfo ? <p>Clubs/Organizations: Amherst Mixed Martial Arts Organization (AMMO): Isshinryu and Brazilian Jiu Jitsu, Amherst Pride Alliance, Board Games Club, Japanese Animation Club (Anime Club): Co-president, RESULTS, Inc.Student Security, THiNK</p> : null}
         </div>
     </section>
     <style jsx>{`

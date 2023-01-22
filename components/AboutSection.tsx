@@ -11,7 +11,7 @@ export interface AboutProps {
 export const AboutSection = ({extraInfo=false}: AboutProps): JSX.Element => (
   <>
     <section>
-        <h2>About Kimberly</h2>
+        <Link href="/about"><h2>About Kimberly</h2></Link>
         <div>
         <h3>Hello!</h3>
           <p>I am a software engineer, former educator, and lifetime learner, with a passion for understanding the world around me and uplifting all voices. I am a full stack software engineer with a passion for user-centered and responsive web design. I pride myself on my flexibility and willingness to try something new, which are key to being a web developer.</p>

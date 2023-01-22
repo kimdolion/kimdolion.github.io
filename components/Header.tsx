@@ -14,7 +14,7 @@ export const Header = ({title}: HeaderProps): JSX.Element => (
       <div className="wrapper">
         <div>
           <Link href="/">
-            <Image src={'/public/kor_am_flag.jpg'} height={10} width={10} alt={"Korean American blended flag from MultinationalPatriot by OnjenaYo"} />
+            <Image src={'/public/kor_am_flag.jpg'} height={10} width={10} alt={"Korean American blended flag."} />
           </Link>
           <h1>{title}</h1>
         </div>
@@ -22,8 +22,8 @@ export const Header = ({title}: HeaderProps): JSX.Element => (
           <nav>
             <Link href="/about">About Me</Link>
             <Link href="/experience">Experience</Link>
-            <Link href="/projects">Projects</Link>
             <Link href="/education">Education</Link>
+            <Link href="/projects">Projects</Link>
           </nav>
         </div>
       </div>
@@ -33,11 +33,11 @@ export const Header = ({title}: HeaderProps): JSX.Element => (
         margin-left: 10px;
       }
       h1 {
-        font-weight: 900;
+        display: inline-block;
         font-size: 20px;
+        font-weight: 900;
         line-height: 1;
         margin: 6px 0 6px 10px;
-        display: inline-block;
         vertical-align: top;
       }
       svg {
@@ -45,16 +45,14 @@ export const Header = ({title}: HeaderProps): JSX.Element => (
         vertical-align: top;
       }
       .wrapper {
-        font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,
-          sans-serif;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 15px 20px;
-        display: flex;
         align-items: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         justify-content: space-between;
+        padding: 15px 20px;
+        width: '100%';
       }
-
-
     `}</style>
   </>
 )
