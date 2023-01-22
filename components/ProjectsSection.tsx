@@ -1,8 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
-
-import { Button } from './Button'
 
 export interface ProjectsProps {
     extraInfo?: boolean
@@ -11,6 +8,7 @@ export interface ProjectsProps {
 const GeneralAssemblyProjects = () => (
   <div>
     <h3>During General Assembly</h3>
+    <p>These projects were created at the beginning of my Software Engineering journey. I intend to return to them and remake them with newer technology/understandings.</p>
     <div>
       <h4>Boba Tracker</h4>
       <p>Full-stack project bubble tea tracker to monitor your personal exploration of the wonderful world of bubble tea. You can keep track of the orders you've made including details about the drink and upload photos of the drink.</p>

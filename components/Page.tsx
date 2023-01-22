@@ -14,8 +14,9 @@ title, children}:PageProps) :JSX.Element => (
     />
     <main>{children}</main>
     <footer className={styles.footer}>
-      <Link href="https://github.com/kimdolion" target="_blank">Github</Link>
-      <Link href="https://linkedin.com/in/kimberly-wilkes" target="_blank">LinkedIn</Link>
+      <Link href="https://github.com/kimdolion/kimdolion.github.io" target="_blank">This Project's Github</Link>
+      <Link href="https://github.com/kimdolion" target="_blank">My Github</Link>
+      <Link href="https://linkedin.com/in/kimberly-wilkes" target="_blank">Connect on LinkedIn</Link>
       <Link
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         target="_blank"
@@ -24,8 +25,13 @@ title, children}:PageProps) :JSX.Element => (
         Powered by{' '}
         <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
       </Link>
-      </footer>
+    </footer>
     <style jsx>{`
+      footer {
+        align-items: center;
+        display: flex;
+        justify-content: space-evenly;
+      }
       section {
         font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,
           sans-serif;
@@ -46,10 +52,6 @@ title, children}:PageProps) :JSX.Element => (
       }
       p {
         margin: 1em 0;
-      }
-      a {
-        text-decoration: none;
-        color: #1ea7fd;
       }
       ul {
         padding-left: 30px;

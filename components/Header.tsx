@@ -10,22 +10,20 @@ export interface HeaderProps {
 
 export const Header = ({title}: HeaderProps): JSX.Element => (
   <>
-    <header>
-      <div className="wrapper">
+    <header className="wrapper">
+      <div>
         <div>
           <Link href="/">
             <Image src={'/public/kor_am_flag.jpg'} height={10} width={10} alt={"Korean American blended flag."} />
           </Link>
           <h1>{title}</h1>
         </div>
-        <div>
-          <nav>
-            <Link href="/about">About Me</Link>
-            <Link href="/experience">Experience</Link>
-            <Link href="/education">Education</Link>
-            <Link href="/projects">Projects</Link>
-          </nav>
-        </div>
+        <nav>
+          <Link href="/about">About Me</Link>
+          <Link href="/experience">Experience</Link>
+          <Link href="/education">Education</Link>
+          <Link href="/projects">Projects</Link>
+        </nav>
       </div>
     </header>
     <style jsx>{`
@@ -51,7 +49,7 @@ export const Header = ({title}: HeaderProps): JSX.Element => (
         font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         justify-content: space-between;
         padding: 15px 20px;
-        width: '100%';
+        width: 100vw
       }
     `}</style>
   </>

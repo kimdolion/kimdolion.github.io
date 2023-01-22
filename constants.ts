@@ -12,7 +12,7 @@ export const workExperiences: ExperienceDetailsProps[] = [
       'Provided thorough QA and E2E testing using testing libraries such as Jest and Cypress.', 
       'Wrote and provided peer reviews of technical and personal blog content for marketing.', 
     ],
-    extraDetails: 'Started as an Associate Engineer and was'
+    extraDetails: 'Pair programming was always one of my favorite opportunities to learn and check understanding.'
   },
   {
     company: 'athenaHealth',
