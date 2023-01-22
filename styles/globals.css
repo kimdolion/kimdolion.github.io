@@ -14,3 +14,47 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.active {
+  text-decoration: underline;
+}
+
+.styledLink {
+  text-decoration: underline;
+
+}
+
+.styledLink:hover {
+  color: red;
+}
+
+.day {
+  background: #eee;
+  color: black;
+}
+.night {
+  background: #333;
+  color: #eee;
+}
+
+@media (prefers-color-scheme: dark) {
+  .day.dark-scheme {
+    background: #333;
+    color: white;
+  }
+  .night.dark-scheme {
+    background: black;
+    color: #ddd;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .day.light-scheme {
+    background: white;
+    color: #555;
+  }
+  .night.light-scheme {
+    background: #eee;
+    color: black;
+  }
+}
