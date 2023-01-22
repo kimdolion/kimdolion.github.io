@@ -14,7 +14,7 @@ export const AboutSection = ({extraInfo=false}: AboutProps): JSX.Element => (
         <Image src="/public/profile.jpg" alt="Profile photo of Kimberly Wilkes." height={200} width={150} />
       </div>
       <div>
-        <Link href="/about"><h2>About Kimberly</h2></Link>
+        <Link href="/about" style={{}}><h2>About Kimberly</h2></Link>
         <div>
           <h3>Hello!</h3>
           <p>I am a software engineer, former educator, and lifetime learner, with a passion for understanding the world around me and uplifting all voices.</p>

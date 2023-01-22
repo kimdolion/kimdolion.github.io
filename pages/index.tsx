@@ -8,7 +8,7 @@ import { AboutSection } from '../components/AboutSection'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Kimberly Wilkes' Portfolio</title>
         <link rel="icon" href="/favicon.ico" />

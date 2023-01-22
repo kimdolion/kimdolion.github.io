@@ -5,7 +5,7 @@ import { ProjectsSection } from '../components/ProjectsSection'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Kimberly Wilkes' Experience</title>
         <link rel="icon" href="/favicon.ico" />
