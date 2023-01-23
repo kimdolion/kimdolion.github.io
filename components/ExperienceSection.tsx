@@ -38,11 +38,12 @@ const workExperiencesTSX = workExperiences.map((experience: ExperienceDetailsPro
 export const ExperienceSection = ({extraInfo=false}: ExperienceProps): JSX.Element => (
   <>
     <section>
-        <Link href="/experience"><h2>{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
+        <Link href="/experience"><h2 id="experience-section">{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
         {extraInfo ? workExperiencesTSX : <ExperienceDetails {...workExperiences[0]} />}
     </section>
     <style jsx>{`
       section {
+        margin: 20px 0;
         max-width: 700px;
       }
     `}</style>

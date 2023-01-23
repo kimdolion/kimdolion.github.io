@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import { Page } from '../components/Page'
 import { EducationSection } from '../components/EducationSection'
 import { ExperienceSection } from '../components/ExperienceSection'
 import { ProjectsSection } from '../components/ProjectsSection'
 import { AboutSection } from '../components/AboutSection'
+import { TableOfContents } from '../components/TableOfContents'
 
 export default function Home() {
   return (
@@ -15,10 +15,18 @@ export default function Home() {
       </Head>
 
       <Page title="Welcome!">
-        <AboutSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <EducationSection />
+        <div style={{display: 'flex'}}>
+          <TableOfContents />
+          <div>
+            <AboutSection />
+            <hr />
+            <ExperienceSection />
+            <hr />
+            <ProjectsSection />
+            <hr />
+            <EducationSection />
+          </div>
+        </div>
       </Page>
     </div>
   )

@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import { Page } from '../components/Page'
 import { ProjectsSection } from '../components/ProjectsSection'
 
-export default function Home() {
+export default function Projects() {
   return (
     <div>
       <Head>

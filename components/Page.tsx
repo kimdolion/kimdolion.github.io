@@ -64,7 +64,7 @@ const Header = ({title, onClick}: HeaderProps): JSX.Element => {
         nav {
           display: flex;
           justify-content: space-evenly;
-          max-width: 700px;
+          max-width: 40%;
         }
         .wrapper {
           border-bottom: 1px solid rgba(0, 0, 0, 0.1);

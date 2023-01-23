@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import { Page } from '../components/Page'
 import { EducationSection } from '../components/EducationSection'
 
-export default function Home() {
+export default function Education() {
   return (
     <div>
       <Head>

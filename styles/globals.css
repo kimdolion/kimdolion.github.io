@@ -37,6 +37,28 @@ a {
   color: #eee;
 }
 
+#table-of-contents {
+  list-style: none;
+  max-width: 25%;
+  min-width: 200px;
+  position: sticky; 
+  top: 20px;
+}
+
+#table-of-contents li {
+  padding: 0.5rem 0; 
+}
+
+#table-of-contents li.active > a {
+  background-color: #333;
+  color: white;
+}
+
+#table-of-contents li > a:hover {
+  background-color: #333;
+  color: white;
+}
+
 @media (prefers-color-scheme: dark) {
   .day.dark-scheme {
     background: #333;
