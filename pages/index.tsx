@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       <Page title="Welcome!">
-        <div style={{display: 'flex'}}>
+        <div className="toc-layout">
           <TableOfContents />
           <div>
             <AboutSection />

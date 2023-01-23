@@ -12,7 +12,7 @@ export default function Experience() {
       </Head>
 
       <Page title="Kimberly Wilkes' Experience">
-        <div style={{display: 'flex'}}>
+        <div className='toc-layout'>
           <TableOfContents />
           <ExperienceSection extraInfo />
         </div>

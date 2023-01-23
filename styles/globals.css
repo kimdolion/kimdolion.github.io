@@ -19,15 +19,6 @@ a {
   text-decoration: underline;
 }
 
-.styledLink {
-  text-decoration: underline;
-
-}
-
-.styledLink:hover {
-  color: red;
-}
-
 .day {
   background: #eee;
   color: black;
@@ -35,6 +26,18 @@ a {
 .night {
   background: #333;
   color: #eee;
+}
+
+.styledLink {
+  text-decoration: underline;
+}
+
+.styledLink:hover {
+  color: red;
+}
+
+.toc-layout {
+  display: flex;
 }
 
 #table-of-contents {

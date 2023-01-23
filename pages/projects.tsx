@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Page } from '../components/Page'
 import { ProjectsSection } from '../components/ProjectsSection'
+import { TableOfContents } from '../components/TableOfContents'
 
 export default function Projects() {
   return (
@@ -11,8 +12,10 @@ export default function Projects() {
       </Head>
 
       <Page title="Kimberly Wilkes' Projects">
-        ALL THE TECH!
-        <ProjectsSection extraInfo />
+        <div className="toc-layout">
+          <TableOfContents />
+          <ProjectsSection extraInfo />
+        </div>
       </Page>
     </div>
   )
