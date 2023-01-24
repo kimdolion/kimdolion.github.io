@@ -99,6 +99,10 @@ export const generalAssemblyProjects: ProjectProps[] = [
   },
 ]
 
+export const headingGroupings = [
+  'h2', 'h2, h3', 'h2, h3, h4', 'h2, h3, h4, h5', 'h2, h3, h4, h5, h6'
+]
+
 export const randomFacts = [
     "I've traveled to 16 different countries before I turned 16.", 
     "I have two cats, Evie and Khaleesi (Khali for short).",

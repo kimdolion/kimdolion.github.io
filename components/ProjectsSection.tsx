@@ -52,30 +52,16 @@ const GeneralAssemblyProjects = () => (
 )
 
 export const ProjectsSection = ({extraInfo=false}: ProjectsProps): JSX.Element => (
-  <>
-    <section>
-      <Link href="/projects"><h2 id="projects-section">Projects and Tech</h2></Link>
-        <div>
-          <h3>Currently Working on:</h3>
-          {currentProjects.map((project)=> <ProjectCard key={project.id} project={project} />)}
-        </div>
-        <div>
-          Technologies I've worked with: 
-          <div></div>
-        </div>
-        {extraInfo ? <GeneralAssemblyProjects /> : null}
-    </section>
-    <style jsx>{`
-      button + button {
-        margin-left: 10px;
-      }
-      h2 {
-        text-decoration: underline;
-      }
-      section {
-        margin: 20px 0;
-        max-width: 700px;
-      }
-    `}</style>
-  </>
+  <section className='styled-section'>
+    <Link href="/projects"><h2 id="projects-section">Projects and Tech</h2></Link>
+      <div>
+        <h3>Currently Working on:</h3>
+        {currentProjects.map((project)=> <ProjectCard key={project.id} project={project} />)}
+      </div>
+      <div>
+        Technologies I've worked with: 
+        <div></div>
+      </div>
+      {extraInfo ? <GeneralAssemblyProjects /> : null}
+  </section>
 )

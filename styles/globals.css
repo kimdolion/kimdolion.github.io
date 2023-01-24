@@ -28,16 +28,34 @@ a {
   color: #eee;
 }
 
-.styledLink {
+.styled-link {
   text-decoration: underline;
 }
 
-.styledLink:hover {
+.styled-link:hover {
   color: red;
+}
+
+.styled-section {
+    margin: 20px 0;
+    max-width: 700px;
 }
 
 .toc-layout {
   display: flex;
+}
+
+.wrapper {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+#nav-section {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 40%;
 }
 
 #table-of-contents {
@@ -45,6 +63,7 @@ a {
   max-width: 25%;
   min-width: 200px;
   position: sticky; 
+  position: -webkit-sticky;
   top: 20px;
 }
 

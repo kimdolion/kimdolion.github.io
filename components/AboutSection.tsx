@@ -9,12 +9,12 @@ export interface AboutProps {
 const randomFact = getRandomFact();
 export const AboutSection = ({extraInfo=false}: AboutProps): JSX.Element => (
   <>
-    <section>
+    <section className='styled-section'>
       <div className="column">
         <Image src="/public/profile.jpg" alt="Profile photo of Kimberly Wilkes." height={200} width={150} />
       </div>
       <div>
-        <Link href="/about" style={{}}><h2 id="about-section">About Kimberly</h2></Link>
+        <Link href="/about"><h2 id="about-section">About Kimberly</h2></Link>
         <div>
           <h3>Hello!</h3>
           <p>I am a software engineer, former educator, and lifetime learner, with a passion for understanding the world around me and uplifting all voices.</p>

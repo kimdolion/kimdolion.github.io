@@ -16,7 +16,7 @@ export default function Home() {
 
       <Page title="Welcome!">
         <div className="toc-layout">
-          <TableOfContents />
+          <TableOfContents headingDepth={4} />
           <div>
             <AboutSection />
             <hr />

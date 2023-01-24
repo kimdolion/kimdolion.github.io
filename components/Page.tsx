@@ -9,7 +9,6 @@ export interface PageProps {
   children: ReactNode;
 }
 
-
 export interface HeaderProps {
   title: string;
   onClick: () => void;
@@ -39,40 +38,20 @@ const Header = ({title, onClick}: HeaderProps): JSX.Element => {
   return (
     <>
       <header className="wrapper">
-        <div>
-          <div className="column">
+        <div className="">
+          <div>
             <Link href="/">
               <Image src={'/public/kor_am_flag.jpg'} height={10} width={10} alt={"Korean American blended flag."} />
             </Link>
-            <h1>{title}</h1>
+            <h3>{title}</h3>
           </div>
-          <nav>
+          <div id="nav-section">
             {navLinks.map((navLink, index)=> <ActiveLink key={navLink.name + index} href={navLink.href} name={navLink.name} />)}
             <input type="checkbox"
             onClick={onClick} />
-          </nav>
+          </div>
         </div>
       </header>
-      <style jsx>{`
-        h1 {
-          font-size: 20px;
-          font-weight: 900;
-          line-height: 1;
-          margin: 6px 0 6px 10px;
-          vertical-align: top;
-        }
-        nav {
-          display: flex;
-          justify-content: space-evenly;
-          max-width: 40%;
-        }
-        .wrapper {
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-          font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          padding: 15px 20px;
-          width: 100%;
-        }
-      `}</style>
     </>
   )
 }
@@ -95,47 +74,20 @@ const Footer = () => (
 
 export const Page = ({
 title, children}:PageProps): JSX.Element => {
-  const [preferredColorScheme, setPreferredColorScheme] = useState('dark')
+  const [preferredColorScheme, setPreferredColorScheme] = useState('night')
 
   const handleColorScheme =  () => {
-    console.log("handleColorScheme")
-    setPreferredColorScheme('light')
+    if (preferredColorScheme == 'night') {
+      setPreferredColorScheme('day')
+    } else {
+      setPreferredColorScheme('night')
+    }
   }
   return (
     <div className={`${preferredColorScheme} ${styles.container}`}>
       <Header title={title} onClick={handleColorScheme} />
       <main>{children}</main>
       <Footer />
-      <style jsx>{`
-        section {
-          font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,
-            sans-serif;
-          font-size: 14px;
-          line-height: 24px;
-          padding: 48px 20px;
-          margin: 0 auto;
-          max-width: 700px;
-          color: #333;
-        }
-        h2 {
-          font-weight: 900;
-          font-size: 32px;
-          line-height: 1;
-          margin: 0 0 4px;
-          display: inline-block;
-          vertical-align: top;
-        }
-        p {
-          margin: 1em 0;
-        }
-        ul {
-          padding-left: 30px;
-          margin: 1em 0;
-        }
-        li {
-          margin-bottom: 8px;
-        }
-      `}</style>
     </div>
   )
   

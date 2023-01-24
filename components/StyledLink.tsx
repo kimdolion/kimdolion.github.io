@@ -6,5 +6,5 @@ export interface styledLinkProp {
 }
   
 export const StyledLink = ({href, name}: styledLinkProp )=> {
-    return <Link href={href} target="_blank" className='styledLink'>{name}</Link>
+    return <Link href={href} target="_blank" className='styled-link'>{name}</Link>
   }

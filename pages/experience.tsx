@@ -13,7 +13,7 @@ export default function Experience() {
 
       <Page title="Kimberly Wilkes' Experience">
         <div className='toc-layout'>
-          <TableOfContents />
+          <TableOfContents headingDepth={2} />
           <ExperienceSection extraInfo />
         </div>
       </Page>
