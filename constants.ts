@@ -1,3 +1,4 @@
+import { EducationDetailsProps } from "./components/EducationSection";
 import { ExperienceDetailsProps } from "./components/ExperienceSection";
 import { ProjectProps } from "./components/ProjectsSection";
 
@@ -18,6 +19,61 @@ export const currentProjects: ProjectProps[] = [
       }
     ]
   }
+]
+
+export const educationDetails: EducationDetailsProps[] = [
+  {
+    headingProps: {
+      id: 'education-bhcc',
+      mainHeadingText: 'Bunker Hill Community College (BHCC)',
+      endMonth: 'May',
+      endYear: 2021,
+      startMonth: 'June',
+      startYear: 2019,
+      url: 'https://www.bhcc.edu/'
+    },
+    certification: 'Coursework in Computer Science',
+    extraDetails: 'Classes included Java, C++, SQL, and Data Structures.',
+  },
+  {
+    headingProps: {
+      id: 'education-ga',
+      mainHeadingText: 'General Assembly (GA)',
+      endMonth: 'October',
+      endYear: 2019,
+      startMonth: 'June',
+      startYear: 2019,
+      url: 'https://www.bhcc.edu/'
+    },
+    certification: 'Certificate on Software Engineering Immersive',
+    extraDetails: 'Completed fullstack projects building single page applications (SPAs) using a variety of languages and frameworks including: React, jQuery, Boostrap, MongoDB, Express, and Ruby on Rails.',
+  },
+  {
+    headingProps: {
+      endMonth: 'July',
+      endYear: 2014,
+      id: 'education-umass',
+      mainHeadingText: 'University of Massachusetts Boston (UMB',
+      startMonth: 'June',
+      startYear: 2019,
+      url: 'https://www.umb.edu/',
+    },
+    certification: 'M.A. in Elementary Education',
+    extraDetails: 'Worked in Boston Public Schools as an elementary and middle school teacher for grades 2nd to 7th. Earned certifications in Special Education and English as a Second Language.',
+  },
+  {
+    headingProps: {
+      id: 'education-amherst',
+      mainHeadingText: 'Amherst College',
+      endMonth: 'May',
+      endYear: 2013,
+      startMonth: 'August',
+      startYear: 2009,
+      url: 'https://www.amherst.edu/'
+    },
+    certification: 'B.A. in Black Studies and Psychology',
+    extraDetails: 'Clubs/Organizations: Amherst Mixed Martial Arts Organization (AMMO): Isshinryu and Brazilian Jiu Jitsu, Amherst Pride Alliance, Board Games Club, Japanese Animation Club (Anime Club): Co-president, RESULTS, Inc.Student Security, THiNK',
+  },
 ]
 
 export const generalAssemblyProjects: ProjectProps[] = [
@@ -99,11 +155,11 @@ export const generalAssemblyProjects: ProjectProps[] = [
   },
 ]
 
-export const headingGroupings = [
+export const headingGroupings: string[] = [
   'h2', 'h2, h3', 'h2, h3, h4', 'h2, h3, h4, h5', 'h2, h3, h4, h5, h6'
 ]
 
-export const randomFacts = [
+export const randomFacts: string[] = [
     "I've traveled to 16 different countries before I turned 16.", 
     "I have two cats, Evie and Khaleesi (Khali for short).",
     "I live with 3 dogs.",

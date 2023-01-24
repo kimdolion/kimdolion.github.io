@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Page } from '../components/Page'
-import { ExperienceSection } from '../components/ExperienceSection'
-import { TableOfContents } from '../components/TableOfContents'
+import { Page } from '@/components/Page'
+import { ExperienceSection } from '@/components/ExperienceSection'
+import { TableOfContents } from '@/components/TableOfContents'
 
 export default function Experience() {
   return (
@@ -13,7 +13,7 @@ export default function Experience() {
 
       <Page title="Kimberly Wilkes' Experience">
         <div className='toc-layout'>
-          <TableOfContents headingDepth={2} />
+          <TableOfContents headingDepth={4} />
           <ExperienceSection extraInfo />
         </div>
       </Page>

@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import { Page } from '../components/Page'
-import { EducationSection } from '../components/EducationSection'
-import { ExperienceSection } from '../components/ExperienceSection'
-import { ProjectsSection } from '../components/ProjectsSection'
-import { AboutSection } from '../components/AboutSection'
-import { TableOfContents } from '../components/TableOfContents'
+import { Page } from '@/components/Page'
+import { EducationSection } from '@/components/EducationSection'
+import { ExperienceSection } from '@/components/ExperienceSection'
+import { ProjectsSection } from '@/components/ProjectsSection'
+import { AboutSection } from '@/components/AboutSection'
+import { TableOfContents } from '@/components/TableOfContents'
 
 export default function Home() {
   return (

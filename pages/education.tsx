@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import { Page } from '../components/Page'
-import { EducationSection } from '../components/EducationSection'
+import { Page } from '@/components/Page'
+import { EducationSection } from '@/components/EducationSection'
 
 export default function Education() {
   return (

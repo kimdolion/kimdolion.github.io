@@ -23,9 +23,14 @@ a {
   background: #eee;
   color: black;
 }
+
 .night {
-  background: #333;
+  background: #1e1e1e;
   color: #eee;
+}
+
+.night-main {
+  background: #333;
 }
 
 .styled-link {
@@ -33,7 +38,7 @@ a {
 }
 
 .styled-link:hover {
-  color: red;
+  color: #ab0000;
 }
 
 .styled-section {
@@ -83,7 +88,7 @@ a {
 
 @media (prefers-color-scheme: dark) {
   .day.dark-scheme {
-    background: #333;
+    background: #545454;
     color: white;
   }
   .night.dark-scheme {

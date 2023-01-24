@@ -45,7 +45,7 @@ const Header = ({title, onClick}: HeaderProps): JSX.Element => {
             </Link>
             <h3>{title}</h3>
           </div>
-          <div id="nav-section">
+          <div id="nav-section" aria-label="Navigation Links">
             {navLinks.map((navLink, index)=> <ActiveLink key={navLink.name + index} href={navLink.href} name={navLink.name} />)}
             <input type="checkbox"
             onClick={onClick} />
@@ -86,7 +86,7 @@ title, children}:PageProps): JSX.Element => {
   return (
     <div className={`${preferredColorScheme} ${styles.container}`}>
       <Header title={title} onClick={handleColorScheme} />
-      <main>{children}</main>
+      <main className={`${preferredColorScheme}-main`}>{children}</main>
       <Footer />
     </div>
   )

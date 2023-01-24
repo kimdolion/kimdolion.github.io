@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { headingGroupings } from "@/constants";
   // Used tutorial from https://www.emgoto.com/react-table-of-contents/
   /**
    * This renders an item in the table of contents list.
@@ -13,6 +14,10 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
     title?: string;
     items?: {id:string, title: string}[]
   }
+
+interface TableOfContentsProps { 
+  headingDepth?: number;
+}
 
   const Headings = ({ headings, activeId }: headingsProps) => {
     console.log('activeid?: ', activeId);
@@ -46,7 +51,7 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
   /**
    * Dynamically generates the table of contents list, using any H2s and H3s it can find in the main text
    */
-  const useHeadingsData = () => {
+  const useHeadingsData = (headingDepth: number) => {
     const [nestedHeadings, setNestedHeadings] = useState([]);
   
     useEffect(() => {
@@ -80,17 +85,19 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
     return nestedHeadings;
   };
   
-  const useIntersectionObserver = (setActiveId: Dispatch<SetStateAction<any>>) => {
+  const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<SetStateAction<any>>) => {
     const headingElementsRef = useRef({});
+
     useEffect(() => {
       const callback = (headings: HTMLHeadingElement[]) => {
-        headingElementsRef.current = headings.reduce((map, headingElement) => {
+        headingElementsRef.current = headings.reduce((map, headingElement: HTMLHeadingElement) => {
           map[headingElement.target.id] = headingElement;
+          console.log("what is map? map? ", map)
           return map;
         }, headingElementsRef.current);
-  
+        console.log('headingElementsRef: ', headingElementsRef)
         // Get all headings that are currently visible on the page
-        const visibleHeadings: HTMLHeadingElement[] = [];
+        const visibleHeadings = [];
         Object.keys(headingElementsRef.current).forEach((key) => {
           const headingElement = headingElementsRef.current[key];
           if (headingElement.isIntersecting) visibleHeadings.push(headingElement);
@@ -114,8 +121,8 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
       };
   
       const observer = new IntersectionObserver(callback, { root: document.querySelector("iframe"), rootMargin: "500px" });
-  
-      const headingElements = Array.from(document.querySelectorAll("h2, h3"));
+      console.log('observer: ', observer)
+      const headingElements = Array.from(document.querySelectorAll(headingGroupings[headingDepth]));
   
       headingElements.forEach((element) => observer.observe(element));
   
@@ -126,10 +133,10 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
   /**
    * Renders the table of contents.
    */
-  export const TableOfContents = () => {
+  export const TableOfContents = ({ headingDepth }: TableOfContentsProps) => {
     const [activeId, setActiveId] = useState();
-    const { nestedHeadings } = useHeadingsData();
-    useIntersectionObserver(setActiveId);
+    const { nestedHeadings } = useHeadingsData(headingDepth);
+    useIntersectionObserver(headingDepth, setActiveId);
   
     return (
       <nav aria-label="Table of contents" style={{position: "sticky", top: 0}}>

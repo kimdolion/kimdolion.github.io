@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Page } from '../components/Page'
-import { ProjectsSection } from '../components/ProjectsSection'
-import { TableOfContents } from '../components/TableOfContents'
+import { Page } from '@/components/Page'
+import { ProjectsSection } from '@/components/ProjectsSection'
+import { TableOfContents } from '@/components/TableOfContents'
 
 export default function Projects() {
   return (
