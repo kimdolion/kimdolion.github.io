@@ -7,9 +7,9 @@ import { randomFacts } from '@/constants';
 export interface AboutProps {
     extraInfo?: boolean
 }
-const randomFact = getRandomFact();
+// const randomFact = getRandomFact();
 
-const RandomFactDetail = (randomFact: string, index: number) => <p key={'random-fact-' + index}>{randomFact}</p>
+const RandomFactList = () => <ul>{randomFacts.map((randomFact, index)=>  <li key={'random-fact-' + index}>{randomFact}</li>)}</ul>
 
 export const AboutSection = ({extraInfo=false}: AboutProps): JSX.Element => (
   <>
@@ -23,7 +23,7 @@ export const AboutSection = ({extraInfo=false}: AboutProps): JSX.Element => (
           <h3>Hello!</h3>
           <p>I am a software engineer, former educator, and lifetime learner, with a passion for understanding the world around me and uplifting all voices.</p>
           <p>I am a full stack software engineer with a passion for user-centered and responsive web design. I pride myself on my flexibility and willingness to try something new, which are key to being a web developer.</p>
-          {extraInfo ? {randomFacts.map((randomFact, index)=> <RandomFactDetail randomFact={randomFact} />)} : null}
+          {extraInfo ? <RandomFactList /> : null }
         </div>
       </div>
     </section>
