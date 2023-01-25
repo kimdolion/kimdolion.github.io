@@ -9,5 +9,5 @@ export interface styledLinkProp {
 }
   
 export const StyledLink = ({children, href, leftIcon, name}: styledLinkProp )=> {
-    return leftIcon ? <Link href={href} target="_blank" className='styled-link'>{children} {name}</Link> : <Link href={href} target="_blank" className='styled-link'>{name} {children}</Link>
+    return leftIcon ? <Link href={href} target="_blank" className='styled-link' style={{display: 'flex', alignItems: 'center', gap: 5 }}>{children} {name}</Link> : <Link href={href} target="_blank" className='styled-link' style={{display: 'flex', alignItems: 'center', gap: 5 }}>{name} {children}</Link>
   }
