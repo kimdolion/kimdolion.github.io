@@ -15,9 +15,10 @@ a {
   box-sizing: border-box;
 }
 
-.active {
+.active-nav {
   text-decoration: underline;
 }
+
 
 .day {
   background: #eee;
@@ -57,14 +58,10 @@ a {
   width: 100%;
 }
 
-#nav-section {
-  display: flex;
-  justify-content: space-evenly;
-  max-width: 40%;
-}
-
 #table-of-contents {
+  border-radius: 4px;
   list-style: none;
+  margin-left: 10px;
   max-width: 25%;
   min-width: 200px;
   position: sticky; 
@@ -73,6 +70,7 @@ a {
 }
 
 #table-of-contents li {
+  border: 1px 2em 5px 0 solid white;
   padding: 0.5rem 0; 
 }
 
@@ -84,6 +82,7 @@ a {
 #table-of-contents li > a:hover {
   background-color: #333;
   color: white;
+  text-decoration: underline;
 }
 
 @media (prefers-color-scheme: dark) {

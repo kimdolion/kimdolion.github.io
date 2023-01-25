@@ -24,7 +24,7 @@ interface TableOfContentsProps {
     console.log('headings in Headings?: ', headings)
     if (headings) {
       return (
-        <ul id="table-of-contents">
+        <ul id="table-of-contents" aria-label="Table of Contents">
           {headings.map((heading: HTMLHeadingElement) => {
             return (
               <li key={heading.id} className={heading.id === activeId ? "active" : ""}>

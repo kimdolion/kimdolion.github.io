@@ -1,16 +1,17 @@
 import { ReactNode, useState } from 'react'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router';
-import Image from 'next/image';
+import vercel from '/public/vercel.svg'
+
 import { StyledLink, styledLinkProp } from './StyledLink';
+import Image from 'next/image';
 export interface PageProps {
-  title: string;
   children: ReactNode;
 }
 
 export interface HeaderProps {
-  title: string;
+  preferredColorScheme: string;
   onClick: () => void;
 }
 
@@ -29,51 +30,38 @@ const navLinks: styledLinkProp[] = [
   },
 ]
 
-const ActiveLink = ({href, name}: styledLinkProp )=> {
+const ActiveLink = ({ href, name }: styledLinkProp )=> {
   const router = useRouter();
-  return <Link href={href} className={router.pathname == `${href}` ? 'active' : ''}>{name}</Link>
+  return <Link href={href} className={`${router.pathname == `${href}` ? 'active-nav': ''}`}>{name}</Link>
 }
 
-const Header = ({title, onClick}: HeaderProps): JSX.Element => {
+const Header = ({ preferredColorScheme, onClick }: HeaderProps): JSX.Element => {
   return (
-    <>
-      <header className="wrapper">
-        <div className="">
-          <div>
-            <Link href="/">
-              <Image src={'/public/kor_am_flag.jpg'} height={10} width={10} alt={"Korean American blended flag."} />
-            </Link>
-            <h3>{title}</h3>
-          </div>
-          <div id="nav-section" aria-label="Navigation Links">
-            {navLinks.map((navLink, index)=> <ActiveLink key={navLink.name + index} href={navLink.href} name={navLink.name} />)}
-            <input type="checkbox"
-            onClick={onClick} />
-          </div>
-        </div>
+      <header className={`${styles.header} ${preferredColorScheme}`}>
+        <Link href="/">Home</Link>
+        <nav id="nav-section" aria-label="Navigation Links" className={`${styles.nav}`}>
+          {navLinks.map((navLink, index)=> <ActiveLink key={'nav-link-' + index} href={navLink.href} name={navLink.name} />)}
+          <button onClick={onClick}></button>
+        </nav>
       </header>
-    </>
   )
 }
 
-const Footer = () => (
-    <footer className={`${styles.footer}`}>
+const Footer = (prop: { preferredColorScheme: string }) => (
+    <footer className={`${styles.footer} ${prop.preferredColorScheme}`}>
       <StyledLink href="https://github.com/kimdolion/kimdolion.github.io" name="This Project's Github" />
-      <Link href="https://github.com/kimdolion" target="_blank" className="styledLink">My Github</Link>
-      <Link href="https://linkedin.com/in/kimberly-wilkes" target="_blank" className="styledLink">Connect on LinkedIn</Link>
+      <StyledLink href="https://github.com/kimdolion" name="My Github" />
+      <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" />
       <Link
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank" className="styledLink"
-        rel="noopener noreferrer"
+        className="styled-link" style={{display: 'flex', alignItems: 'center' }}
       >
-        Powered by{' '}
-        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+        Powered by <Image src={vercel} alt="Vercel Logo." height={75} width={75} />
       </Link>
     </footer>
 )
 
-export const Page = ({
-title, children}:PageProps): JSX.Element => {
+export const Page = ({ children }: PageProps): JSX.Element => {
   const [preferredColorScheme, setPreferredColorScheme] = useState('night')
 
   const handleColorScheme =  () => {
@@ -85,9 +73,9 @@ title, children}:PageProps): JSX.Element => {
   }
   return (
     <div className={`${preferredColorScheme} ${styles.container}`}>
-      <Header title={title} onClick={handleColorScheme} />
+      <Header onClick={handleColorScheme} preferredColorScheme={preferredColorScheme} />
       <main className={`${preferredColorScheme}-main`}>{children}</main>
-      <Footer />
+      <Footer preferredColorScheme={preferredColorScheme} />
     </div>
   )
   
