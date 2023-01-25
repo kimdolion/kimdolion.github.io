@@ -7,7 +7,7 @@ import vercel from '/public/vercel.svg'
 import { StyledLink, styledLinkProp } from './StyledLink';
 import Image from 'next/image';
 import korAmFlag from '/public/kor_am_flag.jpg'
-
+import github from '/public/brand-github-svgrepo-com.svg'
 export interface PageProps {
   children: ReactNode;
 }
@@ -54,8 +54,12 @@ const Header = ({ preferredColorScheme, onClick }: HeaderProps): JSX.Element => 
 
 const Footer = (prop: { preferredColorScheme: string }) => (
     <footer className={`${styles.footer} ${prop.preferredColorScheme}`}>
-      <StyledLink href="https://github.com/kimdolion/kimdolion.github.io" name="This Project's Github" />
-      <StyledLink href="https://github.com/kimdolion" name="My Github" />
+      <StyledLink href="https://github.com/kimdolion/kimdolion.github.io" name="This Project's Github" leftIcon>
+        <Image src={github} alt="Github logo." width={25} style={{background:"white", borderRadius: 15}} />
+      </StyledLink>
+      <StyledLink href="https://github.com/kimdolion" name="My Github" leftIcon>
+        <Image src={github} alt="Github logo." width={25} style={{background:"white", borderRadius: 15}} />
+      </StyledLink>
       <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" />
       <Link
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
