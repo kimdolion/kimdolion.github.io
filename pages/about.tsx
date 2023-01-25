@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Page } from '@/components/Page'
 import { AboutSection } from '@/components/AboutSection'
+import { TableOfContents } from '@/components/TableOfContents'
 
 export default function About() {
   return (
@@ -11,7 +12,9 @@ export default function About() {
       </Head>
 
       <Page>
-        <AboutSection extraInfo />
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <AboutSection extraInfo />
+        </div>
       </Page>
     </div>
   )

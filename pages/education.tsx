@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Page } from '@/components/Page'
 import { EducationSection } from '@/components/EducationSection'
+import { TableOfContents } from '@/components/TableOfContents'
 
 export default function Education() {
   return (
@@ -11,7 +12,9 @@ export default function Education() {
       </Head>
 
       <Page>
-        <EducationSection extraInfo />
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <EducationSection extraInfo />
+        </div>
       </Page>
     </div>
   )
