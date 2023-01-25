@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page title="Welcome!">
+      <Page>
         <div className="toc-layout">
           <TableOfContents headingDepth={4} />
           <div>

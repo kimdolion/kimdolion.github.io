@@ -11,7 +11,7 @@ export default function Projects() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page title="Kimberly Wilkes' Projects">
+      <Page>
         <div className="toc-layout">
           <TableOfContents />
           <ProjectsSection extraInfo />

@@ -10,7 +10,7 @@ export default function Education() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page title="Kimberly Wilkes' Education">
+      <Page>
         <EducationSection extraInfo />
       </Page>
     </div>

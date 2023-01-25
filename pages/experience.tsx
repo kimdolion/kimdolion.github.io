@@ -11,7 +11,7 @@ export default function Experience() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page title="Kimberly Wilkes' Experience">
+      <Page>
         <div className='toc-layout'>
           <TableOfContents headingDepth={4} />
           <ExperienceSection extraInfo />

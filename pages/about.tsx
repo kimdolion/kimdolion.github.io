@@ -10,8 +10,7 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page title="About Me">
-        I'm awesome!
+      <Page>
         <AboutSection extraInfo />
       </Page>
     </div>
