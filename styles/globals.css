@@ -22,12 +22,12 @@ a {
 
 
 .day {
-  background: #eee;
+  background: white;
   color: black;
   transition: all 0.3s
 }
 .day-main {
-  background: #e4e2e2;
+  background: #eee;
 }
 
 .night {

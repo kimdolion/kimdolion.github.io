@@ -6,6 +6,7 @@ export interface styledLinkProp {
     href: string,
     leftIcon?: boolean;
     name: string
+    title?: string;
 }
   
 export const StyledLink = ({children, href, leftIcon, name}: styledLinkProp )=> {

@@ -35,9 +35,9 @@ const navLinks: styledLinkProp[] = [
   },
 ]
 
-const ActiveLink = ({ href, name }: styledLinkProp )=> {
+const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
   const router = useRouter();
-  return <Link href={href} className={`${router.pathname == `${href}` ? 'active-nav': ''}`}>{name}</Link>
+  return <Link href={href} className={`${router.pathname == `${href}` ? 'active-nav': ''}`} title={title}>{name}</Link>
 }
 
 const Header = ({ preferredColorScheme, onClick }: HeaderProps): JSX.Element => {
@@ -49,7 +49,7 @@ const Header = ({ preferredColorScheme, onClick }: HeaderProps): JSX.Element => 
         </Link>
         <nav id="nav-section" aria-label="Navigation Links" className={`${styles.nav}`} >
           {navLinks.map((navLink, index)=> <ActiveLink key={'nav-link-' + index} href={navLink.href} name={navLink.name} />)}
-          {preferredColorScheme === 'day' ? <button onClick={onClick} className={`${styles.daySchemeButton}`}><DayIcon fill="orange" width={'1.5em'} /></button> : <button onClick={onClick} className={`${styles.nightSchemeButton}`}><NightIcon fill="white" width={'1.5em'} /></button>}
+          {preferredColorScheme === 'day' ? <button onClick={onClick} className={`${styles.daySchemeButton}`} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button> : <button onClick={onClick} className={`${styles.nightSchemeButton}`} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>}
         </nav>
       </header>
   )

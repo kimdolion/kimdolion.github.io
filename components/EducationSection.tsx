@@ -19,7 +19,7 @@ export interface EducationProps {
 // TODO: decide whether to incorporate the school colors
 export const EducationSection = ({extraInfo=false}: EducationProps): JSX.Element => (
   <section className='styled-section'>
-      <Link href="/education"><h2 id="education-section">Education</h2></Link>
+      <Link href="/education" title="Curious about my education history?"><h2 id="education-section">Education</h2></Link>
       {educationDetails.map((educationDetail, index)=> {
         const {certification, extraDetails, headingProps } = educationDetail;
         return (

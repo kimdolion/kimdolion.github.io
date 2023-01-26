@@ -8,7 +8,8 @@ import { headingGroupings } from "@/constants";
    */
 
   interface headingsProps {
-  headings: HTMLHeadingElement[];
+  // headings: HTMLHeadingElement[];
+    headings: [];
     activeId: string | undefined;
     id?: string;
     title?: string;
@@ -19,7 +20,7 @@ interface TableOfContentsProps {
   headingDepth?: number;
 }
 
-  const Headings = ({ headings, activeId }: headingsProps) => {
+  const HeadingsTSX = ({ headings, activeId }: headingsProps) => {
     console.log('activeid?: ', activeId);
     console.log('headings in Headings?: ', headings)
     if (headings) {
@@ -137,11 +138,23 @@ interface TableOfContentsProps {
   export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
     const [activeId, setActiveId] = useState();
     const { nestedHeadings } = useHeadingsData(headingDepth);
+    const [headings, setHeadings] = useState([])
+
     useIntersectionObserver(headingDepth, setActiveId);
-  
+
+    useEffect(() => {
+      const elements = Array.from(document.querySelectorAll(headingGroupings[headingDepth]))
+        .map((elem) => ({
+          text: elem.innerText,
+        }))
+      setHeadings(elements)
+    }, [])
+
+    console.log("headingGroups adn chosen depth: ", headingGroupings[headingDepth])
+    console.log("headingsheadings from TOC: ", headings)
     return (
       <nav aria-label="Table of contents" style={{position: "sticky", top: 0}}>
-        <Headings headings={nestedHeadings} activeId={activeId} />
+        <HeadingsTSX headings={headings} activeId={activeId} />
       </nav>
     );
   };

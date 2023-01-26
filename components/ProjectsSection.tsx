@@ -26,7 +26,7 @@ const ProjectCard = ({ project} : ProjectCardProps) => {
       <h4 id={id}>{title}</h4>
       <p>{description}</p>
       <p>Made with: {technologies}</p>
-      <h5>Links to Deployed Site and Github Repos</h5>
+      <p style={{ fontSize: 14, fontWeight: 'bold'}}>Links to Deployed Site and Github Repos</p>
       <div className="links">
         {links.map((link, index)=> <StyledLink key={link.name + index} href={link.href} name={link.name} />)}
       </div>
@@ -53,9 +53,9 @@ const GeneralAssemblyProjects = () => (
 
 export const ProjectsSection = ({extraInfo=false}: ProjectsProps): JSX.Element => (
   <section className='styled-section'>
-    <Link href="/projects"><h2 id="projects-section">Projects and Tech</h2></Link>
+    <Link href="/projects"><h2 id="projects-section" title="Check out more projects">Projects and Tech</h2></Link>
       <div>
-        <h3>Currently Working on:</h3>
+        <p>Currently Working on:</p>
         {currentProjects.map((project)=> <ProjectCard key={project.id} project={project} />)}
       </div>
       <div>
