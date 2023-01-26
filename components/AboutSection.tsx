@@ -17,7 +17,7 @@ export const AboutSection = ({ extraInfo = false }: AboutProps): JSX.Element => 
     <section className='styled-section'>
       <div style={{display: 'flex', flexDirection:'row', gap: 20 }}>
         <div style={{ margin: 'auto 1rem'}}>
-          <Image src={profilePhoto} alt="Profile photo of Kimberly Wilkes." height={260} width={180} style={{borderRadius: 50}} />
+          <Image src={profilePhoto} alt="Profile photo of Kimberly Wilkes." height={260} width={180} style={{borderRadius: 10}} />
         </div>
         <div>
           <Link href="/about"><h2 id="about-section">About Kimberly Wilkes</h2></Link>

@@ -1,19 +1,23 @@
+.daySchemeButton {
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%);
+  display: flex; 
+  justify-content: center;
+  transition: background-color 0.5s ease-in 0.3s;
+}
+
+.nightSchemeButton {
+  border-radius: 20px;
+  background: linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%);
+  display: flex; 
+  justify-content: center;
+  transition: background-color 0.5s ease-in 0.3s;
+}
+
 .container {
   align-items: center;
   min-height: 100vh;
   padding: 0 1.5rem;
-}
-
-.header {
-  align-items: center;
-  display: flex;
-  height: 10vh;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-}
-
-.header a:hover {
-  color: #ab0000;
 }
 
 .footer {
@@ -29,7 +33,22 @@
   margin-left: 0.5rem;
 }
 
+.header {
+  align-items: center;
+  display: flex;
+  height: 10vh;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.header a:hover {
+  color: #ab0000;
+  text-decoration: underline;
+}
+
 .nav {
+  align-items: center;
   display:flex;
-  gap: 20px;
+  gap: 10px;
+  justify-content: 'center';
 }

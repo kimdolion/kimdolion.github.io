@@ -15,15 +15,15 @@ export default function Home() {
       </Head>
 
       <Page>
-        <div className="toc-layout">
+        <div className="toc-layout" style={{paddingBottom: '5rem'}}>
           <TableOfContents headingDepth={4} />
-          <div>
+          <div style={{display: 'flex', flexDirection: 'column', gap: 20, }}>
             <AboutSection />
-            <hr />
+            <div style={{ borderBottom: '1px solid white', width: '100%'}}/>
             <ExperienceSection />
-            <hr />
+            <div style={{ borderBottom: '1px solid white', width: '100%'}}/>
             <ProjectsSection />
-            <hr />
+            <div style={{ borderBottom: '1px solid white', width: '100%'}}/>
             <EducationSection />
           </div>
         </div>
