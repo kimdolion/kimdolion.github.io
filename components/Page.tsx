@@ -74,7 +74,7 @@ const Footer = (prop: { preferredColorScheme: string }) => (
 )
 
 export const Page = ({ children }: PageProps): JSX.Element => {
-  const [preferredColorScheme, setPreferredColorScheme] = useState('night')
+  const [preferredColorScheme, setPreferredColorScheme] = useState('day')
 
   const handleColorScheme =  () => {
     if (preferredColorScheme == 'night') {

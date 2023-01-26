@@ -55,13 +55,14 @@ interface TableOfContentsProps {
     const [nestedHeadings, setNestedHeadings] = useState([]);
   
     useEffect(() => {
-      const headingElements: [] = Array.from(
-        document.querySelectorAll("main h2, main h3")
+      const headingElements = Array.from(
+        document.querySelectorAll(headingGroupings[headingDepth])
       );
       // Created a list of headings, with H3s nested
       const newNestedHeadings = getNestedHeadings(headingElements);
       setNestedHeadings(newNestedHeadings);
     }, []);
+
     console.log("nestedHeadings? ", nestedHeadings)
     return { nestedHeadings };
   };
@@ -120,7 +121,7 @@ interface TableOfContentsProps {
         }
       };
   
-      const observer = new IntersectionObserver(callback, { root: document.querySelector("iframe"), rootMargin: "500px" });
+      const observer = new IntersectionObserver(callback, { rootMargin: "0px 0px -40% 0px" });
       console.log('observer: ', observer)
       const headingElements = Array.from(document.querySelectorAll(headingGroupings[headingDepth]));
   
@@ -133,7 +134,7 @@ interface TableOfContentsProps {
   /**
    * Renders the table of contents.
    */
-  export const TableOfContents = ({ headingDepth }: TableOfContentsProps) => {
+  export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
     const [activeId, setActiveId] = useState();
     const { nestedHeadings } = useHeadingsData(headingDepth);
     useIntersectionObserver(headingDepth, setActiveId);
