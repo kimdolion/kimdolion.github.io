@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Page } from '@/components/Page'
 import { AboutSection } from '@/components/AboutSection'
-import { TableOfContents } from '@/components/TableOfContents'
 
 export default function About() {
   return (

@@ -33,7 +33,7 @@ export const educationDetails: EducationDetailsProps[] = [
       url: 'https://www.bhcc.edu/'
     },
     certification: 'Coursework in Computer Science',
-    extraDetails: 'Classes included Java, C++, SQL, and Data Structures.',
+    extraDetails: 'Classes included Java, C++, SQL, and Data Structures. I earned high enough grades to join the honor society, Phi Theta Kappa, as well.',
   },
   {
     headingProps: {
@@ -46,7 +46,7 @@ export const educationDetails: EducationDetailsProps[] = [
       url: 'https://www.bhcc.edu/'
     },
     certification: 'Certificate on Software Engineering Immersive',
-    extraDetails: 'Completed fullstack projects building single page applications (SPAs) using a variety of languages and frameworks including: React, jQuery, Boostrap, MongoDB, Express, and Ruby on Rails.',
+    extraDetails: 'Completed fullstack projects building single page applications (SPAs) using a variety of languages and frameworks including: React, jQuery, Boostrap, MongoDB, Express, and Ruby on Rails. Always enjoyed helping my classmates test their apps and provide feedback based on my findings.',
   },
   {
     headingProps: {
@@ -59,7 +59,7 @@ export const educationDetails: EducationDetailsProps[] = [
       url: 'https://www.umb.edu/',
     },
     certification: 'M.A. in Elementary Education',
-    extraDetails: 'Worked in Boston Public Schools as an elementary and middle school teacher for grades 2nd to 7th. Earned certifications in Special Education and English as a Second Language.',
+    extraDetails: 'Worked in Boston Public Schools as an elementary and middle school teacher for grades 2nd to 7th with a primary focus on Science, Technology, Engineering, and Mathematics (STEM) courses. Earned licensure in Special Education and English as a Second Language.',
   },
   {
     headingProps: {
@@ -72,7 +72,7 @@ export const educationDetails: EducationDetailsProps[] = [
       url: 'https://www.amherst.edu/'
     },
     certification: 'B.A. in Black Studies and Psychology',
-    extraDetails: 'Clubs/Organizations: Amherst Mixed Martial Arts Organization (AMMO): Isshinryu and Brazilian Jiu Jitsu, Amherst Pride Alliance, Board Games Club, Japanese Animation Club (Anime Club): Co-president, RESULTS, Inc.Student Security, THiNK',
+    extraDetails: 'Clubs/Organizations: Amherst Mixed Martial Arts Organization (AMMO): Isshinryu and Brazilian Jiu Jitsu, Amherst Pride Alliance, Board Games Club, Japanese Animation Club (Anime Club): Co-president, RESULTS, Inc., Student Security, and THiNK.',
   },
 ]
 
@@ -156,15 +156,16 @@ export const generalAssemblyProjects: ProjectProps[] = [
 ]
 
 export const headingGroupings: string[] = [
-  'h2', 'h2, h3', 'h2, h3, h4', 'h2, h3, h4, h5', 'h2, h3, h4, h5, h6'
+  'H2', 'H2, H3', 'H2, H3, H4', 'H2, H3, H4, H5', 'H2, H3, H4, H5, H6'
 ]
 
 export const randomFacts: string[] = [
     "I've traveled to 16 different countries before I turned 16.", 
     "I have two cats, Evie and Khaleesi (Khali for short).",
-    "I live with 3 dogs.",
-    "I've been to 4 different states' renaissance faires.",
-    "I play World of Warcraft (For the Horde!)",
+    "I can talk about almost anything fantasy be it in books or visual mediums. I'll talk for hours about Wheel of Time, Lord of the Rings, and Game of Thrones.",
+    "I love anything to do with animals with cats and horses being at the top of my favorite list. However, bugs/Spiders are at the bottom of that list.",
+    "I've been to 4 different states' renaissance faires dressed as a faun/satyr, pirate, and witch.",
+    "I love playing video games, on PC, Nintendo Switch, or Playstation. I mostly play World of Warcraft (For the Horde!).",
     'I have been to Anime Boston, New York Comic Con, and Connecticon.',
     'I was attending Connecticon when Pokemon Go came out and had a blast running around in costume while trying to catch Pokemon.'
 ]
