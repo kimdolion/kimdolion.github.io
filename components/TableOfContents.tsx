@@ -21,6 +21,9 @@ interface TableOfContentsProps {
   headingDepth?: number;
 }
 
+/**
+ * Component that creates an unordered list of the headings with a link to scroll to selected heading that will be highlighted as active
+ */
 const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
   return (
   <ul id="table-of-contents">
@@ -46,66 +49,60 @@ const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
 )}
 
 /**
- * Dynamically generates the table of contents list, using any H2s and H3s it can find in the main text
+ * Dynamically generates the table of contents list, using any headings it can find in the main text based on headingDepth
  */
 const useHeadingsData = (headingDepth: number) => {
   const [headings, setHeadings] = useState<{heading: HTMLHeadingElement}[]>([]);
 
   useEffect(() => {
     const headingElements: HTMLHeadingElement[] = Array.from(document.querySelectorAll(headingGroupings[headingDepth]))
+
     const mappedElements = headingElements.map((heading)=> {
       return { heading }
     })
-    console.log("mappedeleements ", mappedElements)
+
     setHeadings(mappedElements);
   }, []);
 
   return { headings };
 };
 
-const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<SetStateAction<any>>) => {
-  const headingElementsRef = useRef({});
+const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<SetStateAction<string>>) => {
+  const headingElementsRef = useRef<Record<string, IntersectionObserverEntry>>({});
 
   useEffect(() => {
     const callback = (headings: IntersectionObserverEntry[]) => {
-      headingElementsRef.current = headings.reduce((previousValue: IntersectionObserverEntry, currentValue: IntersectionObserverEntry) => {
-        previousValue[currentValue.target.id] = currentValue;
-        console.log("what is previousValue? previousValue? ", previousValue)
-        console.log('currentValue: ', currentValue)
-        return previousValue;
+      headingElementsRef.current = headings.reduce((map: Record<string, IntersectionObserverEntry>, headingElement: IntersectionObserverEntry) => {
+        map[headingElement.target.id] = headingElement;
+        return map;
       }, headingElementsRef.current);
 
-      // Get all headings that are currently visible on the page
       const visibleHeadings: IntersectionObserverEntry[] = [];
-      Object.keys(headingElementsRef.current).forEach((key) => {
-        const headingElement = headingElementsRef.current[key];
+      Object.keys(headingElementsRef.current).forEach((key: string) => {
+        const headingElement: any = headingElementsRef.current[key];
         if (headingElement.isIntersecting) visibleHeadings.push(headingElement);
       });
 
       const getIndexFromId = (id: string) =>
         headingElements.findIndex((heading) => heading.id === id);
 
-      // If there is only one visible heading, this is our "active" heading
       if (visibleHeadings.length === 1) {
         setActiveId(visibleHeadings[0].target.id);
-        // If there is more than one visible heading,
-        // choose the one that is closest to the top of the page
       } else if (visibleHeadings.length > 1) {
         const sortedVisibleHeadings = visibleHeadings.sort(
-          (a, b) => getIndexFromId(a.target.id) > getIndexFromId(b.target.id)
+          (a: IntersectionObserverEntry, b: IntersectionObserverEntry) => getIndexFromId(a.target.id) - getIndexFromId(b.target.id)
         );
-
         setActiveId(sortedVisibleHeadings[0].target.id);
       }
     };
 
     const observer = new IntersectionObserver(callback, { rootMargin: "0px 0px -10% 0px" });
-    // console.log('observer: ', observer)
+
     const headingElements = Array.from(document.querySelectorAll(headingGroupings[headingDepth]));
-
+    
     headingElements.forEach((element) => observer.observe(element));
-
-    return () => observer.disconnect();
+    
+    return () => observer?.disconnect();
   }, [setActiveId]);
 };
 
