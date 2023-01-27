@@ -7,15 +7,13 @@ import { headingGroupings } from "@/constants";
    * scrollIntoView is used to ensure that when a user clicks on an item, it will smoothly scroll.
    */
 
-  interface HeadingsProps {
-    headings: [{
-      heading: HTMLHeadingElement
-    }];
+  interface HeadingsTSXProps {
+    headings: HeadingDataProps[];
     activeId: string | undefined;
   }
 
   interface HeadingDataProps {
-    heading: Element;
+    heading: HTMLHeadingElement;
   }
 
 
@@ -23,7 +21,7 @@ interface TableOfContentsProps {
   headingDepth?: number;
 }
 
-const HeadingsTSX = ({ headings, activeId }: HeadingsProps) => {
+const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
   return (
   <ul id="table-of-contents">
     {headings.map((headingElement) => {
@@ -51,13 +49,14 @@ const HeadingsTSX = ({ headings, activeId }: HeadingsProps) => {
  * Dynamically generates the table of contents list, using any H2s and H3s it can find in the main text
  */
 const useHeadingsData = (headingDepth: number) => {
-  const [headings, setHeadings] = useState<HeadingDataProps[]>([]);
+  const [headings, setHeadings] = useState<{heading: HTMLHeadingElement}[]>([]);
 
   useEffect(() => {
-    const headingElements = Array.from(document.querySelectorAll(headingGroupings[headingDepth]))
+    const headingElements: HTMLHeadingElement[] = Array.from(document.querySelectorAll(headingGroupings[headingDepth]))
     const mappedElements = headingElements.map((heading)=> {
       return { heading }
     })
+    console.log("mappedeleements ", mappedElements)
     setHeadings(mappedElements);
   }, []);
 
@@ -68,15 +67,16 @@ const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<Set
   const headingElementsRef = useRef({});
 
   useEffect(() => {
-    const callback = (headings) => {
-      headingElementsRef.current = headings.reduce((map, headingElement) => {
-        map[headingElement.target.id] = headingElement;
-        // console.log("what is map? map? ", map)
-        return map;
+    const callback = (headings: IntersectionObserverEntry[]) => {
+      headingElementsRef.current = headings.reduce((previousValue: IntersectionObserverEntry, currentValue: IntersectionObserverEntry) => {
+        previousValue[currentValue.target.id] = currentValue;
+        console.log("what is previousValue? previousValue? ", previousValue)
+        console.log('currentValue: ', currentValue)
+        return previousValue;
       }, headingElementsRef.current);
-      // console.log('headingElementsRef: ', headingElementsRef)
+
       // Get all headings that are currently visible on the page
-      const visibleHeadings = [];
+      const visibleHeadings: IntersectionObserverEntry[] = [];
       Object.keys(headingElementsRef.current).forEach((key) => {
         const headingElement = headingElementsRef.current[key];
         if (headingElement.isIntersecting) visibleHeadings.push(headingElement);
