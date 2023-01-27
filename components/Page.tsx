@@ -1,17 +1,22 @@
 import { ReactNode, useState } from 'react'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router';
-import Image from 'next/image';
+import vercel from '/public/vercel.svg'
+
 import { StyledLink, styledLinkProp } from './StyledLink';
+import Image from 'next/image';
+import korAmFlag from '/public/kor_am_flag.jpg'
+import DayIcon from './icons/DayIcon';
+import NightIcon from './icons/NightIcon';
+import GithubIcon from './icons/GithubIcon';
+
 export interface PageProps {
-  title: string;
   children: ReactNode;
 }
 
-
 export interface HeaderProps {
-  title: string;
+  preferredColorScheme: string;
   onClick: () => void;
 }
 
@@ -30,112 +35,59 @@ const navLinks: styledLinkProp[] = [
   },
 ]
 
-const ActiveLink = ({href, name}: styledLinkProp )=> {
+const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
   const router = useRouter();
-  return <Link href={href} className={router.pathname == `${href}` ? 'active' : ''}>{name}</Link>
+  return <Link href={href} className={`${router.pathname == `${href}` ? 'active-nav': ''}`} title={title}>{name}</Link>
 }
 
-const Header = ({title, onClick}: HeaderProps): JSX.Element => {
+const Header = ({ preferredColorScheme, onClick }: HeaderProps): JSX.Element => {
   return (
-    <>
-      <header className="wrapper">
-        <div>
-          <div className="column">
-            <Link href="/">
-              <Image src={'/public/kor_am_flag.jpg'} height={10} width={10} alt={"Korean American blended flag."} />
-            </Link>
-            <h1>{title}</h1>
-          </div>
-          <nav>
-            {navLinks.map((navLink, index)=> <ActiveLink key={navLink.name + index} href={navLink.href} name={navLink.name} />)}
-            <input type="checkbox"
-            onClick={onClick} />
-          </nav>
-        </div>
+      <header className={`${styles.header} ${preferredColorScheme}`}>
+        <Link href="/" className={`${styles.nav}`} > 
+          <Image src={korAmFlag} height={50} width={50} alt={"Korean American blended flag."} style={{borderRadius: '30px'}} />
+          Home
+        </Link>
+        <nav id="nav-section" aria-label="Navigation Links" className={`${styles.nav}`} >
+          {navLinks.map((navLink, index)=> <ActiveLink key={'nav-link-' + index} href={navLink.href} name={navLink.name} />)}
+          {preferredColorScheme === 'day' ? <button onClick={onClick} className={`${styles.daySchemeButton}`} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button> : <button onClick={onClick} className={`${styles.nightSchemeButton}`} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>}
+        </nav>
       </header>
-      <style jsx>{`
-        h1 {
-          font-size: 20px;
-          font-weight: 900;
-          line-height: 1;
-          margin: 6px 0 6px 10px;
-          vertical-align: top;
-        }
-        nav {
-          display: flex;
-          justify-content: space-evenly;
-          max-width: 700px;
-        }
-        .wrapper {
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-          font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          padding: 15px 20px;
-          width: 100%;
-        }
-      `}</style>
-    </>
   )
 }
 
-const Footer = () => (
-    <footer className={`${styles.footer}`}>
-      <StyledLink href="https://github.com/kimdolion/kimdolion.github.io" name="This Project's Github" />
-      <Link href="https://github.com/kimdolion" target="_blank" className="styledLink">My Github</Link>
-      <Link href="https://linkedin.com/in/kimberly-wilkes" target="_blank" className="styledLink">Connect on LinkedIn</Link>
+const Footer = (prop: { preferredColorScheme: string }) => (
+    <footer className={`${styles.footer} ${prop.preferredColorScheme}`}>
+      <StyledLink href="https://github.com/kimdolion/kimdolion.github.io" name="This Project's Github" leftIcon>
+        <GithubIcon width="1.5em" fill={prop.preferredColorScheme === 'day' ? "": "white" } />
+      </StyledLink>
+      <StyledLink href="https://github.com/kimdolion" name="My Github" leftIcon>
+        <GithubIcon width="1.5em" fill={prop.preferredColorScheme === 'day' ? "": "white" }  />
+      </StyledLink>
+      <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" />
       <Link
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank" className="styledLink"
-        rel="noopener noreferrer"
+        className="styled-link" style={{display: 'flex', alignItems: 'center' }}
       >
-        Powered by{' '}
-        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+        Powered by <Image src={vercel} alt="Vercel Logo." height={75} width={75} />
       </Link>
     </footer>
 )
 
-export const Page = ({
-title, children}:PageProps): JSX.Element => {
-  const [preferredColorScheme, setPreferredColorScheme] = useState('dark')
+export const Page = ({ children }: PageProps): JSX.Element => {
+  const [preferredColorScheme, setPreferredColorScheme] = useState('day')
 
   const handleColorScheme =  () => {
-    console.log("handleColorScheme")
-    setPreferredColorScheme('light')
+    if (preferredColorScheme == 'night') {
+      setPreferredColorScheme('day')
+    } else {
+      setPreferredColorScheme('night')
+    }
   }
   return (
     <div className={`${preferredColorScheme} ${styles.container}`}>
-      <Header title={title} onClick={handleColorScheme} />
-      <main>{children}</main>
-      <Footer />
-      <style jsx>{`
-        section {
-          font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,
-            sans-serif;
-          font-size: 14px;
-          line-height: 24px;
-          padding: 48px 20px;
-          margin: 0 auto;
-          max-width: 700px;
-          color: #333;
-        }
-        h2 {
-          font-weight: 900;
-          font-size: 32px;
-          line-height: 1;
-          margin: 0 0 4px;
-          display: inline-block;
-          vertical-align: top;
-        }
-        p {
-          margin: 1em 0;
-        }
-        ul {
-          padding-left: 30px;
-          margin: 1em 0;
-        }
-        li {
-          margin-bottom: 8px;
-        }
-      `}</style>
+      <Header onClick={handleColorScheme} preferredColorScheme={preferredColorScheme} />
+      <main className={`${preferredColorScheme}-main`}>{children}</main>
+      <Footer preferredColorScheme={preferredColorScheme} />
     </div>
   )
   

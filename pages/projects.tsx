@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { Page } from '../components/Page'
-import { ProjectsSection } from '../components/ProjectsSection'
+import { Page } from '@/components/Page'
+import { ProjectsSection } from '@/components/ProjectsSection'
+import { TableOfContents } from '@/components/TableOfContents'
 
-export default function Home() {
+export default function Projects() {
   return (
     <div>
       <Head>
@@ -11,9 +11,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page title="Kimberly Wilkes' Projects">
-        ALL THE TECH!
-        <ProjectsSection extraInfo />
+      <Page>
+        <div className="toc-layout">
+          <TableOfContents headingDepth={2} />
+          <ProjectsSection extraInfo />
+        </div>
       </Page>
     </div>
   )

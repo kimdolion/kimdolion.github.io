@@ -1,9 +1,10 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
+  background: #1e1e1e;;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -15,46 +16,97 @@ a {
   box-sizing: border-box;
 }
 
-.active {
+.active-nav {
   text-decoration: underline;
 }
 
-.styledLink {
-  text-decoration: underline;
-
-}
-
-.styledLink:hover {
-  color: red;
-}
 
 .day {
-  background: #eee;
+  background: white;
   color: black;
+  transition: all 0.3s
 }
+.day-main {
+  background: #eee;
+}
+
 .night {
-  background: #333;
+  background: #1e1e1e;
   color: #eee;
+  transition: all 0.3s
 }
 
-@media (prefers-color-scheme: dark) {
-  .day.dark-scheme {
-    background: #333;
-    color: white;
-  }
-  .night.dark-scheme {
-    background: black;
-    color: #ddd;
-  }
+.night-main {
+  background: #333;
 }
 
-@media (prefers-color-scheme: light) {
-  .day.light-scheme {
-    background: white;
-    color: #555;
-  }
-  .night.light-scheme {
-    background: #eee;
-    color: black;
-  }
+.styled-link {
+  text-decoration: underline;
+}
+
+.styled-link:hover {
+  color: #ab0000;
+}
+
+.styled-section {
+    margin: 20px 0;
+    max-width: 700px;
+}
+
+.toc-layout {
+  display: flex;
+  margin-right: 1.5rem;
+  padding: 0 1rem;
+}
+
+.wrapper {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+#table-of-contents {
+  border-radius: 4px;
+  list-style: none;
+  margin-left: 10px;
+  min-width: 200px;
+  padding: 0.5rem 1rem; 
+  position: sticky; 
+  position: -webkit-sticky;
+  top: 20px;
+}
+
+.night #table-of-contents li {
+  border-bottom: 11px white;
+  color: #e6e6e6;
+  padding: 0.5rem 1rem; 
+}
+
+.day #table-of-contents li {
+  border-bottom: 11px white;
+  color: #6e6e6e;
+  padding: 0.5rem 1rem; 
+}
+
+.day #table-of-contents li.active > a {
+  color: black;
+  text-decoration: underline;
+}
+
+.night #table-of-contents li.active > a  {
+  color: white;
+  text-decoration: underline;
+}
+
+.night #table-of-contents li > a:hover {
+  border-radius: 20;
+  color: white;
+  text-decoration: underline;
+}
+
+.day #table-of-contents li > a:hover {
+  border-radius: 20;
+  color: black;
+  text-decoration: underline;
 }

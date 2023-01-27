@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { Page } from '../components/Page'
-import { ExperienceSection } from '../components/ExperienceSection'
+import { Page } from '@/components/Page'
+import { ExperienceSection } from '@/components/ExperienceSection'
+import { TableOfContents } from '@/components/TableOfContents'
 
-export default function Home() {
+export default function Experience() {
   return (
     <div>
       <Head>
@@ -11,9 +11,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page title="Kimberly Wilkes' Experience">
-        <p>Such experience, much wow.</p>
-        <ExperienceSection extraInfo />
+      <Page>
+        <div className='toc-layout'>
+          <TableOfContents headingDepth={4} />
+          <ExperienceSection extraInfo />
+        </div>
       </Page>
     </div>
   )
