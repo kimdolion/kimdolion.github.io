@@ -13,7 +13,7 @@ export default function Projects() {
 
       <Page>
         <div className="toc-layout">
-          <TableOfContents />
+          <TableOfContents headingDepth={2} />
           <ProjectsSection extraInfo />
         </div>
       </Page>

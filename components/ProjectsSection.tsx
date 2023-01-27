@@ -36,7 +36,7 @@ const ProjectCard = ({ project} : ProjectCardProps) => {
 
 const GeneralAssemblyProjects = () => (
   <div>
-    <h3>During General Assembly</h3>
+    <h3 id="projects-bootcamp">During General Assembly</h3>
     <p>These projects were created at the beginning of my Software Engineering journey. They are in various states of disrepair but I intend to return to them and remake them with newer technology/understandings.</p>
     <div>
       {generalAssemblyProjects.map((project, index)=> <ProjectCard key={project.id + index} project={project} />)}
