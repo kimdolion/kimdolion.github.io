@@ -17,7 +17,7 @@ export const InlineHeading = ({...props}:InlineHeadingProps) => {
     return (
         <div>
             <div className="inline-heading">
-                {props?.includeURL && props.url ? <Link href={props.url} target="_blank"><h3 id={id}>{mainHeadingText}</h3></Link> : <h3 id={mainHeadingText}>{mainHeadingText}</h3>}<span>{startMonth} {startYear} - {endMonth} {endYear}</span>
+                {props?.includeURL && props.url ? <Link href={props.url} target="_blank"><h3 id={id}>{mainHeadingText}</h3></Link> : <h3 id={id}>{mainHeadingText}</h3>}<span>{startMonth} {startYear} - {endMonth} {endYear}</span>
             </div>
             <style jsx>{`
                 .inline-heading {
