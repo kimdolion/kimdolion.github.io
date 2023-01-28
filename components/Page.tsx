@@ -51,7 +51,7 @@ const Header = () => {
         </Link>
         <nav id="nav-section" aria-label="Navigation Links" className={`${styles.nav}`} >
           {navLinks.map((navLink, index)=> <ActiveLink key={'nav-link-' + index} href={navLink.href} name={navLink.name} />)}
-          {theme === 'light' ? <button onClick={handleTheme} className={`${styles.lightSchemeButton}`} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button> : <button onClick={handleTheme} className={`${styles.darkSchemeButton}`} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>}
+          {theme === 'light' ? <button onClick={handleTheme} className={`${styles.lightThemeButton}`} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button> : <button onClick={handleTheme} className={`${styles.darkThemeButton}`} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>}
         </nav>
       </header>
   )
