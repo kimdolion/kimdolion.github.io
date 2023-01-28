@@ -21,23 +21,25 @@ a {
 }
 
 
-.day {
+.light {
   background: white;
   color: black;
   transition: all 0.3s
 }
-.day-main {
+
+.light-main {
   background: #eee;
 }
 
-.night {
+.dark {
   background: #1e1e1e;
   color: #eee;
   transition: all 0.3s
 }
 
-.night-main {
+.dark-main {
   background: #333;
+  color: #eee;
 }
 
 .styled-link {
@@ -77,35 +79,35 @@ a {
   top: 20px;
 }
 
-.night #table-of-contents li {
+.dark #table-of-contents li {
   border-bottom: 11px white;
   color: #e6e6e6;
   padding: 0.5rem 1rem; 
 }
 
-.day #table-of-contents li {
+.light #table-of-contents li {
   border-bottom: 11px white;
   color: #6e6e6e;
   padding: 0.5rem 1rem; 
 }
 
-.day #table-of-contents li.active > a {
+.light #table-of-contents li.active > a {
   color: black;
   text-decoration: underline;
 }
 
-.night #table-of-contents li.active > a  {
+.dark #table-of-contents li.active > a  {
   color: white;
   text-decoration: underline;
 }
 
-.night #table-of-contents li > a:hover {
+.dark #table-of-contents li > a:hover {
   border-radius: 20;
   color: white;
   text-decoration: underline;
 }
 
-.day #table-of-contents li > a:hover {
+.light #table-of-contents li > a:hover {
   border-radius: 20;
   color: black;
   text-decoration: underline;
