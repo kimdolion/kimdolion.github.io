@@ -11,7 +11,7 @@ export default function About() {
       </Head>
 
       <Page>
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '5rem'}}>
           <AboutSection extraInfo />
         </div>
       </Page>

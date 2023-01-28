@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       <Page>
-        <div className="toc-layout" style={{paddingBottom: '5rem'}}>
+        <div className="toc-layout" style={{display: 'flex', justifyContent: 'center', paddingBottom: '5rem'}}>
           <TableOfContents />
           <div style={{display: 'flex', flexDirection: 'column', gap: 20, }}>
             <AboutSection />

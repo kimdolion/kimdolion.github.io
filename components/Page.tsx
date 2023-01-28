@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import React, { ReactNode, useContext } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router';
@@ -10,13 +10,13 @@ import korAmFlag from '/public/kor_am_flag.jpg'
 import DayIcon from './icons/DayIcon';
 import NightIcon from './icons/NightIcon';
 import GithubIcon from './icons/GithubIcon';
+import { ThemeContext } from '@/utils';
 
 export interface PageProps {
   children: ReactNode;
 }
 
 export interface HeaderProps {
-  preferredColorScheme: string;
   onClick: () => void;
 }
 
@@ -40,28 +40,33 @@ const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
   return <Link href={href} className={`${router.pathname == `${href}` ? 'active-nav': ''}`} title={title}>{name}</Link>
 }
 
-const Header = ({ preferredColorScheme, onClick }: HeaderProps): JSX.Element => {
+const Header = () => {
+  const { theme, handleTheme } = useContext(ThemeContext)
+  
   return (
-      <header className={`${styles.header} ${preferredColorScheme}`}>
+      <header className={`${styles.header} ${theme}`}>
         <Link href="/" className={`${styles.nav}`} > 
           <Image src={korAmFlag} height={50} width={50} alt={"Korean American blended flag."} style={{borderRadius: '30px'}} />
           Home
         </Link>
         <nav id="nav-section" aria-label="Navigation Links" className={`${styles.nav}`} >
           {navLinks.map((navLink, index)=> <ActiveLink key={'nav-link-' + index} href={navLink.href} name={navLink.name} />)}
-          {preferredColorScheme === 'day' ? <button onClick={onClick} className={`${styles.daySchemeButton}`} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button> : <button onClick={onClick} className={`${styles.nightSchemeButton}`} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>}
+          {theme === 'light' ? <button onClick={handleTheme} className={`${styles.lightSchemeButton}`} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button> : <button onClick={handleTheme} className={`${styles.darkSchemeButton}`} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>}
         </nav>
       </header>
   )
 }
 
-const Footer = (prop: { preferredColorScheme: string }) => (
-    <footer className={`${styles.footer} ${prop.preferredColorScheme}`}>
+const Footer = () => {
+  const { theme } = useContext(ThemeContext)
+
+  return  (
+    <footer className={`${styles.footer} ${theme}`}>
       <StyledLink href="https://github.com/kimdolion/kimdolion.github.io" name="This Project's Github" leftIcon>
-        <GithubIcon width="1.5em" fill={prop.preferredColorScheme === 'day' ? "": "white" } />
+        <GithubIcon width="1.5em" fill={theme === 'light' ? "": "white" } />
       </StyledLink>
       <StyledLink href="https://github.com/kimdolion" name="My Github" leftIcon>
-        <GithubIcon width="1.5em" fill={prop.preferredColorScheme === 'day' ? "": "white" }  />
+        <GithubIcon width="1.5em" fill={theme === 'light' ? "": "white" }  />
       </StyledLink>
       <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" />
       <Link
@@ -72,22 +77,16 @@ const Footer = (prop: { preferredColorScheme: string }) => (
       </Link>
     </footer>
 )
+}
 
 export const Page = ({ children }: PageProps): JSX.Element => {
-  const [preferredColorScheme, setPreferredColorScheme] = useState('day')
+  const { theme } = useContext(ThemeContext)
 
-  const handleColorScheme =  () => {
-    if (preferredColorScheme == 'night') {
-      setPreferredColorScheme('day')
-    } else {
-      setPreferredColorScheme('night')
-    }
-  }
   return (
-    <div className={`${preferredColorScheme} ${styles.container}`}>
-      <Header onClick={handleColorScheme} preferredColorScheme={preferredColorScheme} />
-      <main className={`${preferredColorScheme}-main`}>{children}</main>
-      <Footer preferredColorScheme={preferredColorScheme} />
+    <div className={`${theme} ${styles.container}`}>
+      <Header />
+      <main className={`${theme}-main`}>{children}</main>
+      <Footer />
     </div>
   )
   

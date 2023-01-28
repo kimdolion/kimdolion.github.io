@@ -12,7 +12,7 @@ export default function Projects() {
       </Head>
 
       <Page>
-        <div className="toc-layout">
+        <div className="toc-layout" style={{display: 'flex', justifyContent: 'center', paddingBottom: '5rem'}}>
           <TableOfContents headingDepth={2} />
           <ProjectsSection extraInfo />
         </div>

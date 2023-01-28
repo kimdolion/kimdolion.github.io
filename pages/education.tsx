@@ -11,7 +11,7 @@ export default function Education() {
       </Head>
 
       <Page>
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div style={{display: 'flex', justifyContent: 'center', paddingBottom: '5rem'}}>
           <EducationSection extraInfo />
         </div>
       </Page>

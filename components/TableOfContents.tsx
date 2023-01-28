@@ -1,11 +1,6 @@
-import Link from "next/link";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
   // Used tutorial from https://www.emgoto.com/react-table-of-contents/
-  /**
-   * This renders an item in the table of contents list.
-   * scrollIntoView is used to ensure that when a user clicks on an item, it will smoothly scroll.
-   */
 
   interface HeadingsTSXProps {
     headings: HeadingDataProps[];
@@ -16,7 +11,6 @@ import { headingGroupings } from "@/constants";
     heading: HTMLHeadingElement;
   }
 
-
 interface TableOfContentsProps { 
   headingDepth?: number;
 }
@@ -26,27 +20,28 @@ interface TableOfContentsProps {
  */
 const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
   return (
-  <ul id="table-of-contents">
-    {headings.map((headingElement) => {
-      const { heading } = headingElement;
-      const { id, innerText } = heading;
-      return (
-      <li key={id} className={id === activeId ? "active" : ""}>
-        <a
-          href={`#${id}`}
-          onClick={(e) => {
-            e.preventDefault();
-            document.querySelector(`#${id}`)?.scrollIntoView({
-              behavior: "smooth"
-            });
-          }}
-        >
-          {innerText}
-        </a>
-      </li>
-    )})}
-  </ul>
-)}
+    <ul id="table-of-contents">
+      {headings.map((headingElement) => {
+        const { heading: { id, innerText } } = headingElement;
+
+        return (
+        <li key={id} className={id === activeId ? "active" : ""}>
+          <a
+            href={`#${id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector(`#${id}`)?.scrollIntoView({
+                behavior: "smooth"
+              });
+            }}
+          >
+            {innerText}
+          </a>
+        </li>
+      )})}
+    </ul>
+  )
+}
 
 /**
  * Dynamically generates the table of contents list, using any headings it can find in the main text based on headingDepth
