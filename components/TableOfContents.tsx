@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
-import Select from 'react-select'
+import Select, { ActionMeta } from 'react-select'
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
 
@@ -17,17 +17,25 @@ interface TableOfContentsProps {
   headingDepth?: number;
 }
 
+type Option = {label: string, value: string, id: string}
+
 // https://react-select.com/home
 const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
+  const options = headings.map((headingDetail) => {
+    const { heading } = headingDetail
+    const { id, innerText } = heading;
+    return { id, value: id, label: innerText }
+  })
 
-  const handleSelect = (id: string) => {
-      document.querySelector(`#${id}`)?.scrollIntoView({
-        behavior: "smooth"
-      });
+  const handleSelect = (option: Option) => {
+    document.querySelector(`#${option.id}`)?.scrollIntoView({
+      behavior: "smooth"
+    });
+    console.log('handle select selected: ', option.id)
   }
 
   return (
-    <Select options={headings} onInputChange={handleSelect(activeId)} />
+    <Select id="table-of-contents" defaultValue={options[0]} options={options} onChange={handleSelect} />
   )
 }
 
@@ -43,14 +51,13 @@ const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
         setWidth(window.innerWidth)
         width <= 768 ? setIsMobile(true) : setIsMobile(false)
     }
-    
     window.addEventListener('resize', handleResize)
     handleResize()
-    console.log(window.innerWidth, width)
-    return () => window.removeEventListener('resize', handleResize)
-}, [])
 
-  return (isMobile ? <HeadingsDropdown headings={headings}  activeId={activeId} />  :
+    return () => window.removeEventListener('resize', handleResize)
+}, [width])
+
+  return (isMobile ? <HeadingsDropdown headings={headings} activeId={activeId} />  :
     <ul id="table-of-contents">
     {headings.map((headingElement) => {
       const { heading: { id, innerText } } = headingElement;
