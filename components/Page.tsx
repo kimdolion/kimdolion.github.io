@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useState } from 'react'
+import React, { ReactNode, useContext } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router';
@@ -10,7 +10,7 @@ import korAmFlag from '/public/kor_am_flag.jpg'
 import DayIcon from './icons/DayIcon';
 import NightIcon from './icons/NightIcon';
 import GithubIcon from './icons/GithubIcon';
-import { ThemeContext, ThemeProvider, useTheme } from '@/utils';
+import { ThemeContext } from '@/utils';
 
 export interface PageProps {
   children: ReactNode;
