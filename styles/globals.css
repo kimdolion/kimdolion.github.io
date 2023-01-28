@@ -42,6 +42,12 @@ a {
   color: #eee;
 }
 
+.profilePhoto {
+  display: flex;
+  flex-direction:'row';
+  gap: 20;
+}
+
 .styled-link {
   text-decoration: underline;
 }
@@ -111,4 +117,20 @@ a {
   border-radius: 20;
   color: black;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+  #table-of-contents {
+    flex-direction: column;
+  }
+
+  .profilePhoto {
+    flex-direction:'column';
+  }
+
+  .toc-layout {
+    flex-direction: column;
+    margin-right: 1.5rem;
+    padding: 0 1rem;
+  }
 }

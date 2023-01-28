@@ -1,10 +1,12 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
-  // Used tutorial from https://www.emgoto.com/react-table-of-contents/
+import Select from 'react-select'
+
+// Used tutorial from https://www.emgoto.com/react-table-of-contents/
 
   interface HeadingsTSXProps {
     headings: HeadingDataProps[];
-    activeId: string | undefined;
+    activeId: string;
   }
 
   interface HeadingDataProps {
@@ -15,31 +17,60 @@ interface TableOfContentsProps {
   headingDepth?: number;
 }
 
+// https://react-select.com/home
+const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
+
+  const handleSelect = (id: string) => {
+      document.querySelector(`#${id}`)?.scrollIntoView({
+        behavior: "smooth"
+      });
+  }
+
+  return (
+    <Select options={headings} onInputChange={handleSelect(activeId)} />
+  )
+}
+
 /**
  * Component that creates an unordered list of the headings with a link to scroll to selected heading that will be highlighted as active
  */
 const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
-  return (
-    <ul id="table-of-contents">
-      {headings.map((headingElement) => {
-        const { heading: { id, innerText } } = headingElement;
+  const [width, setWidth] = useState(1200)
+  const [isMobile, setIsMobile] = useState(false)
+  
+  useEffect(() => {
+    const handleResize = () => {
+        setWidth(window.innerWidth)
+        width <= 768 ? setIsMobile(true) : setIsMobile(false)
+    }
+    
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    console.log(window.innerWidth, width)
+    return () => window.removeEventListener('resize', handleResize)
+}, [])
 
-        return (
-        <li key={id} className={id === activeId ? "active" : ""}>
-          <a
-            href={`#${id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector(`#${id}`)?.scrollIntoView({
-                behavior: "smooth"
-              });
-            }}
-          >
-            {innerText}
-          </a>
-        </li>
-      )})}
-    </ul>
+  return (isMobile ? <HeadingsDropdown headings={headings}  activeId={activeId} />  :
+    <ul id="table-of-contents">
+    {headings.map((headingElement) => {
+      const { heading: { id, innerText } } = headingElement;
+
+      return (
+      <li key={id} className={id === activeId ? "active" : ""}>
+        <a
+          href={`#${id}`}
+          onClick={(e) => {
+            e.preventDefault();
+            document.querySelector(`#${id}`)?.scrollIntoView({
+              behavior: "smooth"
+            });
+          }}
+        >
+          {innerText}
+        </a>
+      </li>
+    )})}
+  </ul>
   )
 }
 
