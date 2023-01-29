@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react'
 import { currentProjects, generalAssemblyProjects } from '../constants';
+import { Divider } from './Divider';
 import { Section } from './Section';
 import { StyledLink, styledLinkProp } from './StyledLink';
 
@@ -28,7 +29,7 @@ const ProjectCard = ({ project} : ProjectCardProps) => {
       <p>{description}</p>
       <p>Made with: {technologies}</p>
       <p style={{ fontSize: 14, fontWeight: 'bold'}}>Links to Deployed Site and Github Repos</p>
-      <div className="links">
+      <div className="links" style={{margin: '2rem 0'}}>
         {links.map((link, index)=> <StyledLink key={link.name + index} href={link.href} name={link.name} />)}
       </div>
     </div>
@@ -39,16 +40,7 @@ const GeneralAssemblyProjects = () => (
   <div>
     <h3 id="projects-bootcamp">During General Assembly</h3>
     <p>These projects were created at the beginning of my Software Engineering journey. They are in various states of disrepair but I intend to return to them and remake them with newer technology/understandings.</p>
-    <div>
-      {generalAssemblyProjects.map((project, index)=> <ProjectCard key={project.id + index} project={project} />)}
-    </div>
-    <style jsx>{`
-      .links {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    `}</style>
+    {generalAssemblyProjects.map((project, index)=> <div><ProjectCard key={project.id + index} project={project} /><Divider /></div>)}
   </div>
 )
 
@@ -57,7 +49,7 @@ export const ProjectsSection = ({extraInfo=false}: ProjectsProps): JSX.Element =
     <Link href="/projects"><h2 id="projects-section" title="Check out more projects">Projects and Tech</h2></Link>
       <div>
         <p>Currently Working on:</p>
-        {currentProjects.map((project)=> <ProjectCard key={project.id} project={project} />)}
+        {currentProjects.map((project)=> <div><ProjectCard key={project.id} project={project} /><Divider /></div>)} 
       </div>
       <div>
         Technologies I've worked with: 

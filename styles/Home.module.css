@@ -66,12 +66,25 @@
   gap: 20;
 }
 
+.styledLink {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  text-decoration: underline;
+}
+
+.styledLink:hover {
+  color: #ab0000;
+}
+
 .styledSection {
   border-radius: 4px;
   margin: 40px 0;
   max-width: 700px;
   padding: 2rem;
 }
+
+
 
 /* Tablet size */
 @media screen and (max-width: 768px) {

@@ -7,20 +7,6 @@ This portfolio was created using NextJS and shows Styled-jsx (with SCSS) working
 yarn dev
 ```
 
-### Run Storybook
-
-```bash
-yarn storybook
-```
-
-### Build Static Storybook
-
-```bash
-yarn build-storybook
-```
-
-You can use [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) to deploy Storybook. Specify `storybook-static` as the output directory.
-
 ## Notes
 
 This example combines the following examples, with some required extra config added:

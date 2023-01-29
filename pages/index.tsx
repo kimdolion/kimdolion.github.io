@@ -5,6 +5,7 @@ import { ExperienceSection } from '@/components/ExperienceSection'
 import { ProjectsSection } from '@/components/ProjectsSection'
 import { AboutSection } from '@/components/AboutSection'
 import { TableOfContents } from '@/components/TableOfContents'
+import { Divider } from '@/components/Divider'
 
 export default function Home() {
   return (
@@ -15,15 +16,15 @@ export default function Home() {
       </Head>
 
       <Page>
-        <div className="toc-layout" style={{display: 'flex', justifyContent: 'center', paddingBottom: '5rem'}}>
+        <div className="toc-layout">
           <TableOfContents />
           <div style={{display: 'flex', flexDirection: 'column', gap: 20, }}>
             <AboutSection />
-            <div style={{ borderBottom: '1px solid white', width: '100%'}}/>
+            <Divider />
             <ExperienceSection />
-            <div style={{ borderBottom: '1px solid white', width: '100%'}}/>
+            <Divider />
             <ProjectsSection />
-            <div style={{ borderBottom: '1px solid white', width: '100%'}}/>
+            <Divider />
             <EducationSection />
           </div>
         </div>

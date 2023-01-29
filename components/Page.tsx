@@ -77,7 +77,7 @@ const Footer = () => {
       <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" />
       <Link
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        className="styled-link" style={{display: 'flex', alignItems: 'center' }}
+        className={styles.styledLink}
       >
         Powered by <Image src={vercel} alt="Vercel Logo." height={75} width={75} />
       </Link>
@@ -91,7 +91,7 @@ export const Page = ({ children }: PageProps): JSX.Element => {
   return (
     <div className={`${theme} ${styles.container}`}>
       <Header />
-      <main className={`${theme}-main`}>{children}</main>
+      <main className={`${theme}-main`} style={{display: 'flex', justifyContent: 'center', paddingBottom: '5rem'}}>{children}</main>
       <Footer />
     </div>
   )
