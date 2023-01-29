@@ -1,4 +1,4 @@
-.lightSchemeButton {
+.lightThemeButton {
   border-radius: 20px;
   background: linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%);
   display: flex; 
@@ -6,7 +6,7 @@
   transition: background-color 0.5s ease-in 0.3s;
 }
 
-.darkSchemeButton {
+.darkThemeButton {
   border-radius: 20px;
   background: linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%);
   display: flex; 
@@ -45,9 +45,26 @@
   text-decoration: underline;
 }
 
-.nav {
+.navList {
   align-items: center;
-  display:flex;
+  display: flex;
+  flex-direction: row;
   gap: 10px;
-  justify-content: 'center';
+  justify-content: center;
+}
+
+.navLogo {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .navList {
+    align-items: center;
+    display:flex;
+    gap: 5px;
+    justify-content: center;
+  }
 }

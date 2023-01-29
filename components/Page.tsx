@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react'
+import React, { ReactNode, useContext, useState } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router';
@@ -40,18 +40,24 @@ const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
   return <Link href={href} className={`${router.pathname == `${href}` ? 'active-nav': ''}`} title={title}>{name}</Link>
 }
 
+
 const Header = () => {
   const { theme, handleTheme } = useContext(ThemeContext)
+  const [navActive, setNavActive] = useState(false);
+  const isDarkMode = theme === 'dark'
+  
+  const LightButton = () => <button onClick={handleTheme} className={styles.lightThemeButton} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button> 
+  const DarkButton = () => <button onClick={handleTheme} className={styles.darkThemeButton} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>
   
   return (
       <header className={`${styles.header} ${theme}`}>
-        <Link href="/" className={`${styles.nav}`} > 
+        <Link href="/" className={styles.navLogo} > 
           <Image src={korAmFlag} height={50} width={50} alt={"Korean American blended flag."} style={{borderRadius: '30px'}} />
           Home
         </Link>
-        <nav id="nav-section" aria-label="Navigation Links" className={`${styles.nav}`} >
+        <nav id="nav-section" aria-label="Navigation Links" className={styles.navList}>
           {navLinks.map((navLink, index)=> <ActiveLink key={'nav-link-' + index} href={navLink.href} name={navLink.name} />)}
-          {theme === 'light' ? <button onClick={handleTheme} className={`${styles.lightSchemeButton}`} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button> : <button onClick={handleTheme} className={`${styles.darkSchemeButton}`} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>}
+          {isDarkMode ? <DarkButton /> : <LightButton />}
         </nav>
       </header>
   )

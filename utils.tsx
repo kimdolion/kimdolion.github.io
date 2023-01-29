@@ -17,7 +17,11 @@ export const ThemeContext = createContext<ThemeContext>(
     {} as ThemeContext
 );
 
-export const ThemeProvider = (props: { children: ReactNode }) => {
+interface ThemeProviderProps {
+  children: ReactNode
+}
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>("light");
   
   
@@ -33,7 +37,7 @@ export const ThemeProvider = (props: { children: ReactNode }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, handleTheme}}>
-      {props.children}
+      {children}
     </ThemeContext.Provider>
   );
  };

@@ -1,45 +1,118 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
-  // Used tutorial from https://www.emgoto.com/react-table-of-contents/
+import Select, { ActionMeta, MultiValue, SingleValue, StylesConfig } from 'react-select'
+import { useTheme } from "@/utils";
 
-  interface HeadingsTSXProps {
+// Used tutorial from https://www.emgoto.com/react-table-of-contents/
+
+interface HeadingsDropdownProps {
+  headings: HeadingDataProps[];
+}
+
+interface HeadingsTSXProps {
     headings: HeadingDataProps[];
-    activeId: string | undefined;
+    activeId: string;
   }
 
-  interface HeadingDataProps {
-    heading: HTMLHeadingElement;
-  }
+interface HeadingDataProps {
+  heading: HTMLHeadingElement;
+}
 
 interface TableOfContentsProps { 
   headingDepth?: number;
+}
+
+interface Option { 
+  label: string, value: string, id: string
+ }
+
+/**
+ * React-Select dropdown component that renders the headings as a dropdown for mobile
+ * // https://react-select.com/home
+ */
+const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
+  const { theme } = useTheme()
+  const options: Option[] = headings.map((headingDetail) => {
+    const { heading: { id, innerText } } = headingDetail
+    return { id, label: innerText, value: id }
+  })
+  const [selected, setSelected] = useState<Option | null>(options[0])
+
+  const handleSelect = (newValue: SingleValue<Option>) => {
+    setSelected(newValue)
+    document.querySelector(`#${newValue?.id}`)?.scrollIntoView({ behavior: 'smooth'});
+  }
+
+  const tocStyles: StylesConfig<Option, false> = {
+    control: (styles) => ({ ...styles, backgroundColor: theme === 'dark' ? 'silver' : '#1e1e1e', borderRadius: 2, color: theme === 'dark' ? 'black' : 'white', marginTop: '1rem', opacity: 0.8, padding: '0.5rem' }),
+    menu: () => ({
+      backgroundColor: theme === 'dark' ? 'gray' : '#1e1e1e',
+      borderRadius: 2,
+    }),
+    option: ( { isSelected }) => {
+      return {
+        backgroundColor: isSelected ?  'black' : theme,
+        color: 'white',
+        ':hover': {
+          backgroundColor: '#ab0000',
+          borderRadius: 2,
+        },
+        padding: '0.5rem',
+      };
+    },
+  };
+
+  return (
+    <Select 
+      defaultValue={options[0]} 
+      onChange={handleSelect} 
+      options={options} 
+      styles={tocStyles}
+      unstyled
+      value={selected}
+    />
+  )
 }
 
 /**
  * Component that creates an unordered list of the headings with a link to scroll to selected heading that will be highlighted as active
  */
 const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
-  return (
-    <ul id="table-of-contents">
-      {headings.map((headingElement) => {
-        const { heading: { id, innerText } } = headingElement;
+  const [width, setWidth] = useState(1200)
+  const [isMobile, setIsMobile] = useState(false)
+  
+  useEffect(() => {
+    const handleResize = () => {
+        setWidth(window.innerWidth)
+        width <= 768 ? setIsMobile(true) : setIsMobile(false)
+    }
+    window.addEventListener('resize', handleResize)
+    handleResize()
 
-        return (
-        <li key={id} className={id === activeId ? "active" : ""}>
-          <a
-            href={`#${id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector(`#${id}`)?.scrollIntoView({
-                behavior: "smooth"
-              });
-            }}
-          >
-            {innerText}
-          </a>
-        </li>
-      )})}
-    </ul>
+    return () => window.removeEventListener('resize', handleResize)
+}, [width])
+
+  return (isMobile ? <HeadingsDropdown headings={headings} activeId={activeId} />  :
+    <ul className="table-of-contents">
+    {headings.map((headingElement) => {
+      const { heading: { id, innerText } } = headingElement;
+
+      return (
+      <li key={id} className={id === activeId ? "active" : ""}>
+        <a
+          href={`#${id}`}
+          onClick={(e) => {
+            e.preventDefault();
+            document.querySelector(`#${id}`)?.scrollIntoView({
+              behavior: "smooth"
+            });
+          }}
+        >
+          {innerText}
+        </a>
+      </li>
+    )})}
+  </ul>
   )
 }
 
@@ -111,7 +184,7 @@ export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
   useIntersectionObserver(headingDepth, setActiveId);
 
   return (
-    <nav aria-label="Table of contents">
+    <nav aria-label="Table of contents" id="table-of-contents" className="table-of-contents">
       <HeadingsTSX headings={headings} activeId={activeId} />
     </nav>
   );
