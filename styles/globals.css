@@ -64,7 +64,7 @@ a {
 .toc-layout {
   display: flex;
   margin-right: 1.5rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .wrapper {
@@ -74,10 +74,7 @@ a {
   width: 100%;
 }
 
-#table-of-contents {
-  border-radius: 4px;
-  list-style: none;
-  margin-left: 10px;
+.table-of-contents {
   min-width: 200px;
   padding: 0.5rem 1rem; 
   position: sticky; 
@@ -88,12 +85,14 @@ a {
 .dark #table-of-contents li {
   border-bottom: 11px white;
   color: #e6e6e6;
+  list-style: none;
   padding: 0.5rem 1rem; 
 }
 
 .light #table-of-contents li {
   border-bottom: 11px white;
   color: #6e6e6e;
+  list-style: none;
   padding: 0.5rem 1rem; 
 }
 
@@ -120,10 +119,6 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-  #table-of-contents {
-    flex-direction: column;
-  }
-
   .profilePhoto {
     flex-direction:'column';
   }
@@ -131,6 +126,6 @@ a {
   .toc-layout {
     flex-direction: column;
     margin-right: 1.5rem;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
 }

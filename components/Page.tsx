@@ -45,7 +45,7 @@ const Header = () => {
   
   return (
       <header className={`${styles.header} ${theme}`}>
-        <Link href="/" className={`${styles.nav}`} > 
+        <Link href="/" className={`${styles.navLogo}`} > 
           <Image src={korAmFlag} height={50} width={50} alt={"Korean American blended flag."} style={{borderRadius: '30px'}} />
           Home
         </Link>
