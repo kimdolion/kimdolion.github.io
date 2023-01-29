@@ -43,7 +43,7 @@ const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
     document.querySelector(`#${newValue?.id}`)?.scrollIntoView({ behavior: 'smooth'});
   }
 
-  const tocStyles: StylesConfig<Option> = {
+  const tocStyles: StylesConfig<Option, false> = {
     control: (styles) => ({ ...styles, backgroundColor: theme === 'dark' ? 'silver' : '#1e1e1e', borderRadius: 2, color: theme === 'dark' ? 'black' : 'white', marginTop: '1rem', opacity: 0.8, padding: '0.5rem' }),
     menu: () => ({
       backgroundColor: theme === 'dark' ? 'gray' : '#1e1e1e',
