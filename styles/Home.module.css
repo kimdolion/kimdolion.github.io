@@ -45,23 +45,26 @@
   text-decoration: underline;
 }
 
-.nav {
+.navList {
   align-items: center;
-  display:flex;
+  display: flex;
+  flex-direction: row;
   gap: 10px;
   justify-content: center;
 }
 
 .navLogo {
   align-items: center;
-  display:flex;
+  display: flex;
   gap: 10px;
   justify-content: center;
 }
 
-@media screen and (max-width: 767px) {
-  .nav {
-    align-items: flex-end;
-    flex-direction: column;
+@media screen and (max-width: 768px) {
+  .navList {
+    align-items: center;
+    display:flex;
+    gap: 5px;
+    justify-content: center;
   }
 }
