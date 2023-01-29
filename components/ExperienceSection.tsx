@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react'
 import { workExperiences } from '../constants';
 
 import { InlineHeading, InlineHeadingProps } from './InlineHeading';
+import { Section } from './Section';
 
 export interface ExperienceProps {
     extraInfo?: boolean
@@ -36,8 +37,8 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
 const workExperiencesTSX = workExperiences.map((experience: ExperienceDetailsProps, index: number)=> <ExperienceDetails key={experience.location+ index} {...experience} />)
 
 export const ExperienceSection = ({extraInfo=false}: ExperienceProps): JSX.Element => (
-  <section className='styled-section'>
+  <Section>
       <Link href="/experience"><h2 id="experience-section" title="Want to see more work history?">{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
       {extraInfo ? workExperiencesTSX : <ExperienceDetails {...workExperiences[0]} />}
-  </section>
+  </Section>
 )

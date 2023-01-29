@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react'
 import { currentProjects, generalAssemblyProjects } from '../constants';
+import { Section } from './Section';
 import { StyledLink, styledLinkProp } from './StyledLink';
 
 export interface ProjectsProps {
@@ -52,7 +53,7 @@ const GeneralAssemblyProjects = () => (
 )
 
 export const ProjectsSection = ({extraInfo=false}: ProjectsProps): JSX.Element => (
-  <section className='styled-section'>
+  <Section>
     <Link href="/projects"><h2 id="projects-section" title="Check out more projects">Projects and Tech</h2></Link>
       <div>
         <p>Currently Working on:</p>
@@ -63,5 +64,5 @@ export const ProjectsSection = ({extraInfo=false}: ProjectsProps): JSX.Element =
         <div></div>
       </div>
       {extraInfo ? <GeneralAssemblyProjects /> : null}
-  </section>
+  </Section>
 )

@@ -60,11 +60,32 @@
   justify-content: center;
 }
 
+.profilePhoto {
+  display: flex;
+  flex-direction:'row';
+  gap: 20;
+}
+
+.styledSection {
+  border-radius: 4px;
+  margin: 40px 0;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+/* Tablet size */
 @media screen and (max-width: 768px) {
   .navList {
     align-items: center;
     display:flex;
     gap: 5px;
     justify-content: center;
+  }
+}
+
+/* Mobile size */
+@media screen and (max-width: 526px) {
+  .profilePhoto {
+    display: block;
   }
 }
