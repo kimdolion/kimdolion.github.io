@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
-import Select, { ActionMeta, MultiValue, SingleValue, StylesConfig } from 'react-select'
+import Select, { SingleValue, StylesConfig } from 'react-select'
 import { useTheme } from "@/utils";
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
@@ -36,15 +36,21 @@ const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
     const { heading: { id, innerText } } = headingDetail
     return { id, label: innerText, value: id }
   })
-  const [selected, setSelected] = useState<Option | null>(options[0])
-
+  
   const handleSelect = (newValue: SingleValue<Option>) => {
-    setSelected(newValue)
-    document.querySelector(`#${newValue?.id}`)?.scrollIntoView({ behavior: 'smooth'});
+    const headingElement = document.querySelector(`#${newValue?.id}`)
+    headingElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   const tocStyles: StylesConfig<Option, false> = {
-    control: (styles) => ({ ...styles, backgroundColor: theme === 'dark' ? 'silver' : '#1e1e1e', borderRadius: 2, color: theme === 'dark' ? 'black' : 'white', marginTop: '1rem', opacity: 0.8, padding: '0.5rem' }),
+    control: (styles) => {return { 
+      ...styles, 
+      backgroundColor: theme === 'dark' ? 'silver' : '#1e1e1e', 
+      borderRadius: 2, color: theme === 'dark' ? 'black' : 'white', 
+      marginTop: '1rem', 
+      opacity: 0.8, 
+      padding: '0.5rem' 
+    }},
     menu: () => ({
       backgroundColor: theme === 'dark' ? 'gray' : '#1e1e1e',
       borderRadius: 2,
@@ -69,7 +75,6 @@ const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
       options={options} 
       styles={tocStyles}
       unstyled
-      value={selected}
     />
   )
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { ReactNode } from 'react'
 import { workExperiences } from '../constants';
+import { Divider } from './Divider';
 
 import { InlineHeading, InlineHeadingProps } from './InlineHeading';
 import { Section } from './Section';
@@ -21,7 +22,7 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
   const {company, headingProps, location, responsibilities, extraDetails} = experienceWork;
 
   return (
-      <div>
+      <div style={{margin: '2rem 0'}}>
         <InlineHeading {...headingProps} />
         <div>{company} in {location}</div>
         <ul>
@@ -29,7 +30,8 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
             <li key={index}>{responsibility}</li>
           ))}
         </ul>
-        {extraInfo && extraDetails ? <div>{extraDetails}</div>: null}
+        {extraInfo && extraDetails ? <div style={{padding: '2rem 0'}}>{extraDetails}</div>: null}
+        <Divider />
       </div>
   )
 }

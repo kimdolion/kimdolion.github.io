@@ -51,9 +51,13 @@ export const ProjectsSection = ({extraInfo=false}: ProjectsProps): JSX.Element =
         <p>Currently Working on:</p>
         {currentProjects.map((project)=> <div><ProjectCard key={project.id} project={project} /><Divider /></div>)} 
       </div>
-      <div>
-        Technologies I've worked with: 
-        <div></div>
+      <div style={{margin: '1.5rem 0'}}>
+        <p style={{fontWeight: 'bolder'}}>
+          Technologies I've worked with: 
+        </p>
+        <div>
+          {/* TODO: grid of icons of languages/frameworks */}
+        </div>
       </div>
       {extraInfo ? <GeneralAssemblyProjects /> : null}
   </Section>

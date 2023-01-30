@@ -5,12 +5,13 @@ import { educationDetails } from '@/constants';
 
 import { InlineHeading, InlineHeadingProps } from './InlineHeading';
 import { Section } from './Section';
+import { Divider } from './Divider';
 
 export interface EducationDetailsProps {
   certification: string;
   extraDetails: string;
   headingProps: InlineHeadingProps;
-  schoolColor?: string;
+  schoolColor: string;
 }
 
 export interface EducationProps {
@@ -22,12 +23,13 @@ export const EducationSection = ({extraInfo=false}: EducationProps): JSX.Element
   <Section>
       <Link href="/education" title="Curious about my education history?"><h2 id="education-section">Education</h2></Link>
       {educationDetails.map((educationDetail, index)=> {
-        const {certification, extraDetails, headingProps } = educationDetail;
+        const { certification, extraDetails, headingProps, schoolColor } = educationDetail;
         return (
-        <div key={headingProps.id + index} id={headingProps.id}>
-          <InlineHeading {...headingProps} />
+        <div key={headingProps.id + index} id={headingProps.id} style={{padding: '0.5rem 0'}}>
+          <InlineHeading {...headingProps} includeURL={extraInfo} style={{color: schoolColor}} />
           <p>{certification}</p>
-          {extraInfo ? <p>{extraDetails}</p> : null}
+          {extraInfo ? <p style={{padding: '1rem 0'}}>{extraDetails}</p> : null}
+          {extraInfo ? <Divider /> : null}
         </div>
         )}
       )}
