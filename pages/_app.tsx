@@ -1,12 +1,14 @@
-import { ThemeProvider } from '@/utils'
+import { MobileProvider, ThemeProvider } from '@/utils'
 import { AppProps } from 'next/app'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <MobileProvider>
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </MobileProvider>
   )
 }
 

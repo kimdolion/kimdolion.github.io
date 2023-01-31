@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import React from 'react'
 import { currentProjects, generalAssemblyProjects } from '../constants';
+import { Divider } from './Divider';
+import { Section } from './Section';
 import { StyledLink, styledLinkProp } from './StyledLink';
+import styles from '@/styles/Home.module.css'
 
 export interface ProjectsProps {
     extraInfo?: boolean
@@ -27,7 +29,7 @@ const ProjectCard = ({ project} : ProjectCardProps) => {
       <p>{description}</p>
       <p>Made with: {technologies}</p>
       <p style={{ fontSize: 14, fontWeight: 'bold'}}>Links to Deployed Site and Github Repos</p>
-      <div className="links">
+      <div className="links" style={{display: 'flex', flexDirection: 'column', margin: '2rem 0'}}>
         {links.map((link, index)=> <StyledLink key={link.name + index} href={link.href} name={link.name} />)}
       </div>
     </div>
@@ -38,30 +40,25 @@ const GeneralAssemblyProjects = () => (
   <div>
     <h3 id="projects-bootcamp">During General Assembly</h3>
     <p>These projects were created at the beginning of my Software Engineering journey. They are in various states of disrepair but I intend to return to them and remake them with newer technology/understandings.</p>
-    <div>
-      {generalAssemblyProjects.map((project, index)=> <ProjectCard key={project.id + index} project={project} />)}
-    </div>
-    <style jsx>{`
-      .links {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    `}</style>
+    {generalAssemblyProjects.map((project, index)=> <div key={project.id}><ProjectCard project={project} /><Divider /></div>)}
   </div>
 )
 
 export const ProjectsSection = ({extraInfo=false}: ProjectsProps): JSX.Element => (
-  <section className='styled-section'>
-    <Link href="/projects"><h2 id="projects-section" title="Check out more projects">Projects and Tech</h2></Link>
+  <Section>
+    <Link href="/projects"><h2 id="projects-section" title="Check out more projects" className={styles.styledLink}>Projects and Tech</h2></Link>
       <div>
         <p>Currently Working on:</p>
-        {currentProjects.map((project)=> <ProjectCard key={project.id} project={project} />)}
+        {currentProjects.map((project)=> <div key={project.id}><ProjectCard project={project} /><Divider /></div>)} 
       </div>
-      <div>
-        Technologies I've worked with: 
-        <div></div>
+      <div style={{margin: '1.5rem 0'}}>
+        <p style={{fontWeight: 'bolder'}}>
+          Technologies I've worked with: 
+        </p>
+        <div>
+          {/* TODO: grid of icons of languages/frameworks */}
+        </div>
       </div>
       {extraInfo ? <GeneralAssemblyProjects /> : null}
-  </section>
+  </Section>
 )

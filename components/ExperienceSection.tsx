@@ -1,8 +1,11 @@
+import { ReactNode } from 'react'
 import Link from 'next/link';
-import React, { ReactNode } from 'react'
-import { workExperiences } from '../constants';
+import { workExperiences } from '@/constants';
+import { Divider } from './Divider';
+import styles from '@/styles/Home.module.css'
 
 import { InlineHeading, InlineHeadingProps } from './InlineHeading';
+import { Section } from './Section';
 
 export interface ExperienceProps {
     extraInfo?: boolean
@@ -20,7 +23,7 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
   const {company, headingProps, location, responsibilities, extraDetails} = experienceWork;
 
   return (
-      <div>
+      <div style={{margin: '2rem 0'}}>
         <InlineHeading {...headingProps} />
         <div>{company} in {location}</div>
         <ul>
@@ -28,7 +31,8 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
             <li key={index}>{responsibility}</li>
           ))}
         </ul>
-        {extraInfo && extraDetails ? <div>{extraDetails}</div>: null}
+        {extraInfo && extraDetails ? <div style={{padding: '2rem 0'}}>{extraDetails}</div>: null}
+        <Divider />
       </div>
   )
 }
@@ -36,8 +40,8 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
 const workExperiencesTSX = workExperiences.map((experience: ExperienceDetailsProps, index: number)=> <ExperienceDetails key={experience.location+ index} {...experience} />)
 
 export const ExperienceSection = ({extraInfo=false}: ExperienceProps): JSX.Element => (
-  <section className='styled-section'>
-      <Link href="/experience"><h2 id="experience-section" title="Want to see more work history?">{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
+  <Section>
+      <Link href="/experience" className={styles.styledLink}><h2 id="experience-section" title="Want to see more work history?">{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
       {extraInfo ? workExperiencesTSX : <ExperienceDetails {...workExperiences[0]} />}
-  </section>
+  </Section>
 )

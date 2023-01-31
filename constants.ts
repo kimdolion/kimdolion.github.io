@@ -34,6 +34,7 @@ export const educationDetails: EducationDetailsProps[] = [
     },
     certification: 'Coursework in Computer Science',
     extraDetails: 'Classes included Java, C++, SQL, and Data Structures. I earned high enough grades to join the honor society, Phi Theta Kappa, as well.',
+    schoolColor: '#c8102e'
   },
   {
     headingProps: {
@@ -43,23 +44,25 @@ export const educationDetails: EducationDetailsProps[] = [
       endYear: 2019,
       startMonth: 'June',
       startYear: 2019,
-      url: 'https://www.bhcc.edu/'
+      url: 'https://generalassemb.ly/'
     },
     certification: 'Certificate on Software Engineering Immersive',
     extraDetails: 'Completed fullstack projects building single page applications (SPAs) using a variety of languages and frameworks including: React, jQuery, Boostrap, MongoDB, Express, and Ruby on Rails. Always enjoyed helping my classmates test their apps and provide feedback based on my findings.',
+    schoolColor: '#FA4542',
   },
   {
     headingProps: {
       endMonth: 'July',
       endYear: 2014,
       id: 'education-umass',
-      mainHeadingText: 'University of Massachusetts Boston (UMB',
+      mainHeadingText: 'University of Massachusetts Boston (UMB)',
       startMonth: 'August',
       startYear: 2013,
       url: 'https://www.umb.edu/',
     },
     certification: 'M.A. in Elementary Education',
     extraDetails: 'Worked in Boston Public Schools as an elementary and middle school teacher for grades 2nd to 7th with a primary focus on Science, Technology, Engineering, and Mathematics (STEM) courses. Earned licensure in Special Education and English as a Second Language.',
+    schoolColor: '#005A8B',
   },
   {
     headingProps: {
@@ -73,6 +76,7 @@ export const educationDetails: EducationDetailsProps[] = [
     },
     certification: 'B.A. in Black Studies and Psychology',
     extraDetails: 'Clubs/Organizations: Amherst Mixed Martial Arts Organization (AMMO): Isshinryu and Brazilian Jiu Jitsu, Amherst Pride Alliance, Board Games Club, Japanese Animation Club (Anime Club): Co-president, RESULTS, Inc., Student Security, and THiNK.',
+    schoolColor:  '#4d1979',
   },
 ]
 
@@ -162,12 +166,11 @@ export const headingGroupings: string[] = [
 export const randomFacts: string[] = [
     "I've traveled to 16 different countries before I turned 16.", 
     "I have two cats, Evie and Khaleesi (Khali for short).",
-    "I can talk about almost anything fantasy be it in books or visual mediums. I'll talk for hours about Wheel of Time, Lord of the Rings, and Game of Thrones.",
-    "I love anything to do with animals with cats and horses being at the top of my favorite list. However, bugs/Spiders are at the bottom of that list.",
-    "I've been to 4 different states' renaissance faires dressed as a faun/satyr, pirate, and witch.",
+    "If I could be any mythical creature, I'd probably be a dragon and would hoard fantasy books and clothing. I'll talk for hours about Wheel of Time, Lord of the Rings, and Game of Thrones.",
+    "I love anything to do with animals with cats and horses being at the top of my favorite list. However, bugs/spiders are at the bottom of that list.",
+    "In the fall I basically call the renaissance faire my second home and will often go dressed as a faun/satyr, pirate, elf, or witch.",
     "I love playing video games, on PC, Nintendo Switch, or Playstation. I mostly play World of Warcraft (For the Horde!).",
-    'I have been to Anime Boston, New York Comic Con, and Connecticon.',
-    'I was attending Connecticon when Pokemon Go came out and had a blast running around in costume while trying to catch Pokemon.'
+    'I am a huge nerd and regularly attend conventions such as Anime Boston, New York Comic Con, and Connecticon.',
 ]
 
 export const workExperiences: ExperienceDetailsProps[] = [

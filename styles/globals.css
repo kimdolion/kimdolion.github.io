@@ -42,25 +42,6 @@ a {
   color: #eee;
 }
 
-.profilePhoto {
-  display: flex;
-  flex-direction:'row';
-  gap: 20;
-}
-
-.styled-link {
-  text-decoration: underline;
-}
-
-.styled-link:hover {
-  color: #ab0000;
-}
-
-.styled-section {
-    margin: 20px 0;
-    max-width: 700px;
-}
-
 .toc-layout {
   display: flex;
   margin-right: 1.5rem;
@@ -116,6 +97,14 @@ a {
   border-radius: 20;
   color: black;
   text-decoration: underline;
+}
+
+.light section {
+  background-color: white
+}
+
+.dark section {
+  background-color: #1e1e1e;
 }
 
 @media screen and (max-width: 767px) {

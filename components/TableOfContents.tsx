@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useContext, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
-import Select, { ActionMeta, MultiValue, SingleValue, StylesConfig } from 'react-select'
-import { useTheme } from "@/utils";
+import Select, { SingleValue, StylesConfig } from 'react-select'
+import { MobileContext, useTheme } from "@/utils";
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
 
@@ -9,7 +9,7 @@ interface HeadingsDropdownProps {
   headings: HeadingDataProps[];
 }
 
-interface HeadingsTSXProps {
+interface HeadingsListProps {
     headings: HeadingDataProps[];
     activeId: string;
   }
@@ -30,21 +30,27 @@ interface Option {
  * React-Select dropdown component that renders the headings as a dropdown for mobile
  * // https://react-select.com/home
  */
-const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
+const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
   const { theme } = useTheme()
   const options: Option[] = headings.map((headingDetail) => {
     const { heading: { id, innerText } } = headingDetail
     return { id, label: innerText, value: id }
   })
-  const [selected, setSelected] = useState<Option | null>(options[0])
-
+  
   const handleSelect = (newValue: SingleValue<Option>) => {
-    setSelected(newValue)
-    document.querySelector(`#${newValue?.id}`)?.scrollIntoView({ behavior: 'smooth'});
+    const headingElement = document.querySelector(`#${newValue?.id}`)
+    headingElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   const tocStyles: StylesConfig<Option, false> = {
-    control: (styles) => ({ ...styles, backgroundColor: theme === 'dark' ? 'silver' : '#1e1e1e', borderRadius: 2, color: theme === 'dark' ? 'black' : 'white', marginTop: '1rem', opacity: 0.8, padding: '0.5rem' }),
+    control: (styles) => {return { 
+      ...styles, 
+      backgroundColor: theme === 'dark' ? 'silver' : '#1e1e1e', 
+      borderRadius: 2, color: theme === 'dark' ? 'black' : 'white', 
+      marginTop: '1rem', 
+      opacity: 0.8, 
+      padding: '0.5rem' 
+    }},
     menu: () => ({
       backgroundColor: theme === 'dark' ? 'gray' : '#1e1e1e',
       borderRadius: 2,
@@ -69,7 +75,6 @@ const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
       options={options} 
       styles={tocStyles}
       unstyled
-      value={selected}
     />
   )
 }
@@ -77,22 +82,10 @@ const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
 /**
  * Component that creates an unordered list of the headings with a link to scroll to selected heading that will be highlighted as active
  */
-const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
-  const [width, setWidth] = useState(1200)
-  const [isMobile, setIsMobile] = useState(false)
-  
-  useEffect(() => {
-    const handleResize = () => {
-        setWidth(window.innerWidth)
-        width <= 768 ? setIsMobile(true) : setIsMobile(false)
-    }
-    window.addEventListener('resize', handleResize)
-    handleResize()
+const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
+  const { isMobile } = useContext(MobileContext)
 
-    return () => window.removeEventListener('resize', handleResize)
-}, [width])
-
-  return (isMobile ? <HeadingsDropdown headings={headings} activeId={activeId} />  :
+  return (isMobile ? <HeadingsDropdown headings={headings} />  :
     <ul className="table-of-contents">
     {headings.map((headingElement) => {
       const { heading: { id, innerText } } = headingElement;
@@ -185,7 +178,7 @@ export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
 
   return (
     <nav aria-label="Table of contents" id="table-of-contents" className="table-of-contents">
-      <HeadingsTSX headings={headings} activeId={activeId} />
+      <HeadingsList headings={headings} activeId={activeId} />
     </nav>
   );
 };

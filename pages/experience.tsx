@@ -12,7 +12,7 @@ export default function Experience() {
       </Head>
 
       <Page>
-        <div className='toc-layout' style={{display: 'flex', justifyContent: 'center', paddingBottom: '5rem'}}>
+        <div className='toc-layout'>
           <TableOfContents headingDepth={4} />
           <ExperienceSection extraInfo />
         </div>

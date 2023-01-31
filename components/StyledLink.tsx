@@ -1,5 +1,6 @@
-import Link from "next/link"
 import { ReactNode } from "react";
+import Link from "next/link"
+import styles from '@/styles/Home.module.css'
 
 export interface styledLinkProp {
     children?: ReactNode;
@@ -9,6 +10,9 @@ export interface styledLinkProp {
     title?: string;
 }
   
+/**
+ * Styled Nextjs Link that opens the target in a new tab. Can also display an icon to the left or right of the text by passing @param leftIcon
+*/
 export const StyledLink = ({children, href, leftIcon, name}: styledLinkProp )=> {
-    return leftIcon ? <Link href={href} target="_blank" className='styled-link' style={{display: 'flex', alignItems: 'center', gap: 5 }}>{children} {name}</Link> : <Link href={href} target="_blank" className='styled-link' style={{display: 'flex', alignItems: 'center', gap: 5 }}>{name} {children}</Link>
+    return leftIcon ? <Link href={href} target="_blank" className={styles.styledLink}>{children} {name}</Link> : <Link href={href} target="_blank" className={styles.styledLink}>{name} {children}</Link>
   }
