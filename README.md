@@ -11,6 +11,4 @@ yarn dev
 
 This example combines the following examples, with some required extra config added:
 
-- [with-storybook](https://github.com/vercel/next.js/tree/canary/examples/with-storybook)
-- [with-styled-jsx-scss](https://github.com/vercel/next.js/tree/canary/examples/with-styled-jsx-scss)
 - [with-typescript](https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
