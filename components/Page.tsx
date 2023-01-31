@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react'
+import { ReactNode, useContext } from 'react'
 import styles from '@/styles/Home.module.css'
 
 import { ThemeContext } from '@/utils';

@@ -9,7 +9,7 @@ interface HeadingsDropdownProps {
   headings: HeadingDataProps[];
 }
 
-interface HeadingsTSXProps {
+interface HeadingsListProps {
     headings: HeadingDataProps[];
     activeId: string;
   }
@@ -30,7 +30,7 @@ interface Option {
  * React-Select dropdown component that renders the headings as a dropdown for mobile
  * // https://react-select.com/home
  */
-const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
+const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
   const { theme } = useTheme()
   const options: Option[] = headings.map((headingDetail) => {
     const { heading: { id, innerText } } = headingDetail
@@ -82,10 +82,10 @@ const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
 /**
  * Component that creates an unordered list of the headings with a link to scroll to selected heading that will be highlighted as active
  */
-const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
+const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
   const { isMobile } = useContext(MobileContext)
 
-  return (isMobile ? <HeadingsDropdown headings={headings} activeId={activeId} />  :
+  return (isMobile ? <HeadingsDropdown headings={headings} />  :
     <ul className="table-of-contents">
     {headings.map((headingElement) => {
       const { heading: { id, innerText } } = headingElement;
@@ -178,7 +178,7 @@ export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
 
   return (
     <nav aria-label="Table of contents" id="table-of-contents" className="table-of-contents">
-      <HeadingsTSX headings={headings} activeId={activeId} />
+      <HeadingsList headings={headings} activeId={activeId} />
     </nav>
   );
 };

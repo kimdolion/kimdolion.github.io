@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react'
 import { currentProjects, generalAssemblyProjects } from '../constants';
 import { Divider } from './Divider';
 import { Section } from './Section';

@@ -1,6 +1,6 @@
+import { useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { useContext } from 'react'
 import styles from '@/styles/Home.module.css'
 
 import { getRandomFact, ThemeContext } from '@/utils';
