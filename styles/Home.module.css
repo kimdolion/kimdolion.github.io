@@ -75,6 +75,7 @@
 .darkThemeButton {
   border-radius: 20px;
   background: linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%);
+  cursor: pointer;
   display: flex; 
   justify-content: center;
   transition: background-color 0.5s ease-in 0.3s;
@@ -83,6 +84,7 @@
 .lightThemeButton {
   border-radius: 20px;
   background: linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%);
+  cursor: pointer;
   display: flex; 
   justify-content: center;
   transition: background-color 0.5s ease-in 0.3s;
@@ -113,11 +115,12 @@
 }
 
 .mobileMenu {
-  align-items: flex-end;
+  align-items: center;
   border-radius: 5px;
   display: flex; 
   flex-direction: column; 
   font-size: 20px;
+  font-weight: bold;
   justify-content: center;
   gap: 20px; 
   height: 100%;

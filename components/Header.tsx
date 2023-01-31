@@ -60,7 +60,7 @@ export const Header = () => {
     });
 
     return (
-        <header className={`${styles.header}`} style={{boxShadow: `0 10px 30px -10px ${isDarkMode ?  'black' : '#eee'}` }}>
+        <header className={`${styles.header}`} style={{boxShadow: `0 1px 30px -10px ${isDarkMode ?  'black' : 'gray'}` }}>
             <Link href="/" className={styles.navLogo} > 
                 <Image src={korAmFlag} height={50} width={50} alt={"Korean American blended flag."} style={{borderRadius: '30px'}} />
                 Home

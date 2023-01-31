@@ -4,10 +4,38 @@ import { ProjectProps } from "./components/ProjectsSection";
 
 export const currentProjects: ProjectProps[] = [
   {
+    id: 'project-personal-portfolio',
+    title: 'Personal Portfolio',
+    projectImage: {
+      src: '',
+      alt: ''
+    },
+    description: "My personal portfolio page! I wanted to show off some of the neat components I've learned about over the last few years.",
+    technologies: 'NextJS, TypeScript, and React-Select.',
+    links: [
+      {
+        name: 'Portfolio Client (Vercel)',
+        href: 'https://kimdolion-github-io.vercel.app/'
+      },
+      {
+        name: 'Portfolio Client (Github Pages)',
+        href: 'https://kimdolion.github.io'
+      },
+      {
+        name: 'Frontend Github',
+        href: 'https://github.com/kimdolion/kimdolion-github-io',
+      },
+    ]
+  },
+  {
     id: 'project-pokemon-marketplace',
     title: 'Pokemon Marketplace',
-    description: '',
-    technologies: 'NextJS, TypeScript, TailwindCSS, and Stripe',
+    projectImage: {
+      src: '',
+      alt: ''
+    },
+    description: "A work in progress marketplace site utilizing Stripe to allow users to buy pokemon. DO NOT USE REAL CREDIT CARD INFO. Please use Stripe's test cards.",
+    technologies: 'NextJS, TypeScript, TailwindCSS, PokeAPI, and Stripe.',
     links: [
       {
         name: 'Pokemon Marketplace Client',
@@ -84,6 +112,10 @@ export const generalAssemblyProjects: ProjectProps[] = [
   {
     id: 'project-boba-tracker',
     title: 'Boba Tracker',
+    projectImage: {
+      src: 'https://kimdolion-portfolio.s3.amazonaws.com/bobatracker.png',
+      alt: 'Screenshot of a website showing cups with flavors, toppings, and prices.'
+    },
     description: 'Full-stack project bubble tea tracker to monitor your personal exploration of the wonderful world of bubble tea. You can keep track of the orders you\'ve made including details about the drink and upload photos of the drink.',
     technologies: 'React, React Bootstrap, HTML5, CSS3, MongoDB, Express.js, and a need to organize my favorite boba.',
     links: [
@@ -105,6 +137,10 @@ export const generalAssemblyProjects: ProjectProps[] = [
     id: 'project-chatroom',
     title: 'Chatroom',
     description: 'Full-stack project using Socket.io that live updates a chatroom.',
+    projectImage: {
+      src: 'https://kimdolion-portfolio.s3.amazonaws.com/chatroomproject.jpg',
+      alt: 'Screenshot of chatroom with a few messages that list user and time since a message was posted.'
+    },
     technologies: 'JavaScript, Handlebars.js, HTML5, CSS3, Bootstrap, MongoDB, Express.js, and Socket.io.',
     links: [
       {
@@ -125,6 +161,10 @@ export const generalAssemblyProjects: ProjectProps[] = [
     id: 'project-yeet-into-the-void',
     title: 'Yeet into the Void',
     description: 'A place to collect your thoughts and "throw" them into space.',
+    projectImage: {
+      src: 'https://kimdolion-portfolio.s3.amazonaws.com/void-yeet.jpg',
+      alt: 'Screenshot of a website that has a black starry background and instructions to sign up.'
+    },
     technologies: 'HTML5, CSS3, JavaScript, Handlebars.js, Ruby, Ruby on Rails, and a desire to throw my worries far away, preferably into space.',
     links: [
       {
@@ -145,6 +185,10 @@ export const generalAssemblyProjects: ProjectProps[] = [
     id: 'project-tic-tac-toe',
     title: 'Tic Tac Toe',
     description: 'The first mostly frontend project I ever created. An in-browser game that lets users play and log color-coded games of tic-tac-toe.',
+    projectImage: {
+      src: 'https://kimdolion-portfolio.s3.amazonaws.com/kw-tic-tac-toe.jpg',
+      alt: 'Screenshot of a game of tic tac toe with Player X having one the match.'
+    },
     technologies: 'JavaScript, HTML5, CSS3, Bootstrap, and sheer determination to not let a child’s game stop me from becoming a web developer.',
     links: [
       {

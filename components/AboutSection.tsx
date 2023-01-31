@@ -21,8 +21,8 @@ export const AboutSection = ({ extraInfo = false }: AboutProps): JSX.Element => 
   return (
     <Section>
       <div className={`${styles.profilePhoto}`}>
-        <div style={{ margin: 'auto 1rem'}}>
-          <Image src={profilePhoto} alt="Profile photo of Kimberly Wilkes." height={260} width={180} style={{borderRadius: 10}} />
+        <div style={{backgroundImage: '/public/profile.jpg'}}>
+          {/* <Image src={profilePhoto} alt="Profile photo of Kimberly Wilkes." fill style={{borderRadius: 10}} /> */}
         </div>
         <div>
           <Link href="/about"><h2 id="about-section" title="Learn more" className={styles.styledLink}>About Kimberly Wilkes</h2></Link>
