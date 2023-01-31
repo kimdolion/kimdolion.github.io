@@ -11,7 +11,7 @@ interface DividerProps {
  * @returns A line divider that switches between black and white and can have its line thickness set
  */
 export const Divider = ({lineThickness = '1px'}: DividerProps) => {
-    const {theme} = useContext(ThemeContext)
+    const {isDarkMode} = useContext(ThemeContext)
 
-    return <div style={{ borderBottom: `${lineThickness} solid ${theme === 'dark' ? 'white' : 'black'}`, borderRadius: '1px', width: '100%'}} />
+    return <div style={{ borderBottom: `${lineThickness} solid ${isDarkMode ? 'white' : 'black'}`, borderRadius: '1px', width: '100%'}} />
 }

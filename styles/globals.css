@@ -27,19 +27,10 @@ a {
   transition: all 0.3s
 }
 
-.light-main {
-  background: #eee;
-}
-
 .dark {
   background: #1e1e1e;
   color: #eee;
   transition: all 0.3s
-}
-
-.dark-main {
-  background: #333;
-  color: #eee;
 }
 
 .toc-layout {

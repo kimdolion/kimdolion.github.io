@@ -60,7 +60,7 @@ export const Header = () => {
     });
 
     return (
-        <header className={`${styles.header} ${theme}`}>
+        <header className={`${styles.header}`} style={{boxShadow: `0 10px 30px -10px ${isDarkMode ?  'black' : '#eee'}` }}>
             <Link href="/" className={styles.navLogo} > 
                 <Image src={korAmFlag} height={50} width={50} alt={"Korean American blended flag."} style={{borderRadius: '30px'}} />
                 Home
@@ -69,7 +69,7 @@ export const Header = () => {
                 {isMobile ? 
                 <div ref={ref}>
                     <BurgerMenu open={isActive} setOpen={setIsActive} />
-                    {isActive ? <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#ab0000' : '', color: '#f4f6f99a' }}>
+                    {isActive ? <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#6e0202' : '', color: '#f4f6f99a' }}>
                         <NavLinksTSX />
                     </div> : null }
                 </div>

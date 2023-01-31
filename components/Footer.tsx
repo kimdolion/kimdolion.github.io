@@ -11,14 +11,14 @@ import LinkedInIcon from "./icons/LinkedInIcon";
 
 
 export const Footer = () => {
-    const { theme } = useContext(ThemeContext)
+    const { isDarkMode } = useContext(ThemeContext)
   
     return  (
-      <footer className={`${styles.footer} ${theme}`}>
+      <footer className={`${styles.footer}`}>
         <StyledLink href="https://github.com/kimdolion" name="My Github" leftIcon>
-          <GithubIcon width="1.5em" fill={theme === 'light' ? "": "white" }  />
+          <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />
         </StyledLink>
-        <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" leftIcon><LinkedInIcon fill={theme === 'light' ? "": "white" } width="1.5em" /></StyledLink>
+        <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" leftIcon><LinkedInIcon fill={isDarkMode ? "white" : "" } width="1.5em" /></StyledLink>
         <Link
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           className={styles.styledLink}
