@@ -69,9 +69,9 @@ export const Header = () => {
                 {isMobile ? 
                 <div ref={ref}>
                     <BurgerMenu open={isActive} setOpen={setIsActive} />
-                    <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#ab0000' : '', color: '#f4f6f99a' }}>
-                        {isActive ? <NavLinksTSX /> : null}
-                    </div>
+                    {isActive ? <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#ab0000' : '', color: '#f4f6f99a' }}>
+                        <NavLinksTSX />
+                    </div> : null }
                 </div>
                 :
                     <NavLinksTSX />

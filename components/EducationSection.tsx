@@ -17,11 +17,11 @@ export interface EducationProps {
     extraInfo?: boolean
 }
 
-export const EducationSection = ({extraInfo=false}: EducationProps): JSX.Element => (
+export const EducationSection = ({ extraInfo = false }: EducationProps): JSX.Element => (
   <Section>
       <Link href="/education" title="Curious about my education history?" className={styles.styledLink}><h2 id="education-section">Education</h2></Link>
       {educationDetails.map((educationDetail, index)=> {
-        const { certification, extraDetails, headingProps, schoolColor } = educationDetail;
+        const { certification, extraDetails, headingProps } = educationDetail;
         return (
         <div key={headingProps.id + index} id={headingProps.id} style={{padding: '0.5rem 0'}}>
           <InlineHeading {...headingProps} includeURL={extraInfo} />
