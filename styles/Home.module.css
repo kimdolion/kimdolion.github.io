@@ -22,6 +22,7 @@
 .footer {
   align-items: center;
   display: flex;
+  gap: 15px;
   height: 15vh;
   justify-content: space-between;
   padding: 0 1.5rem;
@@ -30,6 +31,29 @@
 
 .footer img {
   margin-left: 0.5rem;
+}
+
+.burgerMenu {
+  align-items: center;
+  cursor: pointer;
+  display: flex; 
+  flex-direction: column;
+  height: 3rem;
+  gap: 0.4rem;
+  position: absolute;
+  right: 20px;
+  top: 6vh;
+  /* transform-origin: center; */
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  width: 1.75rem;
+  z-index: 10;
 }
 
 .header {
@@ -41,8 +65,36 @@
 }
 
 .header a:hover {
-  color: #ab0000;
   text-decoration: underline;
+}
+
+.mobileMenu {
+  align-items: flex-end;
+  border-radius: 5px;
+  display: flex; 
+  flex-direction: column; 
+  font-size: 20px;
+  justify-content: center;
+  gap: 20px; 
+  height: 100%;
+  opacity: 0.95;
+  padding: 0.5rem 5rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition:  all 0.3s ease-in;
+  z-index: 1;
+}
+
+.mobileMenu a:hover {
+  color: white;
 }
 
 .navList {
@@ -68,7 +120,7 @@
 
 .styledLink {
   align-items: center;
-  display: flex;
+  display: inline-flex;
   gap: 5px;
   text-decoration: underline;
 }
@@ -84,21 +136,31 @@
   padding: 2rem;
 }
 
-
-
 /* Tablet size */
 @media screen and (max-width: 768px) {
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .header {
+    height: 15vh;
+  }
+
   .navList {
-    align-items: center;
-    display:flex;
+    align-items: flex-end;
+    flex-direction: column;
     gap: 5px;
-    justify-content: center;
+    height: 30vh;
   }
 }
 
 /* Mobile size */
 @media screen and (max-width: 526px) {
   .profilePhoto {
-    display: block;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 }
