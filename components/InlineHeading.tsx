@@ -11,16 +11,15 @@ export interface InlineHeadingProps {
     mainHeadingText: string;
     startMonth?: string; 
     startYear: number;
-    style?: CSSProperties; 
     url?: string;
 }
 
 export const InlineHeading = ({...props}:InlineHeadingProps) => {
-    const {className, endMonth, endYear, id, includeURL, mainHeadingText, startMonth, startYear, style} = props;
+    const {className, endMonth, endYear, id, includeURL, mainHeadingText, startMonth, startYear } = props;
     const {theme} = useContext(ThemeContext)
     return (
         <div>
-            <div className={`${className} inline-heading`} style={{color: theme=== 'light' ? style?.color : '' }}>
+            <div className={`${className} inline-heading`}>
                 {includeURL && props.url ? <Link href={props.url} target="_blank"><h3 id={id}>{mainHeadingText}</h3></Link> : <h3 id={id}>{mainHeadingText}</h3>}<span>{startMonth} {startYear} - {endMonth} {endYear}</span>
             </div>
             <style jsx>{`

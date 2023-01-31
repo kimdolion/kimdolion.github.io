@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useContext, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
 import Select, { SingleValue, StylesConfig } from 'react-select'
-import { useTheme } from "@/utils";
+import { MobileContext, useTheme } from "@/utils";
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
 
@@ -83,19 +83,7 @@ const HeadingsDropdown = ({headings, activeId}: HeadingsTSXProps) => {
  * Component that creates an unordered list of the headings with a link to scroll to selected heading that will be highlighted as active
  */
 const HeadingsTSX = ({ headings, activeId }: HeadingsTSXProps) => {
-  const [width, setWidth] = useState(1200)
-  const [isMobile, setIsMobile] = useState(false)
-  
-  useEffect(() => {
-    const handleResize = () => {
-        setWidth(window.innerWidth)
-        width <= 768 ? setIsMobile(true) : setIsMobile(false)
-    }
-    window.addEventListener('resize', handleResize)
-    handleResize()
-
-    return () => window.removeEventListener('resize', handleResize)
-}, [width])
+  const { isMobile } = useContext(MobileContext)
 
   return (isMobile ? <HeadingsDropdown headings={headings} activeId={activeId} />  :
     <ul className="table-of-contents">

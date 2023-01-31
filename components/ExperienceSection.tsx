@@ -1,7 +1,8 @@
+import { ReactNode } from 'react'
 import Link from 'next/link';
-import React, { ReactNode } from 'react'
-import { workExperiences } from '../constants';
+import { workExperiences } from '@/constants';
 import { Divider } from './Divider';
+import styles from '@/styles/Home.module.css'
 
 import { InlineHeading, InlineHeadingProps } from './InlineHeading';
 import { Section } from './Section';
@@ -40,7 +41,7 @@ const workExperiencesTSX = workExperiences.map((experience: ExperienceDetailsPro
 
 export const ExperienceSection = ({extraInfo=false}: ExperienceProps): JSX.Element => (
   <Section>
-      <Link href="/experience"><h2 id="experience-section" title="Want to see more work history?">{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
+      <Link href="/experience" className={styles.styledLink}><h2 id="experience-section" title="Want to see more work history?">{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
       {extraInfo ? workExperiencesTSX : <ExperienceDetails {...workExperiences[0]} />}
   </Section>
 )

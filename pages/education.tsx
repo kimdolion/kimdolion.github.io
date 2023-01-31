@@ -11,7 +11,7 @@ export default function Education() {
       </Head>
 
       <Page>
-        <div>
+        <div className='toc-layout'>
           <EducationSection extraInfo />
         </div>
       </Page>
