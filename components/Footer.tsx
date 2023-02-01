@@ -12,19 +12,24 @@ import LinkedInIcon from "./icons/LinkedInIcon";
 
 export const Footer = () => {
     const { isDarkMode } = useContext(ThemeContext)
-  
+
     return  (
       <footer className={`${styles.footer}`}>
-        <StyledLink href="https://github.com/kimdolion" name="My Github" leftIcon>
-          <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />
-        </StyledLink>
-        <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" leftIcon><LinkedInIcon fill={isDarkMode ? "white" : "" } width="1.5em" /></StyledLink>
-        <Link
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.styledLink}
-        >
-          Powered by <Image src={vercel} alt="Vercel Logo." height={75} width={75} />
-        </Link>
+        <div style={{alignItems: 'center', display: 'flex', justifyContent: "space-between", gap: 50, }}>
+          <StyledLink href="https://github.com/kimdolion" name="" leftIcon>
+            <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />
+          </StyledLink>
+          <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="" leftIcon><LinkedInIcon fill={isDarkMode ? "white" : "" } width="1.5em" /></StyledLink>
+        </div>
+        <div style={{alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: "center" }}>
+          Designed & Built by Kimberly Wilkes
+          <Link
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className={styles.styledLink}
+          >
+            Powered by <Image src={vercel} alt="Vercel Logo." height={75} width={75} />
+          </Link>
+        </div>
       </footer>
     )
 }
