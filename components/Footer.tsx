@@ -14,7 +14,7 @@ export const Footer = () => {
     const { isDarkMode } = useContext(ThemeContext)
 
     return  (
-      <footer className={`${styles.footer}`}>
+      <footer className={`${styles.footer}`} style={{boxShadow: `0 1px 30px -10px ${isDarkMode ?  'black' : 'gray'}` }}>
         <div style={{alignItems: 'center', display: 'flex', justifyContent: "space-between", gap: 50, }}>
           <StyledLink href="https://github.com/kimdolion" name="" leftIcon>
             <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />

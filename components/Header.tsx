@@ -44,13 +44,12 @@ export const Header = () => {
     const [isActive, setIsActive] = useState(false)
     const isDarkMode = theme === 'dark'
 
-    const DarkButton = () => <button onClick={handleTheme} className={styles.darkThemeButton} title="Dark Mode"><NightIcon fill="white" width={'1.5em'} /></button>
-    const LightButton = () => <button onClick={handleTheme} className={styles.lightThemeButton} title="Light Mode"><DayIcon fill="orange" width={'1.5em'} /></button>
+    const ThemeButton = () => <button onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}}  title="Dark Mode">{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
 
     const NavLinksTSX = () => (
         <>
             {navLinks.map((navLink, index) => <ActiveLink key={'nav-link-' + index} href={navLink.href} name={navLink.name} />)}
-            {isDarkMode ? <DarkButton /> : <LightButton />}
+            <ThemeButton />
         </>
     )
 

@@ -28,7 +28,7 @@ a {
 }
 
 .dark {
-  background: #1e1e1e;
+  /* background: #1e1e1e; */
   color: #eee;
   transition: all 0.3s
 }
@@ -48,24 +48,25 @@ a {
 
 .table-of-contents {
   min-width: 200px;
-  padding: 0.5rem 1rem; 
-  position: sticky; 
+  padding: 0.5rem 1rem;
+  position: sticky;
   position: -webkit-sticky;
   top: 20px;
+  z-index: 1;
 }
 
 .dark #table-of-contents li {
   border-bottom: 11px white;
   color: #e6e6e6;
   list-style: none;
-  padding: 0.5rem 1rem; 
+  padding: 0.5rem 1rem;
 }
 
 .light #table-of-contents li {
   border-bottom: 11px white;
   color: #6e6e6e;
   list-style: none;
-  padding: 0.5rem 1rem; 
+  padding: 0.5rem 1rem;
 }
 
 .light #table-of-contents li.active > a {
@@ -90,13 +91,13 @@ a {
   text-decoration: underline;
 }
 
-.light section {
+/* .light section {
   background-color: white
 }
 
 .dark section {
   background-color: #1e1e1e;
-}
+} */
 
 @media screen and (max-width: 767px) {
   .profilePhoto {
