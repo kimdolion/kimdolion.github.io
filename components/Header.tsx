@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { StyledLink, styledLinkProp } from "./StyledLink";
 import { BurgerMenu } from "./BurgerMenu";
-import Image from "next/image";
 import styles from '@/styles/Home.module.css'
 
 import DayIcon from './icons/DayIcon';
