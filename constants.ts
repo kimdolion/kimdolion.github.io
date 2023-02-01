@@ -7,23 +7,23 @@ export const currentProjects: ProjectProps[] = [
     id: 'project-personal-portfolio',
     title: 'Personal Portfolio',
     projectImage: {
+      alt: '',
       src: '',
-      alt: ''
+      height: 2052,
+      width: 1438,
     },
     description: "My personal portfolio page! I wanted to show off some of the neat components I've learned about over the last few years.",
-    technologies: 'NextJS, TypeScript, and React-Select.',
+    technologies: 'NextJS, TypeScript, Sass, and React-Select.',
     links: [
       {
-        name: 'Portfolio Client (Vercel)',
-        href: 'https://kimdolion-github-io.vercel.app/'
-      },
-      {
-        name: 'Portfolio Client (Github Pages)',
-        href: 'https://kimdolion.github.io'
+        name: 'Portfolio: Client',
+        href: 'https://kimdolion.github.io',
+        iconName: 'ArrowOut',
       },
       {
         name: 'Frontend Github',
         href: 'https://github.com/kimdolion/kimdolion-github-io',
+        iconName: 'Github',
       },
     ]
   },
@@ -32,18 +32,22 @@ export const currentProjects: ProjectProps[] = [
     title: 'Pokemon Marketplace',
     projectImage: {
       src: '',
-      alt: ''
+      alt: '',
+      height: 2052,
+      width: 1438,
     },
     description: "A work in progress marketplace site utilizing Stripe to allow users to buy pokemon. DO NOT USE REAL CREDIT CARD INFO. Please use Stripe's test cards.",
     technologies: 'NextJS, TypeScript, TailwindCSS, PokeAPI, and Stripe.',
     links: [
       {
         name: 'Pokemon Marketplace Client',
-        href: 'https://pokemon-marketplace-chi.vercel.app/'
+        href: 'https://pokemon-marketplace-chi.vercel.app/',
+        iconName: 'ArrowOut'
       },
       {
         name: 'Frontend Github',
         href: 'https://github.com/kimdolion/pokemon-marketplace',
+        iconName: 'Github',
       }
     ]
   }
@@ -114,46 +118,56 @@ export const generalAssemblyProjects: ProjectProps[] = [
     title: 'Boba Tracker',
     projectImage: {
       src: 'https://kimdolion-portfolio.s3.amazonaws.com/bobatracker.png',
-      alt: 'Screenshot of a website showing cups with flavors, toppings, and prices.'
+      alt: 'Screenshot of a website showing cups with flavors, toppings, and prices.',
+      height: 2052,
+      width: 1438,
     },
     description: 'Full-stack project bubble tea tracker to monitor your personal exploration of the wonderful world of bubble tea. You can keep track of the orders you\'ve made including details about the drink and upload photos of the drink.',
     technologies: 'React, React Bootstrap, HTML5, CSS3, MongoDB, Express.js, and a need to organize my favorite boba.',
     links: [
       {
         name: 'Boba Tracker: Client',
-        href: 'https://sei-04-team-3.github.io/group-project-client/'
+        href: 'https://sei-04-team-3.github.io/group-project-client/',
+        iconName: 'ArrowOut',
       },
       {
         name: 'Frontend Github',
-        href: 'https://github.com/sei-04-team-3/group-project-client'
+        href: 'https://github.com/sei-04-team-3/group-project-client',
+        iconName: 'Github',
       },
       {
         name: 'Backend Github',
-        href: 'https://github.com/sei-04-team-3/group-project-api'
+        href: 'https://github.com/sei-04-team-3/group-project-api',
+        iconName: 'Github',
       }
     ]
   },
   {
     id: 'project-chatroom',
     title: 'Chatroom',
-    description: 'Full-stack project using Socket.io that live updates a chatroom.',
+    description: 'Full-stack project using Socket.io that live updates a chatroom. Similar to a Discord channel. Just a lot simpler.',
     projectImage: {
       src: 'https://kimdolion-portfolio.s3.amazonaws.com/chatroomproject.jpg',
-      alt: 'Screenshot of chatroom with a few messages that list user and time since a message was posted.'
+      alt: 'Screenshot of chatroom with a few messages that list user and time since a message was posted.',
+      height: 1520,
+      width: 2164,
     },
     technologies: 'JavaScript, Handlebars.js, HTML5, CSS3, Bootstrap, MongoDB, Express.js, and Socket.io.',
     links: [
       {
         name: 'Chatroom: Client',
-        href: 'https://sei-04-team-3.github.io/group-project-client/'
+        href: 'https://sei-04-team-3.github.io/group-project-client/',
+        iconName: 'ArrowOut',
       },
       {
         name: 'Frontend Github',
-        href: 'https://github.com/sei-04-team-3/group-project-client'
+        href: 'https://github.com/sei-04-team-3/group-project-client',
+        iconName: 'Github',
       },
       {
         name: 'Backend Github',
-        href: 'https://github.com/sei-04-team-3/group-project-api'
+        href: 'https://github.com/sei-04-team-3/group-project-api',
+        iconName: 'Github',
       }
     ]
   },
@@ -163,21 +177,26 @@ export const generalAssemblyProjects: ProjectProps[] = [
     description: 'A place to collect your thoughts and "throw" them into space.',
     projectImage: {
       src: 'https://kimdolion-portfolio.s3.amazonaws.com/void-yeet.jpg',
-      alt: 'Screenshot of a website that has a black starry background and instructions to sign up.'
+      alt: 'Screenshot of a website that has a black starry background and instructions to sign up.',
+      height: 1178,
+      width: 984,
     },
     technologies: 'HTML5, CSS3, JavaScript, Handlebars.js, Ruby, Ruby on Rails, and a desire to throw my worries far away, preferably into space.',
     links: [
       {
         name: 'Yeet into the Void: Client',
-        href: 'https://kimdolion.github.io/void-yeet-client/'
+        href: 'https://kimdolion.github.io/void-yeet-client/',
+        iconName: 'ArrowOut',
       },
       {
         name: 'Frontend Github',
-        href: 'https://github.com/kimdolion/void-yeet-client'
+        href: 'https://github.com/kimdolion/void-yeet-client',
+        iconName: 'Github',
       },
       {
         name: 'Backend Github',
-        href: 'https://github.com/kimdolion/void-yeet-backend'
+        href: 'https://github.com/kimdolion/void-yeet-backend',
+        iconName: 'Github',
       }
     ]
   },
@@ -187,17 +206,21 @@ export const generalAssemblyProjects: ProjectProps[] = [
     description: 'The first mostly frontend project I ever created. An in-browser game that lets users play and log color-coded games of tic-tac-toe.',
     projectImage: {
       src: 'https://kimdolion-portfolio.s3.amazonaws.com/kw-tic-tac-toe.jpg',
-      alt: 'Screenshot of a game of tic tac toe with Player X having one the match.'
+      alt: 'Screenshot of a game of tic tac toe with Player X having one the match.',
+      height: 2052,
+      width: 1438,
     },
     technologies: 'JavaScript, HTML5, CSS3, Bootstrap, and sheer determination to not let a child’s game stop me from becoming a web developer.',
     links: [
       {
         name: 'Tic-Tac-Toe: Client',
-        href: 'https://kimdolion.github.io/tic-tac-toe-client/'
+        href: 'https://kimdolion.github.io/tic-tac-toe-client/',
+        iconName: 'ArrowOut',
       },
       {
         name: 'Frontend Github',
-        href: 'https://github.com/kimdolion/tic-tac-toe-client'
+        href: 'https://github.com/kimdolion/tic-tac-toe-client',
+        iconName: 'Github',
       },
     ]
   },
@@ -208,7 +231,7 @@ export const headingGroupings: string[] = [
 ]
 
 export const randomFacts: string[] = [
-    "I've traveled to 16 different countries before I turned 16.", 
+    "I've traveled to 16 different countries before I turned 16.",
     "I have two cats, Evie and Khaleesi (Khali for short).",
     "If I could be any mythical creature, I'd probably be a dragon and would hoard fantasy books and clothing. I'll talk for hours about Wheel of Time, Lord of the Rings, and Game of Thrones.",
     "I love anything to do with animals with cats and horses being at the top of my favorite list. However, bugs/spiders are at the bottom of that list.",
@@ -220,32 +243,32 @@ export const randomFacts: string[] = [
 export const workExperiences: ExperienceDetailsProps[] = [
   {
     company: 'Echobind',
-    headingProps: { mainHeadingText: 'Software Engineer II', id: "software-engineer", startMonth: 'Sept', startYear: 2020, endMonth: 'Jan', endYear: 2023}, 
-    location: 'Boston (Remote)', 
+    headingProps: { mainHeadingText: 'Software Engineer II', id: "software-engineer", startMonth: 'Sept', startYear: 2020, endMonth: 'Jan', endYear: 2023},
+    location: 'Boston (Remote)',
     responsibilities: [
       'Developed full stack web and mobile apps for a variety of industries following best practices using technologies and libraries including React, React Native, TypeScript, Nextjs, Prisma, Apollo, Tailwind CSS, and Graphql.',
-      'Maintained and updated sites using website builders such as Webflow, Makeswift, and Plasmic.', 
-      'Collaborated with design and strategy teammates to ensure client needs were met with tools such as Figma, Illustrator, and Shortcut.', 
-      'Provided thorough QA and E2E testing using testing libraries such as Jest and Cypress.', 
-      'Wrote and provided peer reviews of technical and personal blog content for marketing.', 
+      'Maintained and updated sites using website builders such as Webflow, Makeswift, and Plasmic.',
+      'Collaborated with design and strategy teammates to ensure client needs were met with tools such as Figma, Illustrator, and Shortcut.',
+      'Provided thorough QA and E2E testing using testing libraries such as Jest and Cypress.',
+      'Wrote and provided peer reviews of technical and personal blog content for marketing.',
     ],
     extraDetails: 'Pair programming was always one of my favorite opportunities to learn and check understanding.'
   },
   {
     company: 'athenaHealth',
-    headingProps: { mainHeadingText: 'Software Development Intern', id: 'software-intern', startMonth: 'June', startYear: 2020, endMonth: 'Aug', endYear: 2020}, 
-    location: 'Boston (Remote)', 
+    headingProps: { mainHeadingText: 'Software Development Intern', id: 'software-intern', startMonth: 'June', startYear: 2020, endMonth: 'Aug', endYear: 2020},
+    location: 'Boston (Remote)',
     responsibilities: [
       'Replaced IAM scripts for updated infrastructure moving towards managing Okta hosted microservices through the use of Terraform, Jenkins, Docker, and AWS, engaging in CI/CD pipelines for development, testing, and deployment.',
-      'Developed documentation to show how our team understood and implemented Terraform for Okta resources.', 
-      'Conducted Okta API testing using Postman collections', 
+      'Developed documentation to show how our team understood and implemented Terraform for Okta resources.',
+      'Conducted Okta API testing using Postman collections',
     ],
     extraDetails: '',
   },
   {
     company: 'Hack.Diversity',
-    headingProps: { mainHeadingText: '2020 Hack.Diversity Fellow', id: 'hack-diversity-fellow', startMonth: 'Nov', startYear: 2019, endMonth: 'Aug', endYear: 2020}, 
-    location: 'Boston (Remote)', 
+    headingProps: { mainHeadingText: '2020 Hack.Diversity Fellow', id: 'hack-diversity-fellow', startMonth: 'Nov', startYear: 2019, endMonth: 'Aug', endYear: 2020},
+    location: 'Boston (Remote)',
     responsibilities: [
         'Selected as 1 of 75 candidates selected into 2020 Hack.Diversity Fellowship, a career leadership and workforce development program that integrates Boston’s innovation, corporate civic, academic, and philanthropic pillars to provide mentoring and support of under-represented populations in the technology industry.',
         'Managed as Operations Team Lead for coordinating, developing, and building an application for the 2020 de.Hackathon.'
@@ -254,8 +277,8 @@ export const workExperiences: ExperienceDetailsProps[] = [
   },
   {
     company: 'Boston Public Schools',
-    headingProps: { mainHeadingText: 'Elementary Educator', id: 'elementary-educator', startMonth: 'Aug', startYear: 2013, endMonth: 'June', endYear: 2019}, 
-    location: 'Boston (Remote)', 
+    headingProps: { mainHeadingText: 'Elementary Educator', id: 'elementary-educator', startMonth: 'Aug', startYear: 2013, endMonth: 'June', endYear: 2019},
+    location: 'Boston (Remote)',
     responsibilities: [
         'Collaborated within and across grade level teams (2nd to 7th) to provide differentiated learning experiences using a variety of curriculum and technology resources with a focus on Science, Technology, Engineering, Mathematics (STEM).',
         'Communicated regularly with staff and families through phone, email, educational apps, and newsletters to provide additional resources to support student learning.',

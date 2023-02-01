@@ -30,16 +30,15 @@
   backface-visibility: hidden;
   border-radius: 5px;
   display: block;
-  height: auto;
+  height: 50%;
   opacity: 1;
   transition: .5s ease;
   width: 100%;
 }
 
 .imageContainer {
-  margin: 0 auto;
   position: relative;
-  width: 50%;
+  width: 100%;
 }
 
 .imageContainer:hover .imageText{
@@ -47,28 +46,38 @@
 }
 
 .imageContainer:hover .image {
-  opacity: 0.3;
+  opacity: 0.1;
+}
+
+.imageHeight {
+  height: 100%;
+}
+
+.imageWidth {
+  width: 100%;
 }
 
 .imageText {
   border-radius: 5px;
-  font-size: 5rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 500;
   left: 50%;
+  line-height: 20px;
   opacity: 0;
-  padding: 1rem;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transition: 0.5s ease;
+  width: 70%;
 }
 
 
 .links {
-  display: inline-flex;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   gap: 10px;
+  margin-bottom: 2rem;
 }
 
 .navList {
@@ -88,10 +97,35 @@
   justify-content: center;
 }
 
-.profilePhoto {
+.photoContainer {
+  align-items: center;
+  border-radius: 5px;
   display: flex;
   flex-direction:'row';
-  gap: 20;
+  gap: 10px;
+}
+
+.projectCard {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.projectCard:nth-child(2n) {
+  flex-direction: row-reverse;
+}
+
+.projectCardImage {
+  margin-right: 2rem;
+  width: 100%;
+}
+
+.projectImage {
+  border-radius: 5px;
+  height: 50%;
+  width: 100%;
 }
 
 .styledLink {
@@ -107,9 +141,8 @@
 
 .styledSection {
   border-radius: 4px;
-  margin: 40px 0;
-  max-width: 700px;
-  padding: 2rem;
+  margin: 2rem 0;
+  max-width: 800px;
 }
 
 /* Theme */
@@ -136,7 +169,7 @@
   gap: 0.3rem;
   padding: 0.5rem;
   position: absolute;
-  right: 5px;
+  right: 10px;
   top: 3.1vh;
   transform-origin: center;
   -webkit-transform: rotate(0deg);
@@ -194,21 +227,27 @@
     height: 10vh;
   }
 
-  .imageText {
-    font-size: xx-large;
-  }
-
   .navList {
     align-items: flex-end;
     flex-direction: column;
     gap: 5px;
     height: 30vh;
   }
+
+  .projectCard {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .projectCardImage {
+    margin: 0;
+  }
+
 }
 
 /* Mobile size */
 @media screen and (max-width: 526px) {
-  .profilePhoto {
+  .photoContainer {
     align-items: center;
     display: flex;
     flex-direction: column;

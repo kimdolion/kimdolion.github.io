@@ -47,6 +47,7 @@ a {
 }
 
 .table-of-contents {
+  border-radius: 5px;
   min-width: 200px;
   padding: 0.5rem 1rem;
   position: sticky;
@@ -56,14 +57,14 @@ a {
 }
 
 .dark #table-of-contents li {
-  border-bottom: 11px white;
   color: #e6e6e6;
+  font-weight: 600;
   list-style: none;
   padding: 0.5rem 1rem;
 }
 
 .light #table-of-contents li {
-  border-bottom: 11px white;
+  border-bottom: 1px white;
   color: #6e6e6e;
   list-style: none;
   padding: 0.5rem 1rem;
@@ -80,33 +81,21 @@ a {
 }
 
 .dark #table-of-contents li > a:hover {
-  border-radius: 20;
   color: white;
   text-decoration: underline;
 }
 
 .light #table-of-contents li > a:hover {
-  border-radius: 20;
   color: black;
   text-decoration: underline;
 }
 
-/* .light section {
-  background-color: white
-}
-
-.dark section {
-  background-color: #1e1e1e;
-} */
-
 @media screen and (max-width: 767px) {
   .profilePhoto {
-    flex-direction:'column';
+    flex-direction: column;
   }
 
   .toc-layout {
     flex-direction: column;
-    margin-right: 1.5rem;
-    padding: 0 1.5rem;
   }
 }
