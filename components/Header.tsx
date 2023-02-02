@@ -32,7 +32,9 @@ const navLinks: styledLinkProp[] = [
 
 const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
     const router = useRouter();
-    return <Link href={href} className={`${router.pathname == `${href}` ? 'active-nav': ''}`} title={title}>{name}</Link>
+    const isActive = router.pathname == href;
+
+    return <Link href={href} className={` ${isActive ? 'active-nav': ''}`} title={title}>{name}</Link>
 }
 
 

@@ -22,7 +22,9 @@ export const AboutSection = ({ extraInfo = false }: AboutProps): JSX.Element => 
 
   return (
     <Section>
-      <ImageOverlay image={{src: profilePhoto, alt: "Profile photo of Kimberly Wilkes."}}>Hello!</ImageOverlay>
+      <div className={styles.profilePhoto}>
+        <ImageOverlay image={{src: profilePhoto, alt: "Profile photo of Kimberly Wilkes."}}>Hello!</ImageOverlay>
+      </div>
       <div style={{ display:'flex', justifyContent: 'center'}}>
         <Link href="/about"><h2 id="about-section" title="Learn more" className={styles.styledLink}>Kimberly Wilkes</h2></Link>
       </div>

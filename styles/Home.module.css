@@ -59,8 +59,10 @@
 
 .imageText {
   border-radius: 5px;
+  display: flex;
   font-size: 1rem;
   font-weight: 500;
+  justify-content: center;
   left: 50%;
   line-height: 20px;
   opacity: 0;
@@ -70,6 +72,10 @@
   -ms-transform: translate(-50%, -50%);
   transition: 0.5s ease;
   width: 70%;
+}
+
+.imageTextRow {
+  flex-direction: column;
 }
 
 
@@ -105,6 +111,14 @@
   gap: 10px;
 }
 
+.profilePhoto {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 40%;
+}
+
 .projectCard {
   align-items: center;
   display: flex;
@@ -113,7 +127,7 @@
   margin: 2rem 0;
 }
 
-.projectCard:nth-child(2n) {
+.projectCard:nth-child(even) {
   flex-direction: row-reverse;
 }
 
@@ -234,6 +248,10 @@
     height: 30vh;
   }
 
+  .profilePhoto {
+    width: 60%;
+  }
+
   .projectCard {
     align-items: center;
     flex-direction: column;
@@ -251,5 +269,9 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+  }
+
+  .profilePhoto {
+    width: 100%;
   }
 }

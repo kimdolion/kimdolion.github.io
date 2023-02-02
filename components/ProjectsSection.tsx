@@ -46,7 +46,7 @@ const ProjectCard = ({ project} : ProjectCardProps) => {
   return (
     <div className={styles.projectCard}>
       <div className={styles.projectCardImage}>
-        <ImageOverlay image={imageAvailable ? projectImage : defaultImage}>
+        <ImageOverlay image={imageAvailable ? projectImage : defaultImage} displayRow>
           <h3 id={id}>{title}</h3>
           <p>Made with: {technologies}</p>
         </ImageOverlay>
