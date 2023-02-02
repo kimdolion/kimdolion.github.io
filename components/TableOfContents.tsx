@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useContext, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
 import Select, { SingleValue, StylesConfig } from 'react-select'
-import { MobileContext, useTheme } from "@/utils";
+import { MobileContext, ThemeContext, useTheme } from "@/utils";
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
 
@@ -10,20 +10,20 @@ interface HeadingsDropdownProps {
 }
 
 interface HeadingsListProps {
-    headings: HeadingDataProps[];
-    activeId: string;
-  }
+  headings: HeadingDataProps[];
+  activeId: string;
+}
 
 interface HeadingDataProps {
   heading: HTMLHeadingElement;
 }
 
-interface TableOfContentsProps { 
+interface TableOfContentsProps {
   headingDepth?: number;
 }
 
-interface Option { 
-  label: string, value: string, id: string
+interface Option {
+  label: string, value: string, id: string;
  }
 
 /**
@@ -36,32 +36,36 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
     const { heading: { id, innerText } } = headingDetail
     return { id, label: innerText, value: id }
   })
-  
+
   const handleSelect = (newValue: SingleValue<Option>) => {
-    const headingElement = document.querySelector(`#${newValue?.id}`)
-    headingElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    if (newValue) {
+      const headingElement = document.getElementById(newValue?.id)
+      headingElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
   }
 
   const tocStyles: StylesConfig<Option, false> = {
-    control: (styles) => {return { 
-      ...styles, 
-      backgroundColor: isDarkMode ? 'silver' : '#1e1e1e', 
-      borderRadius: 2, color: isDarkMode ? 'black' : 'white', 
-      marginTop: '1rem', 
-      opacity: 0.8, 
-      padding: '0.5rem' 
+    control: (styles) => {return {
+      ...styles,
+      backgroundColor: isDarkMode ? 'white' : '#1e1e1e',
+      borderRadius: 2,
+      color: isDarkMode ? 'black' : 'white',
+      fontWeight: 700,
+      marginTop: '1rem',
+      opacity: 0.85,
+      padding: '0.5rem'
     }},
     menu: () => ({
-      backgroundColor: isDarkMode ? 'gray' : '#1e1e1e',
       borderRadius: 2,
+      color: 'white',
+      fontWeight: 400,
     }),
-    option: ( { isSelected }) => {
+    option: () => {
       return {
-        backgroundColor: isSelected ?  'black' : theme,
-        color: 'white',
+        color: isDarkMode ? 'black' : 'white',
         ':hover': {
-          backgroundColor: '#ab0000',
-          borderRadius: 2,
+          borderLeft: '2px solid #6e0202',
+          fontWeight: 600
         },
         padding: '0.5rem',
       };
@@ -69,10 +73,10 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
   };
 
   return (
-    <Select 
-      defaultValue={options[0]} 
-      onChange={handleSelect} 
-      options={options} 
+    <Select
+      defaultValue={options[0]}
+      onChange={handleSelect}
+      options={options}
       styles={tocStyles}
       unstyled
     />
@@ -84,28 +88,33 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
  */
 const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
   const { isMobile } = useContext(MobileContext)
+  const {isDarkMode} = useContext(ThemeContext)
 
-  return (isMobile ? <HeadingsDropdown headings={headings} />  :
-    <ul className="table-of-contents">
-    {headings.map((headingElement) => {
-      const { heading: { id, innerText } } = headingElement;
+  return (
+    <div className="table-of-contents">
+      {isMobile ? <HeadingsDropdown headings={headings} />  :
+      <ul className="table-of-contents">
+      {headings.map((headingElement) => {
+        const { heading: { id, innerText } } = headingElement;
 
-      return (
-      <li key={id} className={id === activeId ? "active" : ""}>
-        <a
-          href={`#${id}`}
-          onClick={(e) => {
-            e.preventDefault();
-            document.querySelector(`#${id}`)?.scrollIntoView({
-              behavior: "smooth"
-            });
-          }}
-        >
-          {innerText}
-        </a>
-      </li>
-    )})}
-  </ul>
+        return (
+        <li key={id} className={id === activeId ? "active" : ""}>
+          <a
+            href={`#${id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector(`#${id}`)?.scrollIntoView({
+                behavior: "smooth"
+              });
+            }}
+          >
+            {innerText}
+          </a>
+        </li>
+      )})}
+    </ul>
+    }
+  </div>
   )
 }
 
@@ -160,9 +169,9 @@ const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<Set
     const observer = new IntersectionObserver(callback, { rootMargin: "0px 0px -10% 0px" });
 
     const headingElements = Array.from(document.querySelectorAll(headingGroupings[headingDepth]));
-    
+
     headingElements.forEach((element) => observer.observe(element));
-    
+
     return () => observer?.disconnect();
   }, [setActiveId]);
 };

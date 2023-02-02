@@ -16,7 +16,7 @@ export interface ExperienceDetailsProps {
   company: string;
   location: string;
   responsibilities: string[];
-  extraDetails: ReactNode 
+  extraDetails: ReactNode;
 }
 
 const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperiences[0], extraInfo: boolean) => {

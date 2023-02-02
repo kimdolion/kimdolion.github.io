@@ -19,5 +19,5 @@ export const Page = ({ children }: PageProps): JSX.Element => {
       <Footer />
     </div>
   )
-  
+
 }
