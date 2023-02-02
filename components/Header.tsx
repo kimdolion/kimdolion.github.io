@@ -40,12 +40,11 @@ const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
 
 
 export const Header = () => {
-    const { theme, handleTheme } = useContext(ThemeContext)
+    const { isDarkMode, theme, handleTheme } = useContext(ThemeContext)
     const { isMobile } = useContext(MobileContext)
     const [isActive, setIsActive] = useState(false)
-    const isDarkMode = theme === 'dark'
 
-    const ThemeButton = () => <button onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}}  title="Dark Mode">{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
+    const ThemeButton = () => <button onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}} title={`Currently: ${theme} theme. Click to switch to Light theme.`}>{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
 
     const NavLinksTSX = () => (
         <>
