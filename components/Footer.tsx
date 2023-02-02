@@ -7,26 +7,29 @@ import { StyledLink } from "./StyledLink";
 
 import GithubIcon from './icons/GithubIcon';
 import vercel from '/public/vercel.svg'
+import LinkedInIcon from "./icons/LinkedInIcon";
 
 
 export const Footer = () => {
-    const { theme } = useContext(ThemeContext)
-  
+    const { isDarkMode } = useContext(ThemeContext)
+
     return  (
-      <footer className={`${styles.footer} ${theme}`}>
-        <StyledLink href="https://github.com/kimdolion/kimdolion.github.io" name="This Project's Github" leftIcon>
-          <GithubIcon width="1.5em" fill={theme === 'light' ? "": "white" } />
-        </StyledLink>
-        <StyledLink href="https://github.com/kimdolion" name="My Github" leftIcon>
-          <GithubIcon width="1.5em" fill={theme === 'light' ? "": "white" }  />
-        </StyledLink>
-        <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin" />
-        <Link
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.styledLink}
-        >
-          Powered by <Image src={vercel} alt="Vercel Logo." height={75} width={75} />
-        </Link>
+      <footer className={`${styles.footer}`} style={{boxShadow: `0 1px 30px -10px ${isDarkMode ?  'black' : 'gray'}` }}>
+        <div style={{alignItems: 'center', display: 'flex', justifyContent: "space-between", gap: 50, }}>
+          <StyledLink href="https://github.com/kimdolion" name="" leftIcon>
+            <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />
+          </StyledLink>
+          <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="" leftIcon><LinkedInIcon fill={isDarkMode ? "white" : "" } width="1.5em" /></StyledLink>
+        </div>
+        <div style={{alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: "center" }}>
+          Designed & Built by Kimberly Wilkes
+          <Link
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className={styles.styledLink}
+          >
+            Powered by <Image src={vercel} alt="Vercel Logo." height={75} width={75} />
+          </Link>
+        </div>
       </footer>
     )
 }

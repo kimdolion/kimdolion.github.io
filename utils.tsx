@@ -30,7 +30,7 @@ export const useOutsideClick  = (ref: RefObject<HTMLDivElement>, handler: (event
 
 // Light/Dark Mode https://github.com/nas5w/usecontext-theme-toggling
 type Theme = "light" | "dark";
-type ThemeContext = { theme: Theme, handleTheme: ()=> void}
+type ThemeContext = { theme: Theme, isDarkMode: boolean, handleTheme: ()=> void}
 
 export const ThemeContext = createContext<ThemeContext>(
     {} as ThemeContext
@@ -47,7 +47,7 @@ interface ThemeProviderProps {
  */
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>("dark");
-  
+  const isDarkMode = theme === 'dark'
   
   // get the defined mode from the browser
   useEffect(() => {
@@ -60,7 +60,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, handleTheme}}>
+    <ThemeContext.Provider value={{ theme, isDarkMode, handleTheme}}>
       {children}
     </ThemeContext.Provider>
   );

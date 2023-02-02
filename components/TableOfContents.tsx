@@ -31,7 +31,7 @@ interface Option {
  * // https://react-select.com/home
  */
 const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
-  const { theme } = useTheme()
+  const { isDarkMode, theme } = useTheme()
   const options: Option[] = headings.map((headingDetail) => {
     const { heading: { id, innerText } } = headingDetail
     return { id, label: innerText, value: id }
@@ -45,14 +45,14 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
   const tocStyles: StylesConfig<Option, false> = {
     control: (styles) => {return { 
       ...styles, 
-      backgroundColor: theme === 'dark' ? 'silver' : '#1e1e1e', 
-      borderRadius: 2, color: theme === 'dark' ? 'black' : 'white', 
+      backgroundColor: isDarkMode ? 'silver' : '#1e1e1e', 
+      borderRadius: 2, color: isDarkMode ? 'black' : 'white', 
       marginTop: '1rem', 
       opacity: 0.8, 
       padding: '0.5rem' 
     }},
     menu: () => ({
-      backgroundColor: theme === 'dark' ? 'gray' : '#1e1e1e',
+      backgroundColor: isDarkMode ? 'gray' : '#1e1e1e',
       borderRadius: 2,
     }),
     option: ( { isSelected }) => {
