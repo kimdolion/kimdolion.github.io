@@ -21,13 +21,13 @@ a {
 }
 
 
-.light {
+.Light {
   background: white;
   color: black;
   transition: all 0.3s
 }
 
-.dark {
+.Dark {
   /* background: #1e1e1e; */
   color: #eee;
   transition: all 0.3s
