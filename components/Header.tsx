@@ -61,16 +61,14 @@ export const Header = () => {
     });
 
     return (
-        <header className={`${styles.header}`} style={{boxShadow: `0 1px 30px -10px ${isDarkMode ?  'black' : 'gray'}` }}>
-            <div style={{alignItems: 'center', display: 'flex', gap: 10}}>
+        <header className={styles.header} style={{ boxShadow: `0 1px 30px -10px ${isDarkMode ?  'black' : 'gray'}` }}>
+            <div className={styles.headerLinks}>
                 <Link href="/" className={styles.navLogo} >
                     Kimberly Wilkes
                 </Link>
-                |
                 <StyledLink href="https://github.com/kimdolion" name="" leftIcon>
                     <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />
                 </StyledLink>
-                |
                 <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="" leftIcon>
                     <LinkedInIcon fill={isDarkMode ? "white" : "" } width="1.5em" />
                 </StyledLink>
@@ -80,7 +78,7 @@ export const Header = () => {
                 <div ref={ref}>
                     <BurgerMenu open={isActive} setOpen={setIsActive} />
                     {isActive ? <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#6e0202' : '', color: '#f4f6f99a' }}>
-                        <p style={{color: '#f4f6f9'}}>Learn more:</p>
+                        <p style={{ color: '#f4f6f9' }}>Learn more:</p>
                         <NavLinksTSX />
                     </div> : null }
                 </div>
