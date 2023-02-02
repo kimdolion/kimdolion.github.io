@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Kimberly Wilkes' Portfolio</title>
+        <title>Kimberly Wilkes' Software Engineer Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

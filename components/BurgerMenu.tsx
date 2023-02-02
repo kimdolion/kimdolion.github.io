@@ -17,9 +17,9 @@ export const BurgerMenu = ({open, setOpen}: BurgerMenuProps) => {
 
     return (
         <div id="burger-menu" className={styles.burgerMenu} aria-label='Hamburger Nav Menu' aria-expanded={open} onClick={() => setOpen(!open)} title="Click for navigation links.">
-            <span style={{ borderBottom: `3px solid ${isDarkMode ? 'white' : 'black'}`, borderRadius: '5px', transform: open ? 'rotate(135deg)' : 'rotate(0)', transition: '.25s ease-in-out', width: '100%'}} />
-            <span style={{ borderBottom: `3px solid ${isDarkMode ? 'white' : 'black'}`, borderRadius: '5px', opacity: open ? 0 : 1, transform: open ? 'translateX(-20vw)' : 'translateX(0)', transition: '.25s ease-in-out', width: '100%'}} />
-            <span style={{ borderBottom: `3px solid ${isDarkMode ? 'white' : 'black'}`, borderRadius: '5px', top: open ? '12px': '600px', transform: open ? 'rotate(-135deg)' : 'rotate(0)', transition: '.25s ease-in-out', width: '100%'}} />
+            <span style={{ borderBottom: `3px solid ${isDarkMode ? 'white' : 'black'}`, borderRadius: '5px', transform: open ? 'rotate(135deg)' : 'rotate(0)', transformOrigin: 0, transition: '.3s ease-out', width: '100%'}} />
+            <span style={{ borderBottom: `3px solid ${isDarkMode ? 'white' : 'black'}`, borderRadius: '5px', opacity: open ? 0 : 1, transform: open ? 'translateX(-20vw)' : 'translateX(0)',  transition: '.3s ease-out', width: '100%'}} />
+            <span style={{ borderBottom: `3px solid ${isDarkMode ? 'white' : 'black'}`, borderRadius: '5px', top: open ? '12px': '100px', transform: open ? 'rotate(-135deg)' : 'rotate(0)', transformOrigin: 0, transition: '.3s ease-out', width: '100%'}} />
         </div>
     )
 }

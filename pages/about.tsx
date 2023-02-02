@@ -11,7 +11,7 @@ export default function About() {
       </Head>
 
       <Page>
-        <div>
+        <div className="toc-layout">
           <AboutSection extraInfo />
         </div>
       </Page>
