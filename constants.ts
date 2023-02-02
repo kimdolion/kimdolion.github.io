@@ -7,8 +7,8 @@ export const currentProjects: ProjectProps[] = [
     id: 'project-personal-portfolio',
     title: 'Personal Portfolio',
     projectImage: {
-      alt: '',
-      src: '',
+      alt: "Screenshot of Kimberly Wilkes' portfolio site's frontpage with profile photo and description of herself.",
+      src: 'https://kimdolion-portfolio.s3.amazonaws.com/Screen+Shot+2023-02-02+at+4.49.01+PM.png',
       height: 2052,
       width: 1438,
     },
@@ -17,7 +17,7 @@ export const currentProjects: ProjectProps[] = [
     links: [
       {
         name: 'Frontend Github',
-        href: 'https://github.com/kimdolion/kimdolion-github-io',
+        href: 'https://github.com/kimdolion/kimdolion.github.io',
         iconName: 'Github',
       },
     ]
@@ -27,7 +27,7 @@ export const currentProjects: ProjectProps[] = [
     title: 'Pokemon Marketplace',
     projectImage: {
       src: '',
-      alt: '',
+      alt: 'Under construction sign.',
       height: 2052,
       width: 1438,
     },
@@ -169,7 +169,7 @@ export const generalAssemblyProjects: ProjectProps[] = [
   {
     id: 'project-yeet-into-the-void',
     title: 'Yeet into the Void',
-    description: 'A place to collect your thoughts and "throw" them into space.',
+    description: 'An ultra simple fullstack project where I wanted to experiment with animations. It was a place to collect your thoughts and "throw" them into space.',
     projectImage: {
       src: 'https://kimdolion-portfolio.s3.amazonaws.com/void-yeet.jpg',
       alt: 'Screenshot of a website that has a black starry background and instructions to sign up.',

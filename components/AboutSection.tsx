@@ -29,8 +29,8 @@ export const AboutSection = ({ extraInfo = false }: AboutProps): JSX.Element => 
         <Link href="/about"><h2 id="about-section" title="Learn more" className={styles.styledLink}>Kimberly Wilkes</h2></Link>
       </div>
       <div>
-        <p>I'm a software engineer, former educator, and lifetime learner, with a passion for user-centered and responsive web design.</p>
-        <p>My recent work exposed me to many different industries and technologies though I find myself most at home with the frontend in React (Typescript).</p>
+        <p>I'm a software engineer, former educator, and hobby cosplayer; in short a lifetime learner and problem solver, with a passion for user-centered and responsive web design.</p>
+        <p>My recent agency work exposed me to many different industries and technologies though I find myself most at home with the frontend in React (Typescript). I've also had a hand in some React Native projects and would love to explore that more.</p>
         {currentlyLooking && <p>Currently looking for my next opportunity to dive deeper into the ever evolving world of tech! Let's connect on <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin"></StyledLink>?</p>}
         {extraInfo ? <RandomFactList /> : <p>You can learn even more about me, my work history, education, and projects on their respective pages.</p> }
       </div>
