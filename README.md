@@ -1,6 +1,6 @@
 # Kimberly Wilkes
 
-This portfolio was created using NextJS and shows Styled-jsx (with SCSS) working for components written in TypeScript rendered both inside and outside of Storybook.
+This portfolio was created using NextJS and shows Styled-jsx (with SCSS) working for components written in TypeScript. Images for the projects I've made are hosted on AWS S3. 
 
 ## How to use
 ```bash

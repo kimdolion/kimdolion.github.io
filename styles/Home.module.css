@@ -275,6 +275,10 @@
   .headerLinks {
     gap: 10px;
   }
+  
+  .imageText {
+    font-size: 2rem;
+  }
 
   .photoContainer {
     align-items: center;
