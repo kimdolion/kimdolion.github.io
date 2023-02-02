@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useContext, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
 import Select, { SingleValue, StylesConfig } from 'react-select'
-import { MobileContext, ThemeContext, useTheme } from "@/utils";
+import { MobileContext, useTheme } from "@/utils";
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
 
@@ -32,6 +32,7 @@ interface Option {
  */
 const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
   const { isDarkMode } = useTheme()
+  
   const options: Option[] = headings.map((headingDetail) => {
     const { heading: { id, innerText } } = headingDetail
     return { id, label: innerText, value: id }
@@ -77,6 +78,7 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
 
   return (
     <Select
+      aria-label="Table of Contents"
       defaultValue={options[0]}
       onChange={handleSelect}
       options={options}
@@ -91,7 +93,6 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
  */
 const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
   const { isMobile } = useContext(MobileContext)
-  const {isDarkMode} = useContext(ThemeContext)
 
   return (
     <div className="table-of-contents">

@@ -64,7 +64,7 @@ export const Header = () => {
         <header className={styles.header} style={{ boxShadow: `0 1px 30px -10px ${isDarkMode ?  'black' : 'gray'}` }}>
             <div className={styles.headerLinks}>
                 <Link href="/" className={styles.navLogo} >
-                    Kimberly Wilkes
+                    <h1>Kimberly Wilkes</h1>
                 </Link>
                 <StyledLink href="https://github.com/kimdolion" name="" leftIcon>
                     <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />
@@ -73,14 +73,14 @@ export const Header = () => {
                     <LinkedInIcon fill={isDarkMode ? "white" : "" } width="1.5em" />
                 </StyledLink>
             </div>
-            <nav id="nav-section" aria-label="Navigation Links" className={styles.navList}>
+            <nav className={styles.navList}>
                 {isMobile ?
                 <div ref={ref}>
                     <BurgerMenu open={isActive} setOpen={setIsActive} />
-                    {isActive ? <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#6e0202' : '', color: '#f4f6f99a' }}>
+                    {isActive && <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#6e0202' : '', color: '#f4f6f99a' }}>
                         <p style={{ color: '#f4f6f9' }}>Learn more:</p>
                         <NavLinksTSX />
-                    </div> : null }
+                    </div> }
                 </div>
                 :
                     <NavLinksTSX />
