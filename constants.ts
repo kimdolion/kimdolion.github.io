@@ -16,11 +16,6 @@ export const currentProjects: ProjectProps[] = [
     technologies: 'NextJS, TypeScript, Sass, and React-Select.',
     links: [
       {
-        name: 'Portfolio: Client',
-        href: 'https://kimdolion.github.io',
-        iconName: 'ArrowOut',
-      },
-      {
         name: 'Frontend Github',
         href: 'https://github.com/kimdolion/kimdolion.github.io',
         iconName: 'Github',
