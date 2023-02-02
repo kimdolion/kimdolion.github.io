@@ -238,7 +238,14 @@ export const randomFacts: string[] = [
 export const workExperiences: ExperienceDetailsProps[] = [
   {
     company: 'Echobind',
-    headingProps: { mainHeadingText: 'Software Engineer II', id: "software-engineer", startMonth: 'Sept', startYear: 2020, endMonth: 'Jan', endYear: 2023},
+    headingProps: { 
+      mainHeadingText: 'Software Engineer II', 
+      id: "software-engineer", 
+      startMonth: 'Sept', 
+      startYear: 2020, 
+      endMonth: 'Jan', 
+      endYear: 2023
+    },
     location: 'Boston (Remote)',
     responsibilities: [
       'Developed full stack web and mobile apps for a variety of industries following best practices using technologies and libraries including React, React Native, TypeScript, Nextjs, Prisma, Apollo, Tailwind CSS, and Graphql.',
@@ -251,7 +258,14 @@ export const workExperiences: ExperienceDetailsProps[] = [
   },
   {
     company: 'athenaHealth',
-    headingProps: { mainHeadingText: 'Software Development Intern', id: 'software-intern', startMonth: 'June', startYear: 2020, endMonth: 'Aug', endYear: 2020},
+    headingProps: { 
+      mainHeadingText: 'Software Development Intern', 
+      id: 'software-intern', 
+      startMonth: 'June', 
+      startYear: 2020, 
+      endMonth: 'Aug', 
+      endYear: 2020
+    },
     location: 'Boston (Remote)',
     responsibilities: [
       'Replaced IAM scripts for updated infrastructure moving towards managing Okta hosted microservices through the use of Terraform, Jenkins, Docker, and AWS, engaging in CI/CD pipelines for development, testing, and deployment.',
@@ -262,7 +276,14 @@ export const workExperiences: ExperienceDetailsProps[] = [
   },
   {
     company: 'Hack.Diversity',
-    headingProps: { mainHeadingText: '2020 Hack.Diversity Fellow', id: 'hack-diversity-fellow', startMonth: 'Nov', startYear: 2019, endMonth: 'Aug', endYear: 2020},
+    headingProps: { 
+      mainHeadingText: '2020 Hack.Diversity Fellow', 
+      id: 'hack-diversity-fellow', 
+      startMonth: 'Nov', 
+      startYear: 2019, 
+      endMonth: 'Aug', 
+      endYear: 2020
+    },
     location: 'Boston (Remote)',
     responsibilities: [
         'Selected as 1 of 75 candidates selected into 2020 Hack.Diversity Fellowship, a career leadership and workforce development program that integrates Boston’s innovation, corporate civic, academic, and philanthropic pillars to provide mentoring and support of under-represented populations in the technology industry.',
@@ -272,7 +293,14 @@ export const workExperiences: ExperienceDetailsProps[] = [
   },
   {
     company: 'Boston Public Schools',
-    headingProps: { mainHeadingText: 'Elementary Educator', id: 'elementary-educator', startMonth: 'Aug', startYear: 2013, endMonth: 'June', endYear: 2019},
+    headingProps: { 
+      mainHeadingText: 'Elementary Educator', 
+      id: 'elementary-educator', 
+      startMonth: 'Aug', 
+      startYear: 2013, 
+      endMonth: 'June', 
+      endYear: 2019
+    },
     location: 'Boston (Remote)',
     responsibilities: [
         'Collaborated within and across grade level teams (2nd to 7th) to provide differentiated learning experiences using a variety of curriculum and technology resources with a focus on Science, Technology, Engineering, Mathematics (STEM).',

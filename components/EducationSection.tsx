@@ -23,7 +23,7 @@ export const EducationSection = ({ extraInfo = false }: EducationProps): JSX.Ele
       {educationDetails.map((educationDetail, index)=> {
         const { certification, extraDetails, headingProps } = educationDetail;
         return (
-        <div key={headingProps.id + index} id={headingProps.id} style={{padding: '0.5rem 0'}}>
+        <div key={headingProps.id + index} style={{padding: '0.5rem 0'}}>
           <InlineHeading {...headingProps} includeURL={extraInfo} />
           <p>{certification}</p>
           {extraInfo ? <p style={{padding: '1rem 0'}}>{extraDetails}</p> : null}

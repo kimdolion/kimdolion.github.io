@@ -28,7 +28,7 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
         <div>{company} in {location}</div>
         <ul>
           {responsibilities.map((responsibility: string, index: number)=> (
-            <li key={index}>{responsibility}</li>
+            <li key={"responsibility-" + index}>{responsibility}</li>
           ))}
         </ul>
         {extraInfo && extraDetails ? <div style={{padding: '2rem 0'}}>{extraDetails}</div>: null}
@@ -37,7 +37,7 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
   )
 }
 
-const workExperiencesTSX = workExperiences.map((experience: ExperienceDetailsProps, index: number)=> <ExperienceDetails key={experience.location+ index} {...experience} />)
+const workExperiencesTSX = workExperiences.map((experience: ExperienceDetailsProps, index: number)=> <ExperienceDetails key={experience.company + index} {...experience} />)
 
 export const ExperienceSection = ({extraInfo=false}: ExperienceProps): JSX.Element => (
   <Section>

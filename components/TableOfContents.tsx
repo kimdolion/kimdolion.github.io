@@ -40,7 +40,7 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
 
   const handleSelect = (newValue: SingleValue<Option>) => {
     if (newValue) {
-      const headingElement = document.getElementById(newValue?.id)
+      const headingElement = document.getElementById(newValue?.value)
       headingElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
   }
@@ -98,11 +98,11 @@ const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
     <div className="table-of-contents">
       {isMobile ? <HeadingsDropdown headings={headings} />  :
       <ul className="table-of-contents">
-      {headings.map((headingElement) => {
+      {headings.map((headingElement, index) => {
         const { heading: { id, innerText } } = headingElement;
 
         return (
-        <li key={id} className={id === activeId ? "active" : ""}>
+        <li key={index} className={id === activeId ? "active" : ""}>
           <a
             href={`#${id}`}
             onClick={(e) => {
