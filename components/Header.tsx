@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { MobileContext, ThemeContext, useOutsideClick } from "@/utils";
+import { MobileContext, ThemeContext, useOutsideClick, useTheme } from "@/utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { StyledLink, styledLinkProp } from "./StyledLink";
@@ -40,7 +40,7 @@ const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
 
 
 export const Header = () => {
-    const { isDarkMode, theme, handleTheme } = useContext(ThemeContext)
+    const { isDarkMode, theme, handleTheme } = useTheme()
     const { isMobile } = useContext(MobileContext)
     const [isActive, setIsActive] = useState(false)
 

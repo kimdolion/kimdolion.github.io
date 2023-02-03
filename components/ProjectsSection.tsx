@@ -8,8 +8,7 @@ import { StyledLink } from './StyledLink';
 import styles from '@/styles/Home.module.css'
 import { ImageOverlay, ImageProps } from './ImageOverlay';
 import GithubIcon from './icons/GithubIcon';
-import { useContext } from 'react';
-import { ThemeContext } from '@/utils';
+import { useTheme } from '@/utils';
 import ArrowOutIcon from './icons/ArrowOutIcon';
 import UnderConstructionImage from '/public/mark-konig-Uu5fnOkFAdA-unsplash.jpg'
 
@@ -34,7 +33,7 @@ export interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project} : ProjectCardProps) => {
-  const { isDarkMode } = useContext(ThemeContext)
+  const { isDarkMode } = useTheme()
   const { description, id, projectImage, links, technologies, title } = project;
   const { src, } = projectImage;
   const imageAvailable = src !== ''

@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useContext } from "react"
-import { ThemeContext } from "@/utils"
+import { Dispatch, SetStateAction } from "react"
+import { useTheme } from "@/utils"
 import styles from '@/styles/Home.module.css'
 
 interface BurgerMenuProps {
@@ -13,7 +13,7 @@ interface BurgerMenuProps {
  * @returns a mobile friendly burger menu made out of divs that change color and transformation based on open param
  */
 export const BurgerMenu = ({open, setOpen}: BurgerMenuProps) => {
-    const { isDarkMode } = useContext(ThemeContext)
+    const { isDarkMode } = useTheme()
 
     return (
         <div id="burger-menu" className={styles.burgerMenu} aria-label='Hamburger Nav Menu' aria-expanded={open} role="button" onClick={() => setOpen(!open)} title="Click for navigation links.">
