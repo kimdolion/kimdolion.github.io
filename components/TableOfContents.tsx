@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useContext, useEffect, useRef, useState } fro
 import { headingGroupings } from "@/constants";
 import Select, { SingleValue, StylesConfig } from 'react-select'
 import { MobileContext, useTheme } from "@/utils";
+import styles from '@/styles/Home.module.css'
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
 
@@ -95,14 +96,15 @@ const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
   const { isMobile } = useContext(MobileContext)
 
   return (
-    <div className="table-of-contents">
+    <div className={styles.tableOfContents}>
       {isMobile ? <HeadingsDropdown headings={headings} />  :
-      <ul className="table-of-contents">
+      <ul className={styles.tableOfContentsList}>
       {headings.map((headingElement, index) => {
         const { heading: { id, innerText } } = headingElement;
+        const isActive = id === activeId
 
         return (
-        <li key={index} className={id === activeId ? "active" : ""}>
+        <li key={index} className={id === activeId ? "active" : ""} style={{textDecoration: isActive ? 'underline': '' }}>
           <a
             href={`#${id}`}
             onClick={(e) => {
@@ -190,7 +192,7 @@ export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
   useIntersectionObserver(headingDepth, setActiveId);
 
   return (
-    <nav aria-label="Table of contents" id="table-of-contents" className="table-of-contents">
+    <nav aria-label="Table of contents" id="table-of-contents" className={styles.tableOfContents}>
       <HeadingsList headings={headings} activeId={activeId} />
     </nav>
   );

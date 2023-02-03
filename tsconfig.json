@@ -23,6 +23,7 @@
     "resolveJsonModule": true,
     "rootDir": ".",
     "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true,
     "typeRoots": [
       "node_modules/@types",
@@ -30,11 +31,14 @@
     ],
   },
   "include": [
+    ".",
     "next-env.d.ts",
+    "types.ts",
+    "types.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
   ]
 }
