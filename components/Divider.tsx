@@ -1,5 +1,4 @@
-import { useContext } from "react"
-import { ThemeContext, useTheme } from "@/utils"
+import { useTheme } from "@/utils"
 
 interface DividerProps {
     lineThickness?: string;

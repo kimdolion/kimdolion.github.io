@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { MobileContext, ThemeContext, useOutsideClick, useTheme } from "@/utils";
+import { MobileContext, useOutsideClick, useTheme } from "@/utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { StyledLink, styledLinkProp } from "./StyledLink";
