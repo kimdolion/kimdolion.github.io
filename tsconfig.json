@@ -19,16 +19,17 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@/constants": ["./constants"],
-      "@/components/*": ["./components/*"],
-      "@/utils": ["./utils"],
-      "@/styles/*": ["./styles/*"]
+      "@/constants": ["constants"],
+      "@/components/*": ["components/*"],
+      "@/utils": ["utils"],
+      "@/styles/*": ["styles/*"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
+    "types": ["jest", "node", "@types/jest", "@types/testing-library__jest-dom"], 
     "typeRoots": [
       "node_modules/@types",
       "types"
@@ -40,8 +41,8 @@
     "types.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "jest.setup.ts",
-    "jest.config.js"
+    "./jest.setup.ts",
+    "jest.config.js",
   ],
   "exclude": [
     "node_modules",

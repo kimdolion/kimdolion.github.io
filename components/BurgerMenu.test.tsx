@@ -2,7 +2,6 @@
  * @jest-environment jsdom
 */
 import { useState } from 'react';
-import { describe, expect, test } from '@jest/globals';
 import { fireEvent, render } from '@testing-library/react';
 import { BurgerMenu } from './BurgerMenu';
 

@@ -15,8 +15,6 @@ jest.mock('next/router', () => ({
   }));
 
 describe('utils', () => {
-
-    
     test('ThemeProvider renders', () => {
       Object.defineProperty(window, "matchMedia", {
           value: jest.fn((query) => {

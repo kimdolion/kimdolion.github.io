@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Divider } from './Divider';
 import { Section } from './Section';
 
-import { currentProjects, generalAssemblyProjects } from '../constants';
+import { currentProjects, generalAssemblyProjects } from '@/constants';
 import { StyledLink } from './StyledLink';
 import styles from '@/styles/Home.module.css'
 import { ImageOverlay, ImageProps } from './ImageOverlay';
