@@ -19,10 +19,10 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@/constants": ["constants"],
+      "@/constants": ["./constants"],
       "@/components/*": ["./components/*"],
       "@/utils": ["./utils"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["./styles/*"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",
@@ -40,6 +40,8 @@
     "types.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "jest.setup.js",
+    "jest.config.ts"
   ],
   "exclude": [
     "node_modules",

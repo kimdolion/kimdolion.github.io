@@ -1,9 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-import { ThemeProvider, MobileProvider, MobileContext, useMobile, ThemeContext } from './utils';
+import { ThemeProvider, MobileContext, ThemeContext } from './utils';
 import { describe, test } from '@jest/globals';
-import { render, renderHook } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Header } from './components/Header';
 
 jest.mock('next/router', () => ({
