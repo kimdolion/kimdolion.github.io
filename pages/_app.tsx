@@ -12,7 +12,7 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MobileProvider>
-      <ThemeProvider>
+      <ThemeProvider value={"Dark"}>
         <Component {...pageProps} />
       </ThemeProvider>
     </MobileProvider>

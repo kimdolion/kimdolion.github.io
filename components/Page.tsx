@@ -1,7 +1,7 @@
 import { ReactNode, useContext } from 'react'
 import styles from '@/styles/Home.module.css'
 
-import { ThemeContext } from '@/utils';
+import { ThemeContext, useTheme } from '@/utils';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
@@ -10,7 +10,7 @@ export interface PageProps {
 }
 
 export const Page = ({ children }: PageProps): JSX.Element => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useTheme();
 
   return (
     <div className={`${theme} ${styles.container}`}>

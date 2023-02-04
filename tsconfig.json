@@ -15,10 +15,14 @@
     "incremental": true,
     "noEmit": true,
     "noImplicitAny": true,
+    // "noUnusedLocals": true,
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@/*": ["./*"]
+      "@/constants": ["constants"],
+      "@/components/*": ["./components/*"],
+      "@/utils": ["./utils"],
+      "@/styles/*": ["styles/*"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",
@@ -31,7 +35,6 @@
     ],
   },
   "include": [
-    ".",
     "next-env.d.ts",
     "types.ts",
     "types.d.ts",

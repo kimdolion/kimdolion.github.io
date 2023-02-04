@@ -1,5 +1,5 @@
-import { useContext, useRef, useState } from "react";
-import { MobileContext, useOutsideClick, useTheme } from "@/utils";
+import { useRef, useState } from "react";
+import { useMobile, useOutsideClick, useTheme } from "@/utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { StyledLink, styledLinkProp } from "./StyledLink";
@@ -41,10 +41,10 @@ const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
 
 export const Header = () => {
     const { isDarkMode, theme, handleTheme } = useTheme()
-    const { isMobile } = useContext(MobileContext)
+    const { isMobile } = useMobile()
     const [isActive, setIsActive] = useState(false)
 
-    const ThemeButton = () => <button onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}} title={`Currently: ${theme} theme. Click to switch to Light theme.`}>{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
+    const ThemeButton = () => <button data-testid="themeButton" onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}} title={`Currently: ${theme} theme. Click to switch to ${isDarkMode ? 'Light' : 'Dark'} theme.`}>{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
 
     const NavLinksTSX = () => (
         <>

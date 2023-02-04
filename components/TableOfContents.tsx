@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useContext, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { headingGroupings } from "@/constants";
 import Select, { SingleValue, StylesConfig } from 'react-select'
-import { MobileContext, useTheme } from "@/utils";
+import { useMobile, useTheme } from "@/utils";
 import styles from '@/styles/Home.module.css'
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
@@ -93,7 +93,7 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
  * Component that creates an unordered list of the headings with a link to scroll to selected heading that will be highlighted as active
  */
 const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
-  const { isMobile } = useContext(MobileContext)
+  const { isMobile } = useMobile()
 
   return (
     <div className={styles.tableOfContents}>

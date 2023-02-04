@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState, RefObject, Ref } from "react"
+import { createContext, ReactNode, useContext, useEffect, useState, RefObject } from "react"
 import { randomFacts } from "./constants"
 
 export const getRandomFact = () => {
@@ -35,7 +35,7 @@ export const ThemeContext = createContext<ThemeContext>(
 );
 
 interface ThemeProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 /**
@@ -52,13 +52,14 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const darkOS = window.matchMedia("(prefers-color-scheme: dark)").matches;
     setTheme(darkOS ? "Dark" : "Light");
   }, []);
-
+  
   const handleTheme = () => {
     setTheme(isDarkMode ? 'Light' : 'Dark' )
   }
-
+  
+  const value = { theme, isDarkMode, handleTheme}
   return (
-    <ThemeContext.Provider value={{ theme, isDarkMode, handleTheme}}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );
@@ -99,8 +100,9 @@ export const MobileProvider = ({ children }: MobileProviderProps) => {
     return () => window.removeEventListener('resize', handleResize)
 }, [width])
 
+  const value = { isMobile }
   return (
-    <MobileContext.Provider value={{ isMobile }}>
+    <MobileContext.Provider value={value}>
       {children}
     </MobileContext.Provider>
   );
