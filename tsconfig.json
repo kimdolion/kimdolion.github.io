@@ -40,8 +40,8 @@
     "types.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "jest.setup.js",
-    "jest.config.ts"
+    "jest.setup.ts",
+    "jest.config.js"
   ],
   "exclude": [
     "node_modules",
