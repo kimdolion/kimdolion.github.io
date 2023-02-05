@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { HEADING_GROUPINGS, TEST_IDS } from "@/constants";
-import { useMobile, useOutsideClick, useTheme } from "@/utils";
+import { useMobile, useTheme } from "@/utils";
 import styles from '@/styles/Home.module.css'
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/ and 
