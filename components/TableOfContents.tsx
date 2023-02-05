@@ -192,8 +192,8 @@ export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
   useIntersectionObserver(headingDepth, setActiveId);
 
   return (
-    <nav aria-label="Table of Contents" id="table-of-contents" className={styles.tableOfContents}>
-      <HeadingsList data-testId={TEST_IDS.tocTestIds.tableOfContents} headings={headings} activeId={activeId} />
+    <nav aria-label="Table of Contents" data-testid={TEST_IDS.tocTestIds.tableOfContents} id="table-of-contents" className={styles.tableOfContents}>
+      <HeadingsList headings={headings} activeId={activeId} />
     </nav>
   );
 };
