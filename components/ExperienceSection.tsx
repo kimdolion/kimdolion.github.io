@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import Link from 'next/link';
-import { workExperiences } from '@/constants';
+import { WORK_EXPERIENCES } from '@/constants';
 import { Divider } from './Divider';
 import styles from '@/styles/Home.module.css'
 
@@ -19,7 +19,7 @@ export interface ExperienceDetailsProps {
   extraDetails: ReactNode;
 }
 
-const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperiences[0], extraInfo: boolean) => {
+const ExperienceDetails = (experienceWork: ExperienceDetailsProps = WORK_EXPERIENCES[0], extraInfo: boolean) => {
   const {company, headingProps, location, responsibilities, extraDetails} = experienceWork;
 
   return (
@@ -37,11 +37,11 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = workExperien
   )
 }
 
-const workExperiencesTSX = workExperiences.map((experience: ExperienceDetailsProps, index: number)=> <ExperienceDetails key={experience.company + index} {...experience} />)
+const workExperiencesTSX = WORK_EXPERIENCES.map((experience: ExperienceDetailsProps, index: number)=> <ExperienceDetails key={experience.company + index} {...experience} />)
 
 export const ExperienceSection = ({extraInfo=false}: ExperienceProps): JSX.Element => (
   <Section>
       <Link href="/experience" className={styles.styledLink}><h2 id="experience-section" title="Want to see more work history?">{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
-      {extraInfo ? workExperiencesTSX : <ExperienceDetails {...workExperiences[0]} />}
+      {extraInfo ? workExperiencesTSX : <ExperienceDetails {...WORK_EXPERIENCES[0]} />}
   </Section>
 )

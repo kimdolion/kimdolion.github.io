@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useContext, useEffect, useState, RefObject } from "react"
-import { randomFacts } from "./constants"
+import { RANDOM_FACTS } from "./constants"
 
 export const getRandomFact = () => {
-    let index = Math.round(Math.random()* (randomFacts.length - 0) + 0)
-    return (randomFacts[index])
+    let index = Math.round(Math.random()* (RANDOM_FACTS.length - 0) + 0)
+    return (RANDOM_FACTS[index])
 }
 
 

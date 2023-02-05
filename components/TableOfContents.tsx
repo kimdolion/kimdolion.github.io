@@ -1,11 +1,10 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { headingGroupings } from "@/constants";
+import { HEADING_GROUPINGS, TEST_IDS } from "@/constants";
 import Select, { SingleValue, StylesConfig } from 'react-select'
 import { useMobile, useTheme } from "@/utils";
 import styles from '@/styles/Home.module.css'
 
 // Used tutorial from https://www.emgoto.com/react-table-of-contents/
-
 interface HeadingsDropdownProps {
   headings: HeadingDataProps[];
 }
@@ -80,6 +79,7 @@ const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
   return (
     <Select
       aria-label="Table of Contents"
+      data-testid={TEST_IDS.tocTestIds.dropdown}
       defaultValue={options[0]}
       onChange={handleSelect}
       options={options}
@@ -96,7 +96,7 @@ const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
   const { isMobile } = useMobile()
 
   return (
-    <div className={styles.tableOfContents}>
+    <div className={styles.tableOfContents} data-testid={TEST_IDS.tocTestIds.list}>
       {isMobile ? <HeadingsDropdown headings={headings} />  :
       <ul className={styles.tableOfContentsList}>
       {headings.map((headingElement, index) => {
@@ -131,7 +131,7 @@ const useHeadingsData = (headingDepth: number) => {
   const [headings, setHeadings] = useState<{heading: HTMLHeadingElement}[]>([]);
 
   useEffect(() => {
-    const headingElements: HTMLHeadingElement[] = Array.from(document.querySelectorAll(headingGroupings[headingDepth]))
+    const headingElements: HTMLHeadingElement[] = Array.from(document.querySelectorAll(HEADING_GROUPINGS[headingDepth]))
 
     const mappedElements = headingElements.map((heading)=> {
       return { heading }
@@ -174,7 +174,7 @@ const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<Set
 
     const observer = new IntersectionObserver(callback, { rootMargin: "0px 0px -10% 0px" });
 
-    const headingElements = Array.from(document.querySelectorAll(headingGroupings[headingDepth]));
+    const headingElements = Array.from(document.querySelectorAll(HEADING_GROUPINGS[headingDepth]));
 
     headingElements.forEach((element) => observer.observe(element));
 
@@ -192,8 +192,8 @@ export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
   useIntersectionObserver(headingDepth, setActiveId);
 
   return (
-    <nav aria-label="Table of contents" id="table-of-contents" className={styles.tableOfContents}>
-      <HeadingsList headings={headings} activeId={activeId} />
+    <nav aria-label="Table of Contents" id="table-of-contents" className={styles.tableOfContents}>
+      <HeadingsList data-testId={TEST_IDS.tocTestIds.tableOfContents} headings={headings} activeId={activeId} />
     </nav>
   );
 };

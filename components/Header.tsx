@@ -10,6 +10,7 @@ import DayIcon from './icons/DayIcon';
 import NightIcon from './icons/NightIcon';
 import LinkedInIcon from "./icons/LinkedInIcon";
 import GithubIcon from "./icons/GithubIcon";
+import { TEST_IDS } from "@/constants";
 
 export interface HeaderProps {
     onClick: () => void;
@@ -44,7 +45,7 @@ export const Header = () => {
     const { isMobile } = useMobile()
     const [isActive, setIsActive] = useState(false)
 
-    const ThemeButton = () => <button data-testid="themeButton" onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}} title={`Currently: ${theme} theme. Click to switch to ${isDarkMode ? 'Light' : 'Dark'} theme.`}>{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
+    const ThemeButton = () => <button data-testid={TEST_IDS.headerTestIds.themeButton} onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}} title={`Currently: ${theme} theme. Click to switch to ${isDarkMode ? 'Light' : 'Dark'} theme.`}>{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
 
     const NavLinksTSX = () => (
         <>

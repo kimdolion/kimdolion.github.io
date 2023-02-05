@@ -2,7 +2,7 @@ import { EducationDetailsProps } from "./components/EducationSection";
 import { ExperienceDetailsProps } from "./components/ExperienceSection";
 import { ProjectProps } from "./components/ProjectsSection";
 
-export const currentProjects: ProjectProps[] = [
+export const CURRENT_PROJECTS: ProjectProps[] = [
   {
     id: 'project-personal-portfolio',
     title: 'Personal Portfolio',
@@ -48,7 +48,7 @@ export const currentProjects: ProjectProps[] = [
   }
 ]
 
-export const educationDetails: EducationDetailsProps[] = [
+export const EDUCATION_DETAILS: EducationDetailsProps[] = [
   {
     headingProps: {
       id: 'education-bhcc',
@@ -107,7 +107,7 @@ export const educationDetails: EducationDetailsProps[] = [
   },
 ]
 
-export const generalAssemblyProjects: ProjectProps[] = [
+export const GENERAL_ASSEMBLY_PROJECTS: ProjectProps[] = [
   {
     id: 'project-boba-tracker',
     title: 'Boba Tracker',
@@ -221,11 +221,11 @@ export const generalAssemblyProjects: ProjectProps[] = [
   },
 ]
 
-export const headingGroupings: string[] = [
+export const HEADING_GROUPINGS: string[] = [
   'H2', 'H2, H3', 'H2, H3, H4', 'H2, H3, H4, H5', 'H2, H3, H4, H5, H6'
 ]
 
-export const randomFacts: string[] = [
+export const RANDOM_FACTS: string[] = [
     "I've traveled to 16 different countries before I turned 16.",
     "I have two cats, Evie and Khaleesi (Khali for short).",
     "If I could be any mythical creature, I'd probably be a dragon and would hoard fantasy books and clothing. I'll talk for hours about Wheel of Time, Lord of the Rings, and Game of Thrones.",
@@ -235,7 +235,20 @@ export const randomFacts: string[] = [
     'I am a huge nerd and regularly attend conventions such as Anime Boston, New York Comic Con, and Connecticon.',
 ]
 
-export const workExperiences: ExperienceDetailsProps[] = [
+export const TEST_IDS = {
+  headerTestIds: {
+    themeButton: "themeButton"
+  },
+  // toc = Table of Contents
+  tocTestIds: {
+    dropdown: 'dropdownToC',
+    list: 'listToc',
+    tableOfContents: 'tableOfContents'
+  }
+
+}
+
+export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
   {
     company: 'Echobind',
     headingProps: { 

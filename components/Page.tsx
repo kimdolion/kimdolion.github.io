@@ -1,7 +1,7 @@
-import { ReactNode, useContext } from 'react'
+import { ReactNode } from 'react'
 import styles from '@/styles/Home.module.css'
 
-import { ThemeContext, useTheme } from '@/utils';
+import { useTheme } from '@/utils';
 import { Header } from './Header';
 import { Footer } from './Footer';
 

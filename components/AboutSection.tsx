@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from '@/styles/Home.module.css'
 
 import { getRandomFact } from '@/utils';
-import { randomFacts } from '@/constants';
+import { RANDOM_FACTS } from '@/constants';
 import profilePhoto from '/public/profile.jpg'
 import { Section } from './Section';
 import { StyledLink } from './StyledLink';
@@ -15,9 +15,9 @@ export interface AboutProps {
 }
 const randomFact = getRandomFact();
 
-const RandomFactList = () => <ul>{randomFacts.map((randomFact, index)=>  <li key={'random-fact-' + index}>{randomFact}</li>)}</ul>
+const RandomFactList = () => <ul>{RANDOM_FACTS.map((randomFact, index)=>  <li key={'random-fact-' + index}>{randomFact}</li>)}</ul>
 
-const RandomFactDetail = () => <p>{randomFact}</p>
+const RandomFactDetail = () => <div>Random Fact: <p>{randomFact}</p></div>
 
 
 export const AboutSection = ({ extraInfo = false }: AboutProps): JSX.Element => {
@@ -33,9 +33,9 @@ export const AboutSection = ({ extraInfo = false }: AboutProps): JSX.Element => 
       </div>
       <div>
         <p>I'm a software engineer, former educator, and hobby cosplayer; in short a lifetime learner and problem solver, with a passion for user-centered and responsive web design.</p>
-        <p>My recent agency work exposed me to many different industries and technologies though I find myself most at home with the frontend in React (Typescript). I've also had a hand in some React Native projects and would love to explore that more.</p>
-        {currentlyLooking && <p>Currently looking for my next opportunity to dive deeper into the ever evolving world of tech! Let's connect on <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin"></StyledLink>?</p>}
-        {extraInfo ? <RandomFactDetail /> : <p>You can learn even more about me, my work history, education, and projects on their respective pages.</p> }
+        <p>I've worked with many different industries and technologies though I find myself most at home with the frontend in React (Typescript). I've worked with React Native </p>
+        {currentlyLooking && <p>Currently looking for my next opportunity as a software engineer! Let's connect on <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin"></StyledLink>.</p>}
+        {extraInfo ? <RandomFactDetail /> : <p>Learn even more about me, my work history, education, and projects on their respective pages.</p> }
       </div>
       <div style={{ display:'flex', justifyContent: 'center', marginTop: '3rem' }}>
         <Image src={korAmFlag} height={100} width={100} alt={"Korean and US flag merged by Onjena Yo of Carbon-Fibre Media."} title="Korean and US flag merged by Onjena Yo of Carbon-Fibre Media." style={{borderRadius: 100}} />
