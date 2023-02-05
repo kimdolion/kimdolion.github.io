@@ -175,6 +175,7 @@
 
 .tableOfContents {
   border-radius: 5px;
+  height: 50vh;
   margin-top: 1rem;
   margin-right: 1rem;
   min-width: 200px;
@@ -268,7 +269,7 @@
 }
 
 /* Tablet size */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 766px) {
   .footer {
     align-items: center;
     flex-direction: column;
@@ -302,6 +303,10 @@
 
   .projectCardImage {
     margin: 0;
+  }
+
+  .tableOfContents {
+    height: 100%;
   }
 
 }

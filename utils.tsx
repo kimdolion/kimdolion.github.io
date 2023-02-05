@@ -92,7 +92,7 @@ export const MobileProvider = ({ children }: MobileProviderProps) => {
   useEffect(() => {
     const handleResize = () => {
         setWidth(window.innerWidth)
-        width <= 768 ? setIsMobile(true) : setIsMobile(false)
+        width <= 766 ? setIsMobile(true) : setIsMobile(false)
     }
     window.addEventListener('resize', handleResize)
     handleResize()
