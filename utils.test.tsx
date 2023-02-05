@@ -4,6 +4,8 @@
 import { ThemeProvider, MobileContext, ThemeContext } from './utils';
 import { describe, test } from '@jest/globals';
 import { render } from '@testing-library/react';
+
+import { TEST_IDS } from '@/constants';
 import { Header } from './components/Header';
 
 jest.mock('next/router', () => ({
@@ -31,12 +33,12 @@ describe('utils', () => {
 
     test('ThemeProvider renders in dark mode by default', () => {
       const { getByTestId } = render(<ThemeContext.Provider value={{isDarkMode: true, handleTheme: jest.fn(), theme: 'Dark'}}><Header /></ThemeContext.Provider>)
-      expect(getByTestId("themeButton")).toHaveProperty('title', 'Currently: Dark theme. Click to switch to Light theme.')
+      expect(getByTestId(TEST_IDS.headerTestIds.themeButton)).toHaveProperty('title', 'Currently: Dark theme. Click to switch to Light theme.')
     }), 
 
     test('ThemeProvider can be set to Light mode', () => {
         const { getByTestId } = render(<ThemeContext.Provider value={{isDarkMode: false, handleTheme: jest.fn(), theme: 'Light'}}><Header /></ThemeContext.Provider>)
-        expect(getByTestId("themeButton")).toHaveProperty('title', 'Currently: Light theme. Click to switch to Dark theme.')
+        expect(getByTestId(TEST_IDS.headerTestIds.themeButton)).toHaveProperty('title', 'Currently: Light theme. Click to switch to Dark theme.')
     }), 
 
     test('MobileProvider renders when screen size is less than 500', () => {
