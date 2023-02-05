@@ -40,15 +40,14 @@ describe('TableOfContents', () => {
         const { getByTestId } = render(<TableOfContentsWrapper isMobile={false} />)
         const result = getByTestId(TEST_IDS.tocTestIds.tableOfContents)
         expect(result).toBeVisible()
-    })
-    // ,
+    }),
     
-    // test('renders a dropdown if the screen size is mobile', () => {
-    //     const { getByTestId } = render(<TableOfContentsWrapper isMobile />)
+    test('renders a dropdown if the screen size is mobile', () => {
+        const { getByTestId } = render(<TableOfContentsWrapper isMobile />)
 
-    //     const result = getByTestId(TEST_IDS.tocTestIds.dropdown)
-    //     expect(result).toBeVisible()
-    // })
+        const result = getByTestId(TEST_IDS.tocTestIds.dropdown)
+        expect(result).toBeVisible()
+    })
 
     // test('moves the page after clicking on a heading.', () => {
 

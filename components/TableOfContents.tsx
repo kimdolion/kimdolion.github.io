@@ -1,140 +1,134 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { HEADING_GROUPINGS, TEST_IDS } from "@/constants";
-import Select, { SingleValue, StylesConfig } from 'react-select'
-import { useMobile, useTheme } from "@/utils";
+import { useMobile, useOutsideClick, useTheme } from "@/utils";
 import styles from '@/styles/Home.module.css'
 
-// Used tutorial from https://www.emgoto.com/react-table-of-contents/
-interface HeadingsDropdownProps {
-  headings: HeadingDataProps[];
+// Used tutorial from https://www.emgoto.com/react-table-of-contents/ and 
+// https://reacthustle.com/blog/build-a-responsive-react-table-of-contents-component-with-daisyui#project-setup-using-nextjs
+interface HeadingDataProps {
+  text: string;
+  level: number;
+  id: string;
 }
 
 interface HeadingsListProps {
   headings: HeadingDataProps[];
   activeId: string;
+  isMobile: boolean; 
+  handleClick?: () => void
 }
 
-interface HeadingDataProps {
-  heading: HTMLHeadingElement;
+interface TableOfContentsMobileProps extends HeadingsListProps{
+  activeHeading: string | null; 
+  open: boolean;
 }
+
+
+interface HeadingsProps {
+  headings: HeadingDataProps[];
+  activeId: string;
+  activeHeading: string | null;
+}
+
 
 interface TableOfContentsProps {
   headingDepth?: number;
 }
 
-interface Option {
-  label: string, value: string, id: string;
- }
-
-/**
- * React-Select dropdown component that renders the headings as a dropdown for mobile
- * // https://react-select.com/home
- */
-const HeadingsDropdown = ({ headings }: HeadingsDropdownProps) => {
-  const { isDarkMode } = useTheme()
-  
-  const options: Option[] = headings.map((headingDetail) => {
-    const { heading: { id, innerText } } = headingDetail
-    return { id, label: innerText, value: id }
-  })
-
-  const handleSelect = (newValue: SingleValue<Option>) => {
-    if (newValue) {
-      const headingElement = document.getElementById(newValue?.value)
-      headingElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+const headingLevelSwitch = (headingType: string) => {
+  switch (headingType) {
+    case 'H3': { 
+     return 1 
+    }
+    case 'H4': { 
+      return 2
+    }
+    case 'H5': { 
+      return 3
+    }
+    case 'H6': { 
+      return 4 
+    }
+    default: {
+      return 0
     }
   }
+}
 
-  const tocStyles: StylesConfig<Option, false> = {
-    control: (styles, {menuIsOpen}) => {return {
-      ...styles,
-      backgroundColor: isDarkMode ? 'white' : '#1e1e1e',
-      borderRadius: menuIsOpen ? '5px 5px 0px 0px' : 5,
-      color: isDarkMode ? 'black' : 'white',
-      fontWeight: 700,
-      marginTop: '1rem',
-      opacity: 0.9,
-      padding: '0.5rem',
-    }},
-    menu: () => ({
-      background: isDarkMode ? 'white' : '#1e1e1e',
-      borderRadius: '0px 0px 5px 5px',
-      color: 'white',
-      fontWeight: 400,
-      transition: '0.5s ease-in',
-    }),
-    option: () => {
-      return {
-        color: isDarkMode ? 'black' : 'white',
-        ':hover': {
-          background: '#6e0202',
-          color: 'white',
-          fontWeight: 600
-        },
-        padding: '0.5rem',
-      };
-    },
-  };
+const HeadingsList = ({ headings, activeId, handleClick, isMobile }: HeadingsListProps) => 
+  <ul className={`${styles.tableOfContentsList} ${isMobile && styles.tableOfContentsMobileList}`} data-testid={TEST_IDS.tocTestIds.list}>
+    {headings.map((headingElement, index) => {
+      const { id, level, text } = headingElement;
+      const isActive = id === activeId
+
+      return (
+      <li key={index} className={id === activeId ? "active" : ""} style={{textDecoration: isActive ? 'underline': '', paddingLeft: `${level}rem` }}>
+        <a
+          href={`#${id}`}
+          onClick={handleClick}
+        >
+          {text}
+        </a>
+      </li>
+    )})}
+  </ul>
+
+const TableOfContentsMobile = ({ activeHeading, activeId, headings, handleClick, open }: TableOfContentsMobileProps) => {
+  const {isDarkMode} = useTheme();
 
   return (
-    <Select
-      aria-label="Table of Contents"
-      data-testid={TEST_IDS.tocTestIds.dropdown}
-      defaultValue={options[0]}
-      onChange={handleSelect}
-      options={options}
-      styles={tocStyles}
-      unstyled
-    />
+    <div data-testid={TEST_IDS.tocTestIds.dropdown} style={{background: isDarkMode ? '#eee': '#1e1e1e', color: isDarkMode ? 'black': 'white' }} className={styles.tableOfContentsMobileList} >
+      { open ?
+        <HeadingsList activeId={activeId} handleClick={handleClick} headings={headings} isMobile /> :
+        <div onClick={handleClick} className={`${styles.tableOfContentsList}`} style={{gap: '5px'}}>
+          {activeHeading}
+        </div>
+      }
+    </div>
   )
 }
 
 /**
  * Component that creates an unordered list of the headings with a link to scroll to selected heading that will be highlighted as active
  */
-const HeadingsList = ({ headings, activeId }: HeadingsListProps) => {
-  const { isMobile } = useMobile()
+const Headings = ({ headings, activeId, activeHeading }: HeadingsProps) => {
+  const { isMobile } = useMobile(); 
+  const { isDarkMode } = useTheme()
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    open ? setOpen(false) : setOpen(true)
+  }
+  const ToCLabel =()=><div className={styles.tableOfContentsLabel} style={{ background: isDarkMode ? '#eee': '#1e1e1e', borderRadius: '5px 5px 0 0', color: isDarkMode ? 'black': 'white'}}>Table of Contents</div>
+
+  const ToCLabelDesktop = () => 
+  <div className={styles.tableOfContentsLabel}>Table of Contents</div>
 
   return (
-    <div className={styles.tableOfContents} data-testid={TEST_IDS.tocTestIds.list}>
-      {isMobile ? <HeadingsDropdown headings={headings} />  :
-      <ul className={styles.tableOfContentsList}>
-      {headings.map((headingElement, index) => {
-        const { heading: { id, innerText } } = headingElement;
-        const isActive = id === activeId
-
-        return (
-        <li key={index} className={id === activeId ? "active" : ""} style={{textDecoration: isActive ? 'underline': '' }}>
-          <a
-            href={`#${id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector(`#${id}`)?.scrollIntoView({
-                behavior: "smooth"
-              });
-            }}
-          >
-            {innerText}
-          </a>
-        </li>
-      )})}
-    </ul>
-    }
-  </div>
+    <>
+      {isMobile ? <ToCLabel /> : <ToCLabelDesktop />}
+      {isMobile ? <TableOfContentsMobile isMobile activeHeading={activeHeading} activeId={activeId} handleClick={handleClick} headings={headings} open={open} /> :
+      <HeadingsList activeId={activeId} handleClick={handleClick} headings={headings} isMobile={false} />}
+    </>
   )
 }
 
 /**
  * Dynamically generates the table of contents list, using any headings it can find in the main text based on headingDepth
  */
-const useHeadingsData = (headingDepth: number) => {
-  const [headings, setHeadings] = useState<{heading: HTMLHeadingElement}[]>([]);
+const getHeadingsData = (headingDepth: number) => {
+  const [headings, setHeadings] = useState<HeadingDataProps[]>([]);
 
   useEffect(() => {
+    // Find all heading elements that match the heading groupings starting with h2
     const headingElements: HTMLHeadingElement[] = Array.from(document.querySelectorAll(HEADING_GROUPINGS[headingDepth]))
 
-    const mappedElements = headingElements.map((heading)=> {
-      return { heading }
+    // Remap the headinglements to only the needed values of id, innerText, and nodeName
+    // nodeName will be used to distinguish between h2, h3, etc and add padding to denote nested
+    const mappedElements: HeadingDataProps[] = headingElements.map((heading)=> {
+      const {id, innerText, nodeName} = heading
+      const headingLevel = headingLevelSwitch(nodeName)
+      return {id: id, text: innerText, level: headingLevel}
     })
 
     setHeadings(mappedElements);
@@ -143,7 +137,7 @@ const useHeadingsData = (headingDepth: number) => {
   return { headings };
 };
 
-const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<SetStateAction<string>>) => {
+const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<SetStateAction<string>>, setActiveHeading: Dispatch<SetStateAction<string | null>>) => {
   const headingElementsRef = useRef<Record<string, IntersectionObserverEntry>>({});
 
   useEffect(() => {
@@ -164,11 +158,13 @@ const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<Set
 
       if (visibleHeadings.length === 1) {
         setActiveId(visibleHeadings[0].target.id);
+        setActiveHeading(visibleHeadings[0].target.textContent)
       } else if (visibleHeadings.length > 1) {
         const sortedVisibleHeadings = visibleHeadings.sort(
           (a: IntersectionObserverEntry, b: IntersectionObserverEntry) => getIndexFromId(a.target.id) - getIndexFromId(b.target.id)
         );
         setActiveId(sortedVisibleHeadings[0].target.id);
+        setActiveHeading(sortedVisibleHeadings[0].target.textContent);
       }
     };
 
@@ -187,13 +183,19 @@ const useIntersectionObserver = (headingDepth: number, setActiveId: Dispatch<Set
  */
 export const TableOfContents = ({ headingDepth = 0 }: TableOfContentsProps) => {
   const [activeId, setActiveId] = useState('');
-  const { headings } = useHeadingsData(headingDepth);
+  const [activeHeading, setActiveHeading] = useState<string | null>('');
+  const { headings } = getHeadingsData(headingDepth);
+  useIntersectionObserver(headingDepth, setActiveId, setActiveHeading);
 
-  useIntersectionObserver(headingDepth, setActiveId);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  if (headings.length === 0) {
+    return null;
+  }
 
   return (
-    <nav aria-label="Table of Contents" data-testid={TEST_IDS.tocTestIds.tableOfContents} id="table-of-contents" className={styles.tableOfContents}>
-      <HeadingsList headings={headings} activeId={activeId} />
+    <nav aria-label="Table of Contents" data-testid={TEST_IDS.tocTestIds.tableOfContents} id="table-of-contents" className={styles.tableOfContents} ref={scrollRef}>
+      <Headings headings={headings} activeId={activeId} activeHeading={activeHeading} />
     </nav>
   );
 };
