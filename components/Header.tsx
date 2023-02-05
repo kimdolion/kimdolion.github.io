@@ -1,5 +1,5 @@
-import { useContext, useRef, useState } from "react";
-import { MobileContext, ThemeContext, useOutsideClick } from "@/utils";
+import { useRef, useState } from "react";
+import { useMobile, useOutsideClick, useTheme } from "@/utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { StyledLink, styledLinkProp } from "./StyledLink";
@@ -10,6 +10,7 @@ import DayIcon from './icons/DayIcon';
 import NightIcon from './icons/NightIcon';
 import LinkedInIcon from "./icons/LinkedInIcon";
 import GithubIcon from "./icons/GithubIcon";
+import { TEST_IDS } from "@/constants";
 
 export interface HeaderProps {
     onClick: () => void;
@@ -40,12 +41,11 @@ const ActiveLink = ({ href, name, title }: styledLinkProp )=> {
 
 
 export const Header = () => {
-    const { theme, handleTheme } = useContext(ThemeContext)
-    const { isMobile } = useContext(MobileContext)
+    const { isDarkMode, theme, handleTheme } = useTheme()
+    const { isMobile } = useMobile()
     const [isActive, setIsActive] = useState(false)
-    const isDarkMode = theme === 'dark'
 
-    const ThemeButton = () => <button onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}}  title="Dark Mode">{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
+    const ThemeButton = () => <button data-testid={TEST_IDS.headerTestIds.themeButton} onClick={handleTheme} className={styles.themeButton} style={{  background: isDarkMode ? 'linear-gradient(113.3deg, rgb(134, 209, 228) -1.8%, rgb(60, 80, 115) 86.4%)' : 'linear-gradient(135deg, rgb(255, 248, 134) 10%, rgb(240, 114, 182) 100%)'}} title={`Currently: ${theme} theme. Click to switch to ${isDarkMode ? 'Light' : 'Dark'} theme.`}>{isDarkMode ? <NightIcon fill="white" className={styles.themeIcon} /> : <DayIcon fill="orange" className={styles.themeIcon} />}</button>
 
     const NavLinksTSX = () => (
         <>
@@ -64,7 +64,7 @@ export const Header = () => {
         <header className={styles.header} style={{ boxShadow: `0 1px 30px -10px ${isDarkMode ?  'black' : 'gray'}` }}>
             <div className={styles.headerLinks}>
                 <Link href="/" className={styles.navLogo} >
-                    Kimberly Wilkes
+                    <h1>Kimberly Wilkes</h1>
                 </Link>
                 <StyledLink href="https://github.com/kimdolion" name="" leftIcon>
                     <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />
@@ -73,14 +73,14 @@ export const Header = () => {
                     <LinkedInIcon fill={isDarkMode ? "white" : "" } width="1.5em" />
                 </StyledLink>
             </div>
-            <nav id="nav-section" aria-label="Navigation Links" className={styles.navList}>
+            <nav className={styles.navList}>
                 {isMobile ?
                 <div ref={ref}>
                     <BurgerMenu open={isActive} setOpen={setIsActive} />
-                    {isActive ? <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#6e0202' : '', color: '#f4f6f99a' }}>
+                    {isActive && <div className={styles.mobileMenu} style={{backgroundColor: isActive ? '#6e0202' : '', color: '#f4f6f99a' }}>
                         <p style={{ color: '#f4f6f9' }}>Learn more:</p>
                         <NavLinksTSX />
-                    </div> : null }
+                    </div> }
                 </div>
                 :
                     <NavLinksTSX />

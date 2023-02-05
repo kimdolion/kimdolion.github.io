@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { educationDetails } from '@/constants';
+import { EDUCATION_DETAILS } from '@/constants';
 import styles from '@/styles/Home.module.css'
 
 import { InlineHeading, InlineHeadingProps } from './InlineHeading';
@@ -20,10 +20,10 @@ export interface EducationProps {
 export const EducationSection = ({ extraInfo = false }: EducationProps): JSX.Element => (
   <Section>
       <Link href="/education" title="Curious about my education history?" className={styles.styledLink}><h2 id="education-section">Education</h2></Link>
-      {educationDetails.map((educationDetail, index)=> {
+      {EDUCATION_DETAILS.map((educationDetail, index)=> {
         const { certification, extraDetails, headingProps } = educationDetail;
         return (
-        <div key={headingProps.id + index} id={headingProps.id} style={{padding: '0.5rem 0'}}>
+        <div key={headingProps.id + index} style={{padding: '0.5rem 0'}}>
           <InlineHeading {...headingProps} includeURL={extraInfo} />
           <p>{certification}</p>
           {extraInfo ? <p style={{padding: '1rem 0'}}>{extraDetails}</p> : null}

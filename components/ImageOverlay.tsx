@@ -34,9 +34,9 @@ export const ImageOverlay = ( { displayRow = false, image, children }: ImageOver
   }
 
   return (
-    <div className={styles.imageContainer}>
-      <Image {...imageWithDefault} className={styles.image} height={height} width={width} />
-      <div className={`${displayRow && styles.imageTextRow} ${styles.imageText}`}>
+    <div className={styles.imageOverlayContainer}>
+      <Image {...imageWithDefault} className={styles.imageOverlay} height={height} width={width} />
+      <div className={`${displayRow && styles.imageOverlayTextRow} ${styles.imageOverlayText}`}>
         {children}
       </div>
     </div>

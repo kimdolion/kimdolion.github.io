@@ -15,15 +15,21 @@
     "incremental": true,
     "noEmit": true,
     "noImplicitAny": true,
+    // "noUnusedLocals": true,
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@/*": ["./*"]
+      "@/constants": ["constants"],
+      "@/components/*": ["components/*"],
+      "@/utils": ["utils"],
+      "@/styles/*": ["styles/*"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",
     "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true,
+    "types": ["jest", "node", "@types/jest", "@types/testing-library__jest-dom"], 
     "typeRoots": [
       "node_modules/@types",
       "types"
@@ -31,10 +37,14 @@
   },
   "include": [
     "next-env.d.ts",
+    "types.ts",
+    "types.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "./jest.setup.ts",
+    "jest.config.js",
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
   ]
 }

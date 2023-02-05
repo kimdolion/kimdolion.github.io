@@ -1,11 +1,9 @@
-import { createContext, ReactNode, useContext, useEffect, useState, RefObject, Ref } from "react"
-import { randomFacts } from "./constants"
+import { createContext, ReactNode, useContext, useEffect, useState, RefObject } from "react"
+import { RANDOM_FACTS } from "./constants"
 
 export const getRandomFact = () => {
-    let index = Math.round(Math.random()* (randomFacts.length - 0) + 0)
-    console.log("getrandom index? ", index)
-    console.log(randomFacts[0])
-    return (randomFacts[index])
+    let index = Math.round(Math.random()* (RANDOM_FACTS.length - 0) + 0)
+    return (RANDOM_FACTS[index])
 }
 
 
@@ -29,7 +27,7 @@ export const useOutsideClick  = (ref: RefObject<HTMLDivElement>, handler: (event
 
 
 // Light/Dark Mode https://github.com/nas5w/usecontext-theme-toggling
-type Theme = "light" | "dark";
+type Theme = "Light" | "Dark";
 type ThemeContext = { theme: Theme, isDarkMode: boolean, handleTheme: ()=> void}
 
 export const ThemeContext = createContext<ThemeContext>(
@@ -37,7 +35,7 @@ export const ThemeContext = createContext<ThemeContext>(
 );
 
 interface ThemeProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 /**
@@ -46,21 +44,22 @@ interface ThemeProviderProps {
  * @returns Color Theme Provider that will set the color scheme to Light or Dark
  */
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>("dark");
-  const isDarkMode = theme === 'dark'
+  const [theme, setTheme] = useState<Theme>("Dark");
+  const isDarkMode = theme === 'Dark'
   
   // get the defined mode from the browser
   useEffect(() => {
     const darkOS = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setTheme(darkOS ? "dark" : "light");
+    setTheme(darkOS ? "Dark" : "Light");
   }, []);
-
+  
   const handleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    setTheme(isDarkMode ? 'Light' : 'Dark' )
   }
-
+  
+  const value = { theme, isDarkMode, handleTheme}
   return (
-    <ThemeContext.Provider value={{ theme, isDarkMode, handleTheme}}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );
@@ -93,7 +92,7 @@ export const MobileProvider = ({ children }: MobileProviderProps) => {
   useEffect(() => {
     const handleResize = () => {
         setWidth(window.innerWidth)
-        width <= 768 ? setIsMobile(true) : setIsMobile(false)
+        width <= 766 ? setIsMobile(true) : setIsMobile(false)
     }
     window.addEventListener('resize', handleResize)
     handleResize()
@@ -101,8 +100,9 @@ export const MobileProvider = ({ children }: MobileProviderProps) => {
     return () => window.removeEventListener('resize', handleResize)
 }, [width])
 
+  const value = { isMobile }
   return (
-    <MobileContext.Provider value={{ isMobile }}>
+    <MobileContext.Provider value={value}>
       {children}
     </MobileContext.Provider>
   );

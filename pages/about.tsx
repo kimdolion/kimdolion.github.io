@@ -3,11 +3,13 @@ import { Page } from '@/components/Page'
 import { AboutSection } from '@/components/AboutSection'
 
 export default function About() {
+  const title = "About Kimberly Wilkes"
   return (
     <div>
       <Head>
-        <title>About Kimberly Wilkes</title>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="Software engineer portfolio: about Kimberly Wilkes." key={title} />
       </Head>
 
       <Page>
