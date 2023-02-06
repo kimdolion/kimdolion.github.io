@@ -169,7 +169,7 @@
 
 .styledLink {
   align-items: center;
-  display: flex;
+  display: inline-flex;
   gap: 5px;
   text-decoration: underline;
 }
