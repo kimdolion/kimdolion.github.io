@@ -22,7 +22,6 @@ export default function Home() {
             <AboutSection />
             <Divider />
             <ExperienceSection />
-            <Divider />
             <ProjectsSection />
             <Divider />
             <EducationSection />
