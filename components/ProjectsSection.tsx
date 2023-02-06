@@ -124,7 +124,7 @@ export const ProjectsSection = ({ extraInfo = false }: ProjectsProps): JSX.Eleme
     <Divider />
     <div>
       <h3 id="current-projects">Currently Working on:</h3>
-      {CURRENT_PROJECTS.map((project)=> <div key={project.id}><ProjectCard project={project} /><Divider /></div>)}
+      {CURRENT_PROJECTS.map((project)=> <div key={project.id}><ProjectCard project={project} />{extraInfo && <Divider />}</div>)}
     </div>
     {extraInfo && <Divider />}
     {extraInfo && <GAProjects />}

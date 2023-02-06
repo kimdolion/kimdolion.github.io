@@ -27,12 +27,12 @@ export default function Home() {
       <Page>
         <div className="toc-layout">
           <TableOfContents />
-          <div style={{display: 'flex', flexDirection: 'column', gap: 20, }}>
+          <div style={{ margin: '2rem 0'}}>
             <AboutSection />
-            <Divider />
+            <div style={{margin: '2rem 0'}}><Divider /></div>
             <ExperienceSection />
             <ProjectsSection />
-            <Divider />
+            <div style={{margin: '2rem 0'}}><Divider /></div>
             <EducationSection />
           </div>
         </div>
