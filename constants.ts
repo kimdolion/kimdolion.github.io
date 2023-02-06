@@ -241,7 +241,7 @@ export const RANDOM_FACTS: string[] = [
 
 export const TECHNOLOGIES: TechnologiesProps =
   {
-    frontend: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'React Native', 'NextJS', 'TailwindCSS', 'Bootstrap', 'Sass'], 
+    frontend: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'React Native', 'NextJS', 'TailwindCSS', 'Bootstrap', 'Sass', 'Chakra-ui'], 
     backend: ['NodeJS', 'ExpressJS', 'MongoDB', 'PostgreSQL', 'GraphQL', 'Prisma', 'Ruby on Rails', 'Directus'], 
     other: ['Git', 'Github', 'Jest', 'React Testing Library', 'React Native Testing Library', 'Cypress', 'WebFlow', 'Vercel', 'Makeswift', 'Plasmic']
 }
