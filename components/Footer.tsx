@@ -22,10 +22,13 @@ export const Footer = () => {
           <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="" leftIcon><LinkedInIcon fill={isDarkMode ? "white" : "" } width="1.75em" /></StyledLink>
         </div>
         <div className={styles.footerAttributes}>
-          Designed & Built by Kimberly Wilkes
+          <div className={styles.footerAttributes} style={{gap: 20}}>
+            <StyledLink href="https://github.com/kimdolion/kimdolion.github.io" name="Designed & Built by Kimberly Wilkes" />
+            <StyledLink href="https://www.carbon-fibre.me/patriot" name="Korean and US Flag by Onjena Yo" />
+          </div>
           <Link
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.styledLink}
+            className={styles.styledLink} style={{padding: 0}} target="_blank"
           >
             Powered by <Image src={vercel} alt="Vercel Logo." height={75} width={75} />
           </Link>

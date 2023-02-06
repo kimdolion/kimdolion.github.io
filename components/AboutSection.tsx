@@ -34,11 +34,12 @@ export const AboutSection = ({ extraInfo = false }: AboutProps): JSX.Element => 
       </div>
       <div>
         <p>I'm a software engineer, former educator, and hobby cosplayer; in short a lifetime learner and problem solver, with a passion for user-centered and responsive web design.</p>
-        <p>I've worked with many different industries and technologies though I find myself most at home with the frontend in React (Typescript). I've worked with React Native </p>
+        <p>Software engineering and cosplay both require a lot of research, flexibility, patience, and trial and error to ensure a good end result. I love being able to identify and fix a problem or at least provide guidance towards a solution.</p>
+        <p>I've worked with many different industries and technologies though I find myself most at home with the frontend in React (Typescript).</p>
         {currentlyLooking && <p>Currently looking for my next opportunity as a software engineer! Let's connect on <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin"></StyledLink>.</p>}
       </div>
-      <div style={{ alignItems: 'center', display:'flex', justifyContent: 'space-between', gap: 20, marginTop: '3rem' }}>
-        <button onClick={handleClick} style={{ background: 'none', border: 'none', borderRadius: 100, height: '15vh'}} title='Random Fact Button'>
+      <div className={styles.randomFlagButtonContainer}>
+        <button onClick={handleClick} className={styles.randomFlagButton} title='Random Fact Button'>
           <Image src={korAmFlag} height={100} width={100} alt="Korean and US flag merged by Onjena Yo of Carbon-Fibre Media." style={{borderRadius: 100}}  />
         </button>
         {extraInfo ? <div>Random Fact:<p>{randomFact}</p></div> : <p>Learn even more about me, my work history, education, and projects on their respective pages.</p> }

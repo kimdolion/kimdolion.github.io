@@ -228,6 +228,7 @@ export const HEADING_GROUPINGS: string[] = [
 export const RANDOM_FACTS: string[] = [
   "Proud of my heritage as a Black and Korean woman; representing both worlds with this flag by Onjena Yo of Carbon-Fibre media. I always enjoy some mean Seoul food.",
   "World traveler: I've visited 16 different countries before I turned 16 thanks to family and an ambassador program called People to People.",
+  "My github username comes from my best friend mispelling a pokemon she was naming after me (Kimbo => Kimdo) and inspired by my mane of hair (Lion).",
   "I adore my pets, two cats named Evie and Khaleesi (Khali for short). Always happy to chat about them or your pets!",
   "I'm a dedicated QA tester and have won lunch for finding the most bugs in a video streaming app in a week.",
   "I'll talk for hours about anything fantasy, whether it's books or visual media. I'm a huge fan of Wheel of Time, Lord of the Rings, Harry Potter, and Game of Thrones.",
