@@ -13,7 +13,7 @@ export const CURRENT_PROJECTS: ProjectProps[] = [
       width: 1438,
     },
     description: "My personal portfolio page! I wanted to show off some of the neat components I've learned about over the last few years.",
-    technologies: 'NextJS, TypeScript, Sass, and React-Select.',
+    technologies: 'NextJS, TypeScript, Sass, Jest and Testing-Library.',
     links: [
       {
         name: 'Frontend Github',
@@ -226,13 +226,16 @@ export const HEADING_GROUPINGS: string[] = [
 ]
 
 export const RANDOM_FACTS: string[] = [
-    "I've traveled to 16 different countries before I turned 16.",
-    "I have two cats, Evie and Khaleesi (Khali for short).",
-    "If I could be any mythical creature, I'd probably be a dragon and would hoard fantasy books and clothing. I'll talk for hours about Wheel of Time, Lord of the Rings, and Game of Thrones.",
-    "I love anything to do with animals with cats and horses being at the top of my favorite list. However, bugs/spiders are at the bottom of that list.",
-    "In the fall I basically call the renaissance faire my second home and will often go dressed as a faun/satyr, pirate, elf, or witch.",
-    "I love playing video games, on PC, Nintendo Switch, or Playstation. I mostly play World of Warcraft (For the Horde!).",
-    'I am a huge nerd and regularly attend conventions such as Anime Boston, New York Comic Con, and Connecticon.',
+  "Proud of my heritage as a Black and Korean woman; representing both worlds with this flag by Onjena Yo of Carbon-Fibre media. I always enjoy some mean Seoul food.",
+  "World traveler: I've visited 16 different countries before I turned 16 thanks to family and an ambassador program called People to People.",
+  "I adore my pets, two cats named Evie and Khaleesi (Khali for short). Always happy to chat about them or your pets!",
+  "I'm a dedicated QA tester and have won lunch for finding the most bugs in a video streaming app in a week.",
+  "I'll talk for hours about anything fantasy, whether it's books or visual media. I'm a huge fan of Wheel of Time, Lord of the Rings, Harry Potter, and Game of Thrones.",
+  "I love animals with cats and horses being at the top of my favorite list. However, bugs/spiders are at the bottom of that list.",
+  "I taught 2nd grade up to 7th grade in English Language Arts, Science, Social Studies, and Math. 5th grade was honestly my favorite to teach.",
+  "Renaissance Faires are my favorite excuse to get dressed up as fantasy characters and yell huzzah to cheer on performers while feasting on turkey legs.",
+  "Definitely a gamer on PC, Nintendo, or Playstation. I mostly play World of Warcraft (For the Horde!).",
+  'I am a huge nerd and regularly attend pop culture conventions such as Anime Boston, New York Comic Con, and Connecticon.',
 ]
 
 export const TEST_IDS = {
