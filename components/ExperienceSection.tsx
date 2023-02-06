@@ -23,7 +23,7 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = WORK_EXPERIE
   const {company, headingProps, location, responsibilities, extraDetails} = experienceWork;
 
   return (
-      <div style={{margin: '2rem 0'}}>
+      <div style={{margin: extraInfo ? '2rem 0' : 0}}>
         <InlineHeading {...headingProps} />
         <div>{company} in {location}</div>
         <ul>

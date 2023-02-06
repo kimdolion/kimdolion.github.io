@@ -26,8 +26,8 @@ export const EducationSection = ({ extraInfo = false }: EducationProps): JSX.Ele
         <div key={headingProps.id + index} style={{padding: '0.5rem 0'}}>
           <InlineHeading {...headingProps} includeURL={extraInfo} />
           <p>{certification}</p>
-          {extraInfo ? <p style={{padding: '1rem 0'}}>{extraDetails}</p> : null}
-          {extraInfo ? <Divider /> : null}
+          {extraInfo && <p style={{padding: '1rem 0'}}>{extraDetails}</p>}
+          {extraInfo && <Divider />}
         </div>
         )}
       )}
