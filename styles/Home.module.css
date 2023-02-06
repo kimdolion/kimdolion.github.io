@@ -168,6 +168,9 @@
 }
 
 .styledLink {
+  align-items: center;
+  display: flex;
+  gap: 5px;
   text-decoration: underline;
 }
 
