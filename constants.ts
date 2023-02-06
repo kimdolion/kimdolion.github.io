@@ -1,6 +1,6 @@
 import { EducationDetailsProps } from "./components/EducationSection";
 import { ExperienceDetailsProps } from "./components/ExperienceSection";
-import { ProjectProps } from "./components/ProjectsSection";
+import { ProjectProps, TechnologiesProps } from "./components/ProjectsSection";
 
 export const CURRENT_PROJECTS: ProjectProps[] = [
   {
@@ -238,6 +238,14 @@ export const RANDOM_FACTS: string[] = [
   "Definitely a gamer on PC, Nintendo, or Playstation. I mostly play World of Warcraft (For the Horde!).",
   'I am a huge nerd and regularly attend pop culture conventions such as Anime Boston, New York Comic Con, and Connecticon.',
 ]
+
+export const TECHNOLOGIES: TechnologiesProps =
+  {
+    frontend: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'React Native', 'NextJS', 'TailwindCSS', 'Bootstrap', 'Sass'], 
+    backend: ['NodeJS', 'ExpressJS', 'MongoDB', 'PostgreSQL', 'GraphQL', 'Prisma', 'Ruby on Rails', 'Directus'], 
+    other: ['Git', 'Github', 'Jest', 'React Testing Library', 'React Native Testing Library', 'Cypress', 'WebFlow', 'Vercel', 'Makeswift', 'Plasmic']
+}
+
 
 export const TEST_IDS = {
   headerTestIds: {
