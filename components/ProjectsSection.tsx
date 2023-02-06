@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Divider } from './Divider';
 import { Section } from './Section';
 
-import { CURRENT_PROJECTS, GENERAL_ASSEMBLY_PROJECTS } from '@/constants';
+import { CURRENT_PROJECTS, GENERAL_ASSEMBLY_PROJECTS, TECHNOLOGIES } from '@/constants';
 import { StyledLink } from './StyledLink';
 import styles from '@/styles/Home.module.css'
 import { ImageOverlay, ImageProps } from './ImageOverlay';
@@ -11,11 +11,17 @@ import GithubIcon from './icons/GithubIcon';
 import { useTheme } from '@/utils';
 import ArrowOutIcon from './icons/ArrowOutIcon';
 import UnderConstructionImage from '/public/mark-konig-Uu5fnOkFAdA-unsplash.jpg'
+import { useEffect } from 'react';
 
 export interface ProjectsProps {
     extraInfo?: boolean
 }
 
+export interface TechnologiesProps {
+  frontend: string[]
+  backend: string[]
+  other: string[]
+}
 /**
  * did not order this alphabetically for my own sense of how the project cards are organized.
  */
@@ -46,12 +52,12 @@ const ProjectCard = ({ project} : ProjectCardProps) => {
     <div className={styles.projectCard}>
       <div className={styles.projectCardImage}>
         <ImageOverlay image={imageAvailable ? projectImage : defaultImage} displayRow>
-          <h3 id={id}>{title}</h3>
+          <h4 id={id}>{title}</h4>
           <p>Made with: {technologies}</p>
         </ImageOverlay>
       </div>
       <div>
-        <p  style={{fontWeight: 'bold'}}>{title}</p>
+        <p style={{fontWeight: 'bold'}}>{title}</p>
         <p>{description}</p>
         <p style={{ fontSize: 16, fontWeight: 'bold'}}>Links to Deployed Site and Github Repos</p>
         <div className={styles.links}>
@@ -77,26 +83,50 @@ const GAProjects = () => (
   </div>
 )
 
-export const ProjectsSection = ({extraInfo=false}: ProjectsProps): JSX.Element => {
-  const router = useRouter()
-  const currentPath = router.pathname
+interface TechCardProps {
+  technologies: string
+}
+// feed it a list of tech in one of 3 categories: frontend, backend, other/
+const TechCard = ({technologies}: TechCardProps) => {
+  return (
+    <div className={styles.techList}>
+      {technologies}
+    </div>
+  )
+}
+
+export const ProjectsSection = ({ extraInfo = false }: ProjectsProps): JSX.Element => {
 
   return (
   <Section>
-    {currentPath === '/projects' ? <h2 id="projects-section">Projects and Tech</h2> : <Link href="/projects"><h2 id="projects-section" title="Check out more projects" className={styles.styledLink}>Projects and Tech</h2></Link>}
+    <Link href="/projects"><h2 id="projects-section" title="Check out more projects" className={styles.styledLink}>Projects and Tech</h2></Link>
+    <h3 id="technologies">Techstack</h3>
+    <div>
+      <p>Languages, tools, and frameworks I've worked with: </p>
+    </div>
+    <div className={styles.techListContainer}>
       <div>
-        <p>Currently Working on:</p>
-        {CURRENT_PROJECTS.map((project)=> <div key={project.id}><ProjectCard project={project} /><Divider /></div>)}
+        <p style={{fontWeight: 'bold'}}>Frontend</p>
+        {TECHNOLOGIES.frontend.map((technology, index)=> <TechCard key={technology + index} technologies={technology} />
+        )}
       </div>
-      <div style={{margin: '1.5rem 0'}}>
-        <p style={{fontWeight: 'bolder'}}>
-          Technologies I've worked with:
-        </p>
-        <div>
-          {/* TODO: grid of icons of languages/frameworks */}
-        </div>
+      <div>
+        <p style={{fontWeight: 'bold'}}>Backend</p>
+        {TECHNOLOGIES.backend.map((technology, index)=> <TechCard key={technology + index} technologies={technology} />
+        )}
       </div>
-      {extraInfo && <Divider />}
-      {extraInfo && <GAProjects />}
+      <div>
+        <p style={{fontWeight: 'bold'}}>Other Tools</p>
+        {TECHNOLOGIES.other.map((technology, index)=> <TechCard key={technology + index} technologies={technology} />
+        )}
+      </div>
+    </div>
+    <Divider />
+    <div>
+      <h3 id="current-projects">Currently Working on:</h3>
+      {CURRENT_PROJECTS.map((project)=> <div key={project.id}><ProjectCard project={project} /><Divider /></div>)}
+    </div>
+    {extraInfo && <Divider />}
+    {extraInfo && <GAProjects />}
   </Section>
 )}
