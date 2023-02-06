@@ -64,7 +64,7 @@ export const Header = () => {
         <header className={styles.header} style={{ boxShadow: `0 1px 30px -10px ${isDarkMode ?  'black' : 'gray'}` }}>
             <div className={styles.headerLinks}>
                 <Link href="/" className={styles.navLogo} >
-                    <h1>Kimberly Wilkes</h1>
+                    <span>Kimberly Wilkes</span>
                 </Link>
                 <StyledLink href="https://github.com/kimdolion" name="" leftIcon>
                     <GithubIcon width="1.5em" fill={isDarkMode ? "white" : ""}  />

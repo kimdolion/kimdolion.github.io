@@ -15,6 +15,7 @@ export interface ImageOverlayProps {
   children: ReactNode;
   displayRow?: boolean;
   image: ImageProps,
+  priority?: boolean;
   style?: CSSProperties
 }
 
@@ -24,7 +25,7 @@ export interface ImageOverlayProps {
  * @returns An image component that show the text as an opaque overlay on top of the image.
  */
 
-export const ImageOverlay = ( { children, displayRow = false, image, style }: ImageOverlayProps) => {
+export const ImageOverlay = ( { children, displayRow = false, image, priority = false, style }: ImageOverlayProps) => {
   const { height, width } = image;
   const imageSrc = image.src === '' ? korAmFlag : image.src;
   const altText = image.alt === '' ? "Image." : image.alt;
@@ -36,7 +37,7 @@ export const ImageOverlay = ( { children, displayRow = false, image, style }: Im
 
   return (
     <div className={styles.imageOverlayContainer}>
-      <Image {...imageWithDefault} className={styles.imageOverlay} height={height} width={width} style={style} />
+      <Image {...imageWithDefault} className={styles.imageOverlay} height={height} width={width} priority={priority} style={style} />
       <div className={`${displayRow && styles.imageOverlayTextRow} ${styles.imageOverlayText}`}>
         {children}
       </div>

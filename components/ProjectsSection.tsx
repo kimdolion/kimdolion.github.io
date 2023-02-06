@@ -99,7 +99,10 @@ export const ProjectsSection = ({ extraInfo = false }: ProjectsProps): JSX.Eleme
 
   return (
   <Section>
-    <Link href="/projects"><h2 id="projects-section" title="Check out more projects" className={styles.styledLink}>Projects and Tech</h2></Link>
+    {extraInfo ? 
+    <h1 id="projects-section"><Link href="/projects" className={styles.styledLink}>Projects and Tech</Link></h1>: <Link href="/projects" className={styles.styledLink}><h2 id="projects-section" title="Check out more projects" className={styles.styledLink}>Projects and Tech</h2></Link>
+    }
+
     <h3 id="technologies">Techstack</h3>
     <div>
       <p>Languages, tools, and frameworks I've worked with: </p>

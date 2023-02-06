@@ -41,7 +41,9 @@ const workExperiencesTSX = WORK_EXPERIENCES.map((experience: ExperienceDetailsPr
 
 export const ExperienceSection = ({extraInfo=false}: ExperienceProps): JSX.Element => (
   <Section>
-      <Link href="/experience" className={styles.styledLink}><h2 id="experience-section" title="Want to see more work history?">{extraInfo ? '': 'Recent'} Work Experience</h2></Link>
+      {extraInfo ? <h1 id="experience-section" title="Want to see more work history?"><Link href="/experience" className={styles.styledLink}>{extraInfo ? '': 'Recent'} Work Experience</Link></h1>
+    : <h2 id="experience-section" title="Want to see more work history?"><Link href="/experience" className={styles.styledLink}>{extraInfo ? '': 'Recent'} Work Experience</Link></h2>
+    }
       {extraInfo ? workExperiencesTSX : <ExperienceDetails {...WORK_EXPERIENCES[0]} />}
   </Section>
 )

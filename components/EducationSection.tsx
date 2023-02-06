@@ -19,7 +19,10 @@ export interface EducationProps {
 
 export const EducationSection = ({ extraInfo = false }: EducationProps): JSX.Element => (
   <Section>
-      <Link href="/education" title="Curious about my education history?" className={styles.styledLink}><h2 id="education-section">Education</h2></Link>
+    {extraInfo ? <h1 id="education-section"><Link href="/education" title="Curious about my education history?" className={styles.styledLink}>Education</Link></h1>
+    : <h2 id="education-section"><Link href="/education" title="Curious about my education history?" className={styles.styledLink}>Education</Link></h2>
+    }
+      <Link href="/education" title="Curious about my education history?" className={styles.styledLink}></Link>
       {EDUCATION_DETAILS.map((educationDetail, index)=> {
         const { certification, extraDetails, headingProps } = educationDetail;
         return (
