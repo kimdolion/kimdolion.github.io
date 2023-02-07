@@ -19,20 +19,18 @@ export interface EducationProps {
 
 export const EducationSection = ({ extraInfo = false }: EducationProps): JSX.Element => (
   <Section>
-    {extraInfo ? <h1 id="education-section"><Link href="/education" title="Curious about my education history?" className={styles.styledLink}>Education</Link></h1>
-    : <h2 id="education-section"><Link href="/education" title="Curious about my education history?" className={styles.styledLink}>Education</Link></h2>
-    }
-      <Link href="/education" title="Curious about my education history?" className={styles.styledLink}></Link>
-      {EDUCATION_DETAILS.map((educationDetail, index)=> {
-        const { certification, extraDetails, headingProps } = educationDetail;
-        return (
-        <div key={headingProps.id + index} style={{padding: '0.5rem 0'}}>
-          <InlineHeading {...headingProps} includeURL={extraInfo} />
-          <p>{certification}</p>
-          {extraInfo && <p style={{padding: '1rem 0'}}>{extraDetails}</p>}
-          {extraInfo && <Divider />}
-        </div>
-        )}
+    <Link href="/education" title="Curious about my education history?" className={styles.styledLink}>{extraInfo ? <h1 id="education-section">Education</h1>
+    : <h2 id="education-section">Education</h2>}</Link>
+    {EDUCATION_DETAILS.map((educationDetail, index)=> {
+      const { certification, extraDetails, headingProps } = educationDetail;
+      return (
+      <div key={headingProps.id + index} style={{padding: '0.5rem 0'}}>
+        <InlineHeading {...headingProps} includeURL={extraInfo} heading={extraInfo ? "h2" : "h3"} />
+        <p>{certification}</p>
+        {extraInfo && <p style={{padding: '1rem 0'}}>{extraDetails}</p>}
+        {extraInfo && <Divider />}
+      </div>
       )}
+    )}
   </Section>
 )

@@ -15,7 +15,7 @@ export const Page = ({ children }: PageProps): JSX.Element => {
   return (
     <div className={`${theme} ${styles.container}`}>
       <Header />
-      <main role='main' className={`${theme}-main`} style={{display: 'flex', justifyContent: 'center', paddingBottom: '5rem'}}>{children}</main>
+      <main role='main' className={`${theme}-main toc-layout`} style={{display: 'flex', justifyContent: 'center', paddingBottom: '5rem'}}>{children}</main>
       <Footer />
     </div>
   )

@@ -30,11 +30,11 @@ export const AboutSection = ({ extraInfo = false }: AboutProps): JSX.Element => 
         <ImageOverlay image={{src: profilePhoto, alt: "Profile photo of Kimberly Wilkes."}} priority>Hello!</ImageOverlay>
       </div>
       <div style={{ display:'flex', justifyContent: 'center'}}>
-        <Link href="/about" title="Learn more" className={styles.styledLink}>{extraInfo ? <h1 id="about-section">Kimberly Wilkes</h1>: <h2 id="about-section">Kimberly Wilkes</h2>}</Link>
+        <Link href="/about" title="Learn more" className={styles.styledLink}>{extraInfo ? <h1 id="about-section">About Me</h1> : <h2 id="about-section">About Me</h2>}</Link>
       </div>
       <div>
         <p>I'm a software engineer, former educator, and hobby cosplayer; in short a lifetime learner and problem solver, with a passion for user-centered and responsive web design.</p>
-        <p>Software engineering and cosplay both require a lot of research, flexibility, patience, and trial and error to ensure a good end result. I love being able to identify and fix a problem or at least provide guidance towards a solution.</p>
+        <p>Software engineering and cosplay both require a lot of research, flexibility, and trial and error to ensure a good end result. I love being able to identify and fix a problem or at least provide guidance towards a solution.</p>
         <p>I've worked with many different industries and technologies though I find myself most at home with the frontend in React (Typescript).</p>
         {currentlyLooking && <p>Currently looking for my next opportunity as a software engineer! Let's connect on <StyledLink href="https://linkedin.com/in/kimberly-wilkes" name="Linkedin"></StyledLink>.</p>}
       </div>

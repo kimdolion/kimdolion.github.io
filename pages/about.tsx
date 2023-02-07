@@ -10,7 +10,6 @@ export default function About() {
     <div>
       <Head>
         <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={title} />
         <meta property="title" content={title} />
         <meta property="og:description" content={content} />
@@ -20,9 +19,7 @@ export default function About() {
       </Head>
 
       <Page>
-        <div className="toc-layout">
-          <AboutSection extraInfo />
-        </div>
+        <AboutSection extraInfo />
       </Page>
     </div>
   )

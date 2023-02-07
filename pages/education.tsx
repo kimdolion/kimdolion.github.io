@@ -4,13 +4,12 @@ import { EducationSection } from '@/components/EducationSection'
 
 export default function Education() {
   const title = "Kimberly Wilkes' Education"
-  const content = "Kimberly Wilkes' educational history; formal and informal."
-  const keywords = "Education, Software Engineer, Frontend Developer, Portfolio, Resume"
+  const content = "Kimberly Wilkes' educational history; formal and informal from Amherst College to General Assembly's software engineering bootcamp."
+  const keywords = "Education, Software Engineer, Frontend Developer, Portfolio, Resume, Coding Bootcamp, college"
   return (
     <div>
       <Head>
         <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={title} />
         <meta property="title" content={title} />
         <meta property="og:description" content={content} />
@@ -20,9 +19,7 @@ export default function Education() {
       </Head>
 
       <Page>
-        <div className='toc-layout'>
-          <EducationSection extraInfo />
-        </div>
+        <EducationSection extraInfo />
       </Page>
     </div>
   )

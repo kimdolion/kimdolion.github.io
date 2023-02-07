@@ -6,12 +6,11 @@ import { TableOfContents } from '@/components/TableOfContents'
 export default function Projects() {
   const title = "Projects and Technology"
   const content = "Kimberly Wilkes Software Engineer portfolio: projects and technology skills as a frontend engineer."
-  const keywords = "React, React Native, TypeScript, JavaScript, NextJS, portfolio"
+  const keywords = "React, React Native, TypeScript, JavaScript, NextJS, portfolio, coding projects, frontend, backend, software engineering projects, software engineer portfolio,"
   return (
     <div>
       <Head>
         <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={title} />
         <meta property="title" content={title} />
         <meta property="og:description" content={content} />
@@ -21,10 +20,8 @@ export default function Projects() {
       </Head>
 
       <Page>
-        <div className="toc-layout">
-          <TableOfContents headingDepth={2} />
-          <ProjectsSection extraInfo />
-        </div>
+        <TableOfContents headingDepth={2} />
+        <ProjectsSection extraInfo />
       </Page>
     </div>
   )
