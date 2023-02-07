@@ -8,7 +8,7 @@ import { InlineHeading, InlineHeadingProps } from './InlineHeading';
 import { Section } from './Section';
 
 export interface ExperienceProps {
-    extraInfo?: boolean
+  extraInfo?: boolean
 }
 
 export interface ExperienceDetailsProps {
@@ -19,16 +19,16 @@ export interface ExperienceDetailsProps {
   extraDetails: ReactNode;
 }
 
-const ExperienceDetails = (experienceWork: ExperienceDetailsProps = WORK_EXPERIENCES[0], extraInfo: boolean) => {
+export const ExperienceDetails = ({experienceWork = WORK_EXPERIENCES[0], extraInfo = false }: {experienceWork: ExperienceDetailsProps, extraInfo: boolean}) => {
   const {company, headingProps, location, responsibilities, extraDetails} = experienceWork;
 
   return (
       <div style={{margin: extraInfo ? '2rem 0' : 0}}>
-        <InlineHeading {...headingProps} />
+        <InlineHeading {...headingProps} heading={extraInfo ? 'h2' : 'h3'} />
         <div>{company} in {location}</div>
         <ul>
           {responsibilities.map((responsibility: string, index: number)=> (
-            <li key={"responsibility-" + index}>{responsibility}</li>
+            <li key={"responsibility-" + index} style={{margin: '1em 0'}}>{responsibility}</li>
           ))}
         </ul>
         {extraInfo && extraDetails ? <div style={{padding: '2rem 0'}}>{extraDetails}</div>: null}
@@ -37,13 +37,16 @@ const ExperienceDetails = (experienceWork: ExperienceDetailsProps = WORK_EXPERIE
   )
 }
 
-const workExperiencesTSX = WORK_EXPERIENCES.map((experience: ExperienceDetailsProps, index: number)=> <ExperienceDetails key={experience.company + index} {...experience} />)
 
-export const ExperienceSection = ({extraInfo=false}: ExperienceProps): JSX.Element => (
-  <Section>
-      {extraInfo ? <h1 id="experience-section" title="Want to see more work history?"><Link href="/experience" className={styles.styledLink}>{extraInfo ? '': 'Recent'} Work Experience</Link></h1>
-    : <h2 id="experience-section" title="Want to see more work history?"><Link href="/experience" className={styles.styledLink}>{extraInfo ? '': 'Recent'} Work Experience</Link></h2>
-    }
-      {extraInfo ? workExperiencesTSX : <ExperienceDetails {...WORK_EXPERIENCES[0]} />}
-  </Section>
-)
+export const ExperienceSection = ({ extraInfo = false }: ExperienceProps): JSX.Element => {
+  const title = extraInfo ? 'Work Experience' :  'Recent Work Experience'
+  return (
+    <Section>
+      <Link href="/experience" className={styles.styledLink}>
+        {extraInfo ? <h1 id="experience-section">{title}</h1> : <h2 id="experience-section">{title}</h2>}
+      </Link>
+      {extraInfo ?  WORK_EXPERIENCES.map((experience: ExperienceDetailsProps, index: number)=> <ExperienceDetails key={experience.company + index} experienceWork={experience} extraInfo={extraInfo} />) : <ExperienceDetails experienceWork={WORK_EXPERIENCES[0]} extraInfo={extraInfo} />}
+    </Section>
+  )
+}
+

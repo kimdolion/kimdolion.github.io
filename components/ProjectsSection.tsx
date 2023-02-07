@@ -52,7 +52,7 @@ const ProjectCard = ({ project} : ProjectCardProps) => {
     <div className={styles.projectCard}>
       <div className={styles.projectCardImage}>
         <ImageOverlay image={imageAvailable ? projectImage : defaultImage} displayRow>
-          <h4 id={id}>{title}</h4>
+          <h3 id={id}>{title}</h3>
           <p>Made with: {technologies}</p>
         </ImageOverlay>
       </div>
@@ -75,9 +75,9 @@ const ProjectCard = ({ project} : ProjectCardProps) => {
   )
 }
 
-const GAProjects = () => (
+const GAProjects = (extraInfo: ProjectsProps) => (
   <div>
-    <h3 id="projects-bootcamp">During General Assembly</h3>
+    {extraInfo ? <h2 id="projects-bootcamp">During General Assembly</h2> : <h3 id="projects-bootcamp">During General Assembly</h3>}
     <p>These projects were created at the beginning of my Software Engineering journey. They are in various states of disrepair but I intend to return to them and remake them with newer technology/understandings.</p>
     {GENERAL_ASSEMBLY_PROJECTS.map((project)=> <div key={project.id}><ProjectCard project={project} /><Divider /></div>)}
   </div>
@@ -99,11 +99,9 @@ export const ProjectsSection = ({ extraInfo = false }: ProjectsProps): JSX.Eleme
 
   return (
   <Section>
-    {extraInfo ? 
-    <h1 id="projects-section"><Link href="/projects" className={styles.styledLink}>Projects and Tech</Link></h1>: <Link href="/projects" className={styles.styledLink}><h2 id="projects-section" title="Check out more projects" className={styles.styledLink}>Projects and Tech</h2></Link>
-    }
+    <Link href="/projects" className={styles.styledLink} title="Check out more projects">{extraInfo ? <h1 id="projects-section">Projects and Tech</h1> : <h2 id="projects-section">Projects and Tech</h2>}</Link>
 
-    <h3 id="technologies">Techstack</h3>
+    {extraInfo ? <h2 id="technologies">Techstack</h2> : <h3 id="technologies">Techstack</h3>}
     <div>
       <p>Languages, tools, and frameworks I've worked with: </p>
     </div>
@@ -126,10 +124,10 @@ export const ProjectsSection = ({ extraInfo = false }: ProjectsProps): JSX.Eleme
     </div>
     <Divider />
     <div>
-      <h3 id="current-projects">Currently Working on:</h3>
+      {extraInfo ? <h2 id="current-projects">Currently Working on:</h2> : <h3 id="current-projects">Currently Working on:</h3>}
       {CURRENT_PROJECTS.map((project)=> <div key={project.id}><ProjectCard project={project} />{extraInfo && <Divider />}</div>)}
     </div>
     {extraInfo && <Divider />}
-    {extraInfo && <GAProjects />}
+    {extraInfo && <GAProjects extraInfo={extraInfo} />}
   </Section>
 )}

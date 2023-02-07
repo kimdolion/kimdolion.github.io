@@ -5,13 +5,12 @@ import { TableOfContents } from '@/components/TableOfContents'
 
 export default function Experience() {
   const title = "Kimberly Wilkes' Work Experience"
-  const content = "Kimberly Wilkes' work experiences as a software engineer and teacher."
-  const keywords = "Work experience, Software Engineer, Frontend Developer, Portfolio, Resume"
+  const content = "Kimberly Wilkes' work experiences as a career changer from teacher to frontend and responsive design focused software engineer."
+  const keywords = "Work experience, Software Engineer, Frontend Developer, Portfolio, Resume, Software Engineer portfolio"
   return (
     <div>
       <Head>
         <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={title} />
         <meta property="title" content={title} />
         <meta property="og:description" content={content} />
@@ -21,10 +20,8 @@ export default function Experience() {
       </Head>
 
       <Page>
-        <div className='toc-layout'>
-          <TableOfContents headingDepth={4} />
-          <ExperienceSection extraInfo />
-        </div>
+        <TableOfContents headingDepth={4} />
+        <ExperienceSection extraInfo />
       </Page>
     </div>
   )

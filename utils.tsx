@@ -1,11 +1,22 @@
-import { createContext, ReactNode, useContext, useEffect, useState, RefObject } from "react"
+import React, { createContext, ReactNode, useContext, useEffect, useState, RefObject } from "react"
 
 export const getRandomFromArray = (array: any[]) => {
     let index = Math.round(Math.random()* (array.length - 0) + 0)
     return (array[index])
 }
 
-
+export const reportAccessibility = async (
+  App: typeof React,
+  config?: Record<string, unknown>
+): Promise<void> => {
+  if (process.env.NODE_ENV !== 'production') {
+    const axe = await import('@axe-core/react')
+    const ReactDOM = await import('react-dom')
+ 
+    axe.default(App, ReactDOM, 1000, config)
+  }
+}
+ 
 export const useOutsideClick  = (ref: RefObject<HTMLDivElement>, handler: (event: MouseEvent | TouchEvent) => void ) => {
 
   useEffect(() => {
@@ -23,7 +34,6 @@ export const useOutsideClick  = (ref: RefObject<HTMLDivElement>, handler: (event
       };
   },[]);
 };
-
 
 // Light/Dark Mode https://github.com/nas5w/usecontext-theme-toggling
 type Theme = "Light" | "Dark";
@@ -50,6 +60,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   useEffect(() => {
     const darkOS = window.matchMedia("(prefers-color-scheme: dark)").matches;
     setTheme(darkOS ? "Dark" : "Light");
+    
   }, []);
   
   const handleTheme = () => {
@@ -65,8 +76,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
  };
 
  export const useTheme = () => useContext(ThemeContext)
-
-
  
 type Mobile = boolean;
 type MobileContext = { isMobile: Mobile}
