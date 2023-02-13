@@ -23,25 +23,25 @@ export const CURRENT_PROJECTS: ProjectProps[] = [
     ]
   },
   {
-    id: 'project-pokemon-marketplace',
-    title: 'Pokemon Marketplace',
+    id: 'project-pokemon-charity-battle',
+    title: 'Pokemon Charity Battle',
     projectImage: {
       src: '',
       alt: 'Under construction sign.',
       height: 2052,
       width: 1438,
     },
-    description: "A work in progress marketplace site utilizing Stripe to allow users to buy pokemon. DO NOT USE REAL CREDIT CARD INFO. Please use Stripe's test cards.",
+    description: "A work in progress donation sprite battle site utilizing Stripe to allow users to buy pokemon. DO NOT USE REAL CREDIT CARD INFO. Please use Stripe's test cards.",
     technologies: 'NextJS, TypeScript, TailwindCSS, PokeAPI, and Stripe.',
     links: [
       {
         name: 'Pokemon Marketplace Client',
-        href: 'https://pokemon-marketplace-chi.vercel.app/',
+        href: 'https://pokemon-charity-battle.vercel.app/',
         iconName: 'ArrowOut'
       },
       {
         name: 'Frontend Github',
-        href: 'https://github.com/kimdolion/pokemon-marketplace',
+        href: 'https://github.com/kimdolion/pokemon-charity-battle',
         iconName: 'Github',
       }
     ]
@@ -237,6 +237,7 @@ export const RANDOM_FACTS: string[] = [
   "Renaissance Faires are my favorite excuse to get dressed up as fantasy characters and yell huzzah to cheer on performers while feasting on turkey legs.",
   "Definitely a gamer on PC, Nintendo, or Playstation. I mostly play World of Warcraft (For the Horde!).",
   'I am a huge nerd and regularly attend pop culture conventions such as Anime Boston, New York Comic Con, and Connecticon.',
+  "Recently achieved a 200 day streak on Duolingo for Korean. It's a great alphabet to learn and I can read any of it, still working on understanding what I read.",
 ]
 
 export const TECHNOLOGIES: TechnologiesProps =
