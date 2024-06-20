@@ -153,17 +153,17 @@ export const GENERAL_ASSEMBLY_PROJECTS: ProjectProps[] = [
     links: [
       {
         name: "Boba Tracker: Client",
-        href: "https://sei-04-team-3.github.io/group-project-client/",
+        href: "https://kimdolion.github.io/boba-tracker-client/#/",
         iconName: "ArrowOut",
       },
       {
         name: "Frontend Github",
-        href: "https://github.com/sei-04-team-3/group-project-client",
+        href: "https://github.com/kimdolion/boba-tracker-client",
         iconName: "Github",
       },
       {
         name: "Backend Github",
-        href: "https://github.com/sei-04-team-3/group-project-api",
+        href: "https://github.com/kimdolion/boba-tracker-backend",
         iconName: "Github",
       },
     ],
