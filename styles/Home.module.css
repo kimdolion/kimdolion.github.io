@@ -46,7 +46,7 @@
   display: block;
   height: 50%;
   opacity: 1;
-  transition: .5s ease;
+  transition: 0.5s ease;
   width: 100%;
 }
 
@@ -55,7 +55,7 @@
   width: 100%;
 }
 
-.imageOverlayContainer:hover .imageOverlayText{
+.imageOverlayContainer:hover .imageOverlayText {
   opacity: 1;
 }
 
@@ -121,7 +121,7 @@
   align-items: center;
   border-radius: 5px;
   display: flex;
-  flex-direction:'row';
+  flex-direction: "row";
   gap: 10px;
 }
 
@@ -176,6 +176,7 @@
 
 .styledLink:hover {
   color: #ab0000;
+  text-decoration: underline;
 }
 
 .styledSection {
@@ -231,7 +232,7 @@
 }
 
 .techListContainer {
-  display: flex; 
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 1.5rem 0;
@@ -307,7 +308,7 @@
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
-  transition:  all 0.3s ease-in;
+  transition: all 0.3s ease-in;
   z-index: 2;
 }
 
@@ -363,7 +364,6 @@
   .tableOfContentsList {
     padding: 0 0.5rem;
   }
-
 }
 
 /* Mobile size */
@@ -381,5 +381,4 @@
   .profilePhoto {
     width: 100%;
   }
-
 }
