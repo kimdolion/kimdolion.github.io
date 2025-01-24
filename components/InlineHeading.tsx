@@ -3,13 +3,13 @@ import Link from "next/link";
 export interface InlineHeadingProps {
   className?: string;
   endMonth?: string;
-  endYear: number | string;
+  endYear?: number | string;
   heading?: string;
   id: string;
   includeURL?: boolean;
   mainHeadingText: string;
   startMonth?: string;
-  startYear: number;
+  startYear: number | string;
   url?: string;
 }
 
@@ -70,7 +70,8 @@ export const InlineHeading = ({ ...props }: InlineHeadingProps) => {
         <HeadingToUse headingType={heading} />
       )}
       <span>
-        {startMonth} {startYear} - {endMonth} {endYear}
+        {startMonth} {startYear} - {endMonth ? endMonth : "Present"}{" "}
+        {endYear ? endYear : ""}
       </span>
     </div>
   );

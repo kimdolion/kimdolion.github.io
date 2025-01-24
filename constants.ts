@@ -304,11 +304,15 @@ export const TECHNOLOGIES: TechnologiesProps = {
     "GraphQL",
     "Prisma",
     "Ruby on Rails",
+    "Java",
+    "SQL",
   ],
   other: [
     "Git",
     "Github",
     "Jest",
+    "Jira",
+    "Confluence",
     "React Testing Library",
     "React Native Testing Library",
     "Cypress",
@@ -333,6 +337,26 @@ export const TEST_IDS = {
 
 export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
   {
+    company: "New York State Education Department",
+    headingProps: {
+      mainHeadingText: "Information Technology Specialist 3",
+      id: "info-tech-specialist",
+      startMonth: "Aug",
+      startYear: 2024,
+      // endMonth: "Feb",
+      // endYear: 2024,
+    },
+    location: "Albany, NY",
+    responsibilities: [
+      "Provide programming support for NYSED's applications, developing and maintaining IT solutions and web applications using Java, SQL, JavaScript, HTML, and CSS.",
+      "Collaborate with Program Office and IT staff to document and implement business requirements, ensuring solutions align with department standards and best practices.",
+      "Identify and troubleshoot problems in applications, and implement solutions with unit and integration testing for code deployments, monitoring issues with Splunk and Jenkins, utilizing Jira and Confluence for work tracking and Git for version control.",
+      "Participate in ongoing traineeship to enhance skills in various programming disciplines while actively contributing to projects. troubleshooting and resolving database and application issues to maintain system integrity.",
+    ],
+    extraDetails:
+      "This is a supervisory role and I will eventually onboard and mentor software engineers as I ramp up on my own responsibilities as a mananger.",
+  },
+  {
     company: "Littera Education",
     headingProps: {
       mainHeadingText: "Frontend Engineer",
@@ -342,7 +366,7 @@ export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
       endMonth: "Feb",
       endYear: 2024,
     },
-    location: "Albany (Remote)",
+    location: "Albany, NY (Remote)",
     responsibilities: [
       "Created and updated components, pages, and tests for SaaS RESTful website apps using React, JavaScript/Typescript, Next.js, Node.js, React Testing Library, Jest, and Material-UI, ensuring responsive and accessible components.",
       "Contributed to and maintained a custom UI component library used across multiple codebases, with documentation and tests for each component, which were previewed using Storybook.",
@@ -362,7 +386,7 @@ export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
       endMonth: "Feb",
       endYear: 2024,
     },
-    location: "Boston/Albany (Remote)",
+    location: "Boston, MA / Albany, NY (Remote)",
     responsibilities: [
       "Developed full stack web and mobile apps for a variety of industries following best practices using technologies and libraries including React, React Native, TypeScript, Nextjs, Prisma, Apollo, Tailwind CSS, and Graphql.",
       "Maintained and updated sites using website builders such as Webflow, Makeswift, and Plasmic.",
@@ -383,7 +407,7 @@ export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
       endMonth: "Aug",
       endYear: 2020,
     },
-    location: "Boston (Remote)",
+    location: "Boston, MA (Remote)",
     responsibilities: [
       "Replaced IAM scripts for updated infrastructure moving towards managing Okta hosted microservices through the use of Terraform, Jenkins, Docker, and AWS, engaging in CI/CD pipelines for development, testing, and deployment.",
       "Developed documentation to show how our team understood and implemented Terraform for Okta resources.",
@@ -401,12 +425,13 @@ export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
       endMonth: "Aug",
       endYear: 2020,
     },
-    location: "Boston (Remote)",
+    location: "Boston, MA (Remote)",
     responsibilities: [
       "Selected as 1 of 75 candidates selected into 2020 Hack.Diversity Fellowship, a career leadership and workforce development program that integrates Boston’s innovation, corporate civic, academic, and philanthropic pillars to provide mentoring and support of under-represented populations in the technology industry.",
       "Managed as Operations Team Lead for coordinating, developing, and building an application for the 2020 de.Hackathon.",
     ],
-    extraDetails: "",
+    extraDetails:
+      "Hack.Diversity gifted me with an incredible mentor (Vanessa Bruce) and connected me with athenaHealth for my first software engineering job.",
   },
   {
     company: "Boston Public Schools",
@@ -418,7 +443,7 @@ export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
       endMonth: "June",
       endYear: 2019,
     },
-    location: "Boston (Remote)",
+    location: "Boston, MA (Remote)",
     responsibilities: [
       "Collaborated within and across grade level teams (2nd to 7th) to provide differentiated learning experiences using a variety of curriculum and technology resources with a focus on Science, Technology, Engineering, Mathematics (STEM).",
       "Communicated regularly with staff and families through phone, email, educational apps, and newsletters to provide additional resources to support student learning.",
@@ -427,6 +452,6 @@ export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
       "Analyzed data from formal and informal sources such as Illuminate, MCAS, and classroom observations.",
     ],
     extraDetails:
-      "I also was a substitute teacher at various schools throughout the Boston Public School district.",
+      "As a middle school teacher, I ran a board game lunch. I also was a substitute teacher at various schools throughout the Boston Public School district, often covering maternity leaves and having a lot of fun doing interactive read alouds.",
   },
 ];
