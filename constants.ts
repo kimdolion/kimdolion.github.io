@@ -304,11 +304,15 @@ export const TECHNOLOGIES: TechnologiesProps = {
     "GraphQL",
     "Prisma",
     "Ruby on Rails",
+    "Java",
+    "SQL",
   ],
   other: [
     "Git",
     "Github",
     "Jest",
+    "Jira",
+    "Confluence",
     "React Testing Library",
     "React Native Testing Library",
     "Cypress",
@@ -332,6 +336,26 @@ export const TEST_IDS = {
 };
 
 export const WORK_EXPERIENCES: ExperienceDetailsProps[] = [
+  {
+    company: "New York State Education Department",
+    headingProps: {
+      mainHeadingText: "Information Technology Specialist 3",
+      id: "info-tech-specialist",
+      startMonth: "Aug",
+      startYear: 2024,
+      // endMonth: "Feb",
+      // endYear: 2024,
+    },
+    location: "Albany (Remote)",
+    responsibilities: [
+      "Created and updated components, pages, and tests for SaaS RESTful website apps using React, JavaScript/Typescript, Next.js, Node.js, React Testing Library, Jest, and Material-UI, ensuring responsive and accessible components.",
+      "Contributed to and maintained a custom UI component library used across multiple codebases, with documentation and tests for each component, which were previewed using Storybook.",
+      "Collaborated with backend, product, and design teams to translate Figma designs and backend API contracts into frontend actionable steps in Jira tickets with documentation linking to BE tickets and prototype designs in Figma.",
+      "Participated in the entire software development lifecycle, including design feedback, scoping, implementation, testing, and deployment of features and visual and functional bug fixes.",
+      "Analyzed and improved code quality and testing coverage (>90%) through peer reviews, SonarCloud reports, and unit testing components throughout UX flows based on Test Driven Development (TDD).",
+    ],
+    extraDetails: "",
+  },
   {
     company: "Littera Education",
     headingProps: {
