@@ -87,12 +87,12 @@ export const AboutSection = ({
         </button>
         {extraInfo ? (
           <div>
-            Random Fact:<p>{randomFact}</p>
+            Random Fact Button:<p>{randomFact}</p>
           </div>
         ) : (
           <p>
-            Learn even more about me, my work history, education, and projects
-            on their respective pages.
+            Learn more about me, my work history, education, and projects on
+            their respective pages.
           </p>
         )}
       </div>
