@@ -278,7 +278,8 @@ export const RANDOM_FACTS: string[] = [
   "Renaissance Faires are my favorite excuse to get dressed up as fantasy characters and yell huzzah to cheer on performers while feasting on turkey legs.",
   "Definitely a gamer on PC, Nintendo, or Playstation. I mostly play World of Warcraft (For the Horde!).",
   "I am a huge nerd and regularly attend pop culture conventions such as Anime Boston, New York Comic Con, and Connecticon.",
-  "Recently achieved a 200 day streak on Duolingo for Korean. It's a great alphabet to learn and I can read any of it, still working on understanding what I read.",
+  "Recently achieved a 860+ day streak on Duolingo for Korean. It's a great alphabet to learn and I can read any of it, still working on understanding what I read.",
+  "I have an art business with my sisters called Village Values focused on community and identity: check us out at https://villagevalues.org/",
 ];
 
 export const TECHNOLOGIES: TechnologiesProps = {
