@@ -58,16 +58,16 @@ export const EDUCATION_DETAILS: EducationDetailsProps[] = [
     headingProps: {
       id: "education-bu",
       mainHeadingText: "Boston University",
-      endMonth: "June",
-      endYear: 2026,
+      endMonth: "July",
+      endYear: 2025,
       startMonth: "May",
       startYear: 2024,
-      url: "https://www.bu.edu/",
+      url: "https://www.bu.edu/met/degrees-certificates/ms-software-development/",
     },
     certification: "M.S. in Software Development",
     currentlyAttending: true,
     extraDetails:
-      "Focusing on Python and hoping to take Machine Learning and AI",
+      "5 out of 8 classes finished as of 3/1/25; taking Software Designs and Patterns Spring 2025, and Android Development and Database Design in Summer 2025",
     schoolColor: "#CC0000",
   },
   {
@@ -78,12 +78,12 @@ export const EDUCATION_DETAILS: EducationDetailsProps[] = [
       endYear: 2021,
       startMonth: "June",
       startYear: 2019,
-      url: "https://www.bhcc.edu/",
+      url: "https://www.bhcc.edu/academics/divisions/scienceengineeringandmathematics/computerscience/",
     },
     certification: "Coursework in Computer Science",
     currentlyAttending: false,
     extraDetails:
-      "Classes included Java, C++, SQL, and Data Structures. I earned high enough grades to join the honor society, Phi Theta Kappa, as well.",
+      "Classes included Java, C++, SQL, and Data Structures. I earned a high grade point average to join the honor society, Phi Theta Kappa, as well. I ended up stopping as I had begun working for Echobind.",
     schoolColor: "#c8102e",
   },
   {
@@ -321,6 +321,7 @@ export const TECHNOLOGIES: TechnologiesProps = {
     "Vercel",
     "Makeswift",
     "Plasmic",
+    "SQL",
   ],
 };
 
